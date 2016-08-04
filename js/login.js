@@ -26,7 +26,6 @@ class Login extends Component {
     if (error == null) {
       this.props.login();
     } else {
-      this.props.login();
       Alert.alert(
         "We couldn't log you in",
         "Please try again later",
