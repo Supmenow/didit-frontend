@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -11,12 +12,21 @@ import {
   DigitsLoginButton
 } from 'react-native-fabric-digits';
 
+import Store from './store/store';
+
 class Login extends Component {
+
+  constructor(props) {
+   super(props);
+
+   this.completion = this.completion.bind(this);
+  }
 
   completion(error, response) {
     if (error == null) {
-      alert("We have successfully logged you in.")
+      this.props.login();
     } else {
+      this.props.login();
       Alert.alert(
         "We couldn't log you in",
         "Please try again later",
