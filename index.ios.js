@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry
 } from 'react-native';
-import Login from './shared/login';
+import Login from './js/login';
 
 class DidIt extends Component {
   render() {

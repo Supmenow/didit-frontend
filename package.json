@@ -8,6 +8,8 @@
   "dependencies": {
     "react": "15.2.1",
     "react-native": "^0.30.0",
-    "react-native-fabric-digits": "jeanlebrument/react-native-fabric-digits"
+    "react-native-fabric-digits": "jeanlebrument/react-native-fabric-digits",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2"
   }
 }
