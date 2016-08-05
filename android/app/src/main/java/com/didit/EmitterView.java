@@ -44,8 +44,7 @@ public class EmitterView extends ViewGroup {
        for CAEmitterLayer over this modified copy of Leonids. */
     private void updateParticleSystems() {
         for (EmitterCell cell: emitterCells) {
-            ParticleSystem system = new ParticleSystem(this, 8, cell.drawable, cell.lifetime.longValue());
-            
+            ParticleSystem system = new ParticleSystem(this, 8, cell.drawable, 100);
             system.emit(this, cell.birthRate.intValue());
         }
     }
