@@ -80,6 +80,10 @@ const styles = StyleSheet.create({
     margin: 10,
     alignSelf: 'stretch',
     textAlign: 'center',
+  },
+  replyContainer: {
+    flexDirection: 'row',
+    alignSelf: 'flex-end'
   }
 });
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Image, Text, TouchableWithoutFeedback } from 'react-native';
 
 import Button from './button';
 import Explosion from './explosion';
@@ -33,8 +33,14 @@ class DidIt extends Component {
         <View style={this.style.container}>
           <Explosion style={this.style.container}>
             <Text style={this.style.text}>You Did It!</Text>
-            <Button onPress={this.sendHighFive}>High Five</Button>
-            <Button onPress={this.sendEyeRoll}>Eye Roll</Button>
+            <View style={this.style.replyContainer}>
+              <Button onPress={this.sendHighFive}>
+                <Image source={require('./img/highfive.png')}/>
+              </Button>
+              <Button onPress={this.sendEyeRoll}>
+                <Image source={require('./img/eyeroll.png')}/>
+              </Button>
+            </View>
           </Explosion>
         </View>
       </TouchableWithoutFeedback>
