@@ -3,7 +3,9 @@ package com.didit;
 import android.content.Context;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.plattysoft.leonids.ParticleSystem;
 
@@ -12,7 +14,10 @@ import java.util.ArrayList;
 /**
  * Created by jamescampbell on 8/5/16.
  */
-public class EmitterView extends ViewGroup {
+public class EmitterView extends FrameLayout {
+
+    private static int MAX_PARTICLES = 255;
+    private ArrayList<ParticleSystem> particleSystems = new ArrayList<ParticleSystem>();
 
     /* The array of emitter cells attached to the layer. */
     private ArrayList<EmitterCell> emitterCells = new ArrayList<EmitterCell>();
@@ -29,10 +34,7 @@ public class EmitterView extends ViewGroup {
 
     EmitterView(Context context, AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        updateParticleSystems();
     }
 
     public void addCell(EmitterCell cell) {
@@ -44,8 +46,13 @@ public class EmitterView extends ViewGroup {
        for CAEmitterLayer over this modified copy of Leonids. */
     private void updateParticleSystems() {
         for (EmitterCell cell: emitterCells) {
-            ParticleSystem system = new ParticleSystem(this, 8, cell.drawable, 100);
+            ParticleSystem system = new ParticleSystem(this, MAX_PARTICLES, cell.drawable, cell.lifetime.longValue() * 1000)
+            .setSpeedModuleAndAngleRange(0f, 0.3f, 180, 180)
+                    .setRotationSpeed(144)
+                    .setAcceleration(0.00005f, 90);
             system.emit(this, cell.birthRate.intValue());
+
+            particleSystems.add(system);
         }
     }
 }

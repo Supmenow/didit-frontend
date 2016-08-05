@@ -103,7 +103,7 @@ public class ParticleSystem {
 		mTimeToLive = timeToLive;
 
 		//FIXME: Hardcoded and doesn't account for different pixel density
-		mDpToPxScale = 1.0f;
+		mDpToPxScale = 0.5f;
 	}
 
     /**
