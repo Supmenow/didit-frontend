@@ -13,7 +13,7 @@ class Login extends Component {
 
   completion(error, response) {
     if (error == null) {
-      this.props.completion();
+      this.props.onLogin();
     } else {
       Alert.alert(
         "We couldn't log you in",

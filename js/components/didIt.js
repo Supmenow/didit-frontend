@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Button from './button';
 
 class DidIt extends Component {
@@ -13,6 +13,7 @@ class DidIt extends Component {
   render() {
     return (
       <View style={this.style.container}>
+        <Text>You Did It</Text>
       </View>
     );
   }

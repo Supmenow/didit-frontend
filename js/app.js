@@ -14,8 +14,9 @@ class App extends Component {
   constructor(props) {
    super(props);
    this.style = props.style;
+
    this.login = this.login.bind(this);
-   this.signup = this.signup.bind(this);
+   this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
   }
 
@@ -30,11 +31,11 @@ class App extends Component {
       );
     } else if (this.props.isAuthenticatedWithDigits == true) {
       return (
-        <Signup completion={this.signup} style={this.style}/>
+        <Signup onSignUp={this.signUp} style={this.style}/>
       );
     } else {
       return (
-        <Login completion={this.login} style={this.style}/>
+        <Login onLogin={this.login} style={this.style}/>
       );
     }
   }
@@ -43,7 +44,7 @@ class App extends Component {
     this.props.dispatch(authenticiateWithDigits());
   }
 
-  signup() {
+  signUp() {
     this.props.dispatch(signup("James"));
   }
 

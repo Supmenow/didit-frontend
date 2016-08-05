@@ -8,12 +8,17 @@ class SendDidIt extends Component {
    super(props);
 
    this.style = props.style;
+   this.sendDidIt = this.sendDidIt.bind(this);
+  }
+
+  sendDidIt() {
+    this.props.onSendDidIt()
   }
 
   render() {
     return (
       <View style={this.style.sendDongContainer}>
-        <Button onPress={this.props.onSendDidIt} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
+        <Button onPress={this.sendDidIt} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
         I Did It!
         </Button>
       </View>
