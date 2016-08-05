@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
 
 import Button from './button';
 import Explosion from './explosion';
@@ -10,14 +10,34 @@ class DidIt extends Component {
    super(props);
 
    this.style = props.style;
+   this.dismiss = this.dismiss.bind(this);
+   this.sendHighFive = this.sendHighFive.bind(this);
+   this.sendEyeRoll = this.sendEyeRoll.bind(this);
+  }
+
+  dismiss() {
+    alert("Dismiss");
+  }
+
+  sendHighFive() {
+    alert("High Five");
+  }
+
+  sendEyeRoll() {
+    alert("Eye Roll");
   }
 
   render() {
     return (
-      <View style={this.style.container}>
-        <Explosion/>
-        <Text style={this.style.text}>You Did It!</Text>
-      </View>
+      <TouchableWithoutFeedback onPress={this.dismiss}>
+        <View style={this.style.container}>
+          <Explosion style={this.style.container}>
+            <Text style={this.style.text}>You Did It!</Text>
+            <Button onPress={this.sendHighFive}>High Five</Button>
+            <Button onPress={this.sendEyeRoll}>Eye Roll</Button>
+          </Explosion>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

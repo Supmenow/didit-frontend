@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   text: {
     color: '#FFF',
     backgroundColor: '#F8154B',
-    fontSize: 35
+    fontSize: 35,
   },
   sendDongContainer: {
     flex: 1,

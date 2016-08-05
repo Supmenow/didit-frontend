@@ -16,7 +16,7 @@ import UIKit
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    //cell.contents = UIImage(named: "smiley")?.CGImage
+    cell.contents = UIImage(named: "smiley")?.CGImage // Get this from React Native
     cell.birthRate = 10
     cell.lifetime = 5.0
     
@@ -27,6 +27,16 @@ import UIKit
     cell.spin = 0.5
     
     emmiterLayer.emitterCells = [cell]
+    emmiterLayer.renderMode = kCAEmitterLayerOldestLast
+    
+    layer.addSublayer(emmiterLayer)
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    emmiterLayer.frame = bounds
+    emmiterLayer.emitterPosition = CGPoint(x: bounds.midX, y: bounds.midY)
   }
 
   required init?(coder aDecoder: NSCoder) {
