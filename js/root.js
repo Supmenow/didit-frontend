@@ -30,12 +30,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F8154B',
   },
-  button: {
+  sendDongContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+  },
+  buttonBackground: {
     backgroundColor: '#FFF',
     borderRadius: 5,
-    color: '#F8154B',
     paddingHorizontal: 40,
     paddingVertical: 15
+  },
+  buttonText: {
+    color: '#F8154B',
+  },
+  didItButtonBackground: {
+    backgroundColor: '#F8154B',
+    borderRadius: 5,
+    paddingHorizontal: 40,
+    paddingVertical: 15
+  },
+  didItButtonText: {
+    color: '#FFF',
+    fontSize: 35
   },
   digitsAuthenticateButton: {
     height: 50,

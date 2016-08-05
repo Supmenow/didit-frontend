@@ -1,14 +1,21 @@
 import { createStore } from 'redux';
 
 const initialState = {
-  isLoggedIn: false
+  isAuthenticatedWithDigits: false
 };
 
 function appStore(state = initialState, action) {
 
-  if (action.type === 'LOGGED_IN') {
+  if (action.type === 'AUTHENTICATED') {
     return {
-      isLoggedIn: true,
+      isAuthenticatedWithDigits: true,
+    };
+  }
+
+  if (action.type === 'SIGN_UP') {
+    return {
+      isAuthenticatedWithDigits: true,
+      name: action.name
     };
   }
 

@@ -8,6 +8,11 @@ class Signup extends Component {
    super(props);
 
    this.style = props.style;
+   this.signup = this.signup.bind(this)
+  }
+
+  signup() {
+    this.props.completion();
   }
 
   render() {
@@ -18,7 +23,9 @@ class Signup extends Component {
           selectionColor="#fff"
           style={this.style.nameInput}
         />
-        <Button style={this.style.button}>Signup</Button>
+        <Button onPress={this.signup} backgroundStyle={this.style.buttonBackground} textStyle={this.style.buttonText}>
+        Sign Up
+        </Button>
       </View>
     );
   }

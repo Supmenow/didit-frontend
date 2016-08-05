@@ -1,7 +1,17 @@
-function login() {
+function authenticiateWithDigits() {
   return {
-    type: 'LOGGED_IN'
+    type: 'AUTHENTICATED'
   }
 }
 
-module.exports = login
+function signup(name) {
+  return {
+    type: 'SIGN_UP',
+    name: name
+  }
+}
+
+module.exports = {
+  authenticiateWithDigits: authenticiateWithDigits,
+  signup: signup
+}

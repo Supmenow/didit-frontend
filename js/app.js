@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import Login from './components/login';
 import Signup from './components/signup';
-import LoginAction from './actions/user';
+import SendDong from './components/sendDong';
+import { authenticiateWithDigits, signup } from './actions/user';
 
 class App extends Component {
 
@@ -12,12 +13,17 @@ class App extends Component {
    super(props);
    this.style = props.style;
    this.login = this.login.bind(this);
+   this.signup = this.signup.bind(this);
   }
 
   render() {
-    if (this.props.isLoggedIn == true) {
+    if (this.props.isSignedUp == true) {
       return (
-        <Signup style={this.style}/>
+        <SendDong style={this.style}/>
+      );
+    } else if (this.props.isAuthenticatedWithDigits == true) {
+      return (
+        <Signup completion={this.signup} style={this.style}/>
       );
     } else {
       return (
@@ -27,20 +33,19 @@ class App extends Component {
   }
 
   login() {
-    this.props.login();
+    this.props.dispatch(authenticiateWithDigits());
+  }
+
+  signup() {
+    this.props.dispatch(signup("James"));
   }
 }
 
 function select(state) {
   return {
-    isLoggedIn: state.isLoggedIn,
+    isAuthenticatedWithDigits: state.isAuthenticatedWithDigits,
+    isSignedUp: (state.isAuthenticatedWithDigits && state.hasOwnProperty("name"))
   };
 }
 
-function actions(dispatch) {
-  return {
-    login: () => dispatch(LoginAction()),
-  }
-}
-
-module.exports = connect(select, actions)(App);
+module.exports = connect(select)(App);
