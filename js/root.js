@@ -30,6 +30,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F8154B',
   },
+  text: {
+    color: '#FFF',
+    fontSize: 35
+  },
   sendDongContainer: {
     flex: 1,
     justifyContent: 'center',

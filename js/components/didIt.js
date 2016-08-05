@@ -13,7 +13,7 @@ class DidIt extends Component {
   render() {
     return (
       <View style={this.style.container}>
-        <Text>You Did It</Text>
+        <Text style={this.style.text}>You Did It!</Text>
       </View>
     );
   }
