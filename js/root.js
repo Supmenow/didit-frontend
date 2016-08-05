@@ -17,7 +17,7 @@ class Root extends Component {
   render() {
     return (
       <Provider store={this.state.store}>
-        <App styles={styles}/>
+        <App style={styles}/>
       </Provider>
     );
   }
@@ -29,6 +29,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F8154B',
+  },
+  button: {
+    backgroundColor: '#FFF',
+    borderRadius: 5,
+    color: '#F8154B',
+    paddingHorizontal: 40,
+    paddingVertical: 15
   },
   digitsAuthenticateButton: {
     height: 50,

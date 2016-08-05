@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import Button from './button';
 
 class Signup extends Component {
 
   constructor(props) {
    super(props);
 
-   this.styles = props.styles;
+   this.style = props.style;
   }
 
   render() {
     return (
-      <View style={this.styles.container}>
+      <View style={this.style.container}>
         <TextInput
           placeholder="Enter Your Name"
           selectionColor="#fff"
-          style={this.styles.nameInput}
+          style={this.style.nameInput}
         />
-        <Text>Signup</Text>
+        <Button style={this.style.button}>Signup</Button>
       </View>
     );
   }

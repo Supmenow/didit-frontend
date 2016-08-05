@@ -10,18 +10,18 @@ class App extends Component {
 
   constructor(props) {
    super(props);
-   this.styles = props.styles;
+   this.style = props.style;
    this.login = this.login.bind(this);
   }
 
   render() {
     if (this.props.isLoggedIn == true) {
       return (
-        <Signup styles={this.styles}/>
+        <Signup style={this.style}/>
       );
     } else {
       return (
-        <Login completion={this.login} styles={this.styles}/>
+        <Login completion={this.login} style={this.style}/>
       );
     }
   }

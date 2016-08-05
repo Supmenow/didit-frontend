@@ -7,7 +7,7 @@ class Login extends Component {
   constructor(props) {
    super(props);
 
-   this.styles = props.styles;
+   this.style = props.style;
    this.completion = this.completion.bind(this);
   }
 
@@ -27,7 +27,7 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={this.styles.container}>
+      <View style={this.style.container}>
         <DigitsLoginButton
         ref="Login"
         options={{
@@ -58,8 +58,8 @@ class Login extends Component {
         }}
         text="Login With Phone Number"
         completion={this.completion}
-        buttonStyle={this.styles.digitsAuthenticateButton}
-        textStyle={this.styles.digitsAuthenticateButtonText}/>
+        buttonStyle={this.style.digitsAuthenticateButton}
+        textStyle={this.style.digitsAuthenticateButtonText}/>
       </View>
     );
   }
