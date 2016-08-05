@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import Login from './login';
+
+import Login from './components/login';
+import Signup from './components/signup';
 import LoginAction from './actions/user';
 
 class App extends Component {
 
   constructor(props) {
    super(props);
-
+   this.styles = props.styles;
    this.login = this.login.bind(this);
   }
 
   render() {
     if (this.props.isLoggedIn == true) {
       return (
-        <View>
-        <Text>Logged In</Text>
-        </View>
+        <Signup styles={this.styles}/>
       );
     } else {
       return (
-        <Login login={this.login}/>
+        <Login completion={this.login} styles={this.styles}/>
       );
     }
   }

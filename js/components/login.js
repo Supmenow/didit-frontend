@@ -1,30 +1,19 @@
 import React, { Component } from 'react';
-
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Alert
-} from 'react-native';
-
-import {
-  DigitsLoginButton
-} from 'react-native-fabric-digits';
-
-import Store from './store/store';
+import { View, Alert } from 'react-native';
+import { DigitsLoginButton } from 'react-native-fabric-digits';
 
 class Login extends Component {
 
   constructor(props) {
    super(props);
 
+   this.styles = props.styles;
    this.completion = this.completion.bind(this);
   }
 
   completion(error, response) {
     if (error == null) {
-      this.props.login();
+      this.props.completion();
     } else {
       Alert.alert(
         "We couldn't log you in",
@@ -38,9 +27,9 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={this.styles.container}>
         <DigitsLoginButton
-        ref="DigitsLoginButton"
+        ref="Login"
         options={{
           title: "Login To Did It",
           phoneNumber: "+61",
@@ -69,33 +58,11 @@ class Login extends Component {
         }}
         text="Login With Phone Number"
         completion={this.completion}
-        buttonStyle={styles.digitsAuthenticateButton}
-        textStyle={styles.digitsAuthenticateButtonText}/>
+        buttonStyle={this.styles.digitsAuthenticateButton}
+        textStyle={this.styles.digitsAuthenticateButtonText}/>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F8154B',
-  },
-  digitsAuthenticateButton: {
-    height: 50,
-    width: 230,
-    backgroundColor: '#13988A',
-    justifyContent: 'center',
-    borderRadius: 5,
-  },
-  digitsAuthenticateButtonText: {
-    fontSize: 16,
-    color: '#fff',
-    alignSelf: 'center',
-    fontWeight: 'bold',
-  },
-});
 
 module.exports = Login
