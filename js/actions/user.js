@@ -11,7 +11,14 @@ function signup(name) {
   }
 }
 
+function didit() {
+  return {
+    type: 'DID_IT'
+  }
+}
+
 module.exports = {
   authenticiateWithDigits: authenticiateWithDigits,
-  signup: signup
+  signup: signup,
+  didit: didit
 }

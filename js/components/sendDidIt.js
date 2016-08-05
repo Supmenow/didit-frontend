@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import Button from './button';
 
-class SendDong extends Component {
+class SendDidIt extends Component {
 
   constructor(props) {
    super(props);
@@ -13,7 +13,7 @@ class SendDong extends Component {
   render() {
     return (
       <View style={this.style.sendDongContainer}>
-        <Button backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
+        <Button onPress={this.props.onSendDidIt} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
         I Did It!
         </Button>
       </View>
@@ -21,4 +21,4 @@ class SendDong extends Component {
   }
 }
 
-module.exports = SendDong
+module.exports = SendDidIt

@@ -19,6 +19,14 @@ function appStore(state = initialState, action) {
     };
   }
 
+  if (action.type === 'DID_IT') {
+    return {
+      isAuthenticatedWithDigits: true,
+      name: action.name,
+      didit: true
+    };
+  }
+
   return state;
 }
 

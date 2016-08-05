@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 
 import Login from './components/login';
 import Signup from './components/signup';
-import SendDong from './components/sendDong';
-import { authenticiateWithDigits, signup } from './actions/user';
+import SendDidIt from './components/sendDidIt';
+import DidIt from './components/didIt';
+
+import { authenticiateWithDigits, signup, didit } from './actions/user';
 
 class App extends Component {
 
@@ -14,12 +16,17 @@ class App extends Component {
    this.style = props.style;
    this.login = this.login.bind(this);
    this.signup = this.signup.bind(this);
+   this.sendDidIt = this.sendDidIt.bind(this);
   }
 
   render() {
-    if (this.props.isSignedUp == true) {
+    if (this.props.didit == true) {
       return (
-        <SendDong style={this.style}/>
+        <DidIt style={this.style}/>
+      )
+    } else if (this.props.isSignedUp == true) {
+      return (
+        <SendDidIt onSendDidIt={this.sendDidIt} style={this.style}/>
       );
     } else if (this.props.isAuthenticatedWithDigits == true) {
       return (
@@ -39,12 +46,17 @@ class App extends Component {
   signup() {
     this.props.dispatch(signup("James"));
   }
+
+  sendDidIt() {
+    this.props.dispatch(didit());
+  }
 }
 
 function select(state) {
   return {
     isAuthenticatedWithDigits: state.isAuthenticatedWithDigits,
-    isSignedUp: (state.isAuthenticatedWithDigits && state.hasOwnProperty("name"))
+    isSignedUp: (state.isAuthenticatedWithDigits && state.hasOwnProperty("name")),
+    didit: state.didit
   };
 }
 
