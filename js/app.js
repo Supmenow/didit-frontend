@@ -56,7 +56,7 @@ class App extends Component {
 function select(state) {
   return {
     loggedIn: state.loggedIn,
-    didit: state.diditl,
+    didit: state.didit,
     loading: state.loading
   };
 }
