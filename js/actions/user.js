@@ -1,4 +1,4 @@
-import makeAPIRequest from 'networking';
+import makeAPIRequest from '../networking';
 
 function authenticiateWithDigits() {
 
