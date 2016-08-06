@@ -7,7 +7,7 @@ const initialState = {
 
 function appStore(state = initialState, action) {
 
-  if (action.type === 'AUTHENTICATED') {
+  if (action.type === 'LOGGED_IN') {
     return {
       isAuthenticatedWithDigits: true,
       user: action.user

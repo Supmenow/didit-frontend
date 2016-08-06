@@ -2,7 +2,7 @@ import makeAPIRequest from '../networking';
 
 function authenticated(user) {
   return {
-    type: 'AUTHENTICATED',
+    type: 'LOGGED_IN',
     user: user
   }
 }
