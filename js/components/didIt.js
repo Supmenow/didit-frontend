@@ -31,7 +31,9 @@ class DidIt extends Component {
     return (
       <TouchableWithoutFeedback onPress={this.dismiss} style={this.style.didIt}>
         <Explosion style={this.style.container}>
-              <Text style={this.style.text}>You Did It!</Text>
+              <View style={this.style.diditTextContainer}>
+                <Text style={this.style.text}>You Did It!</Text>
+              </View>
               <View style={this.style.replyContainer}>
                 <Button onPress={this.sendHighFive}>
                   <Image source={require('./img/highfive.png')}/>

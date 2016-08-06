@@ -53,6 +53,10 @@ const styles = StyleSheet.create({
   didIt: {
     flex: 1
   },
+  diditTextContainer: {
+    flex: 0.6,
+    justifyContent: 'center',
+  },
   didItButtonBackground: {
     backgroundColor: '#F8154B',
     borderRadius: 5,
@@ -87,8 +91,6 @@ const styles = StyleSheet.create({
   replyContainer: {
     backgroundColor: 'transparent',
     flexDirection: 'row',
-    position: 'absolute',
-    bottom: 25,
     justifyContent: 'center',
   }
 });
