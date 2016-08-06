@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableWithoutFeedback } from 'react-native';
+import { connect } from 'react-redux';
 
 import Button from './button';
 import Explosion from './explosion';
+import { signup } from '../actions/user';
 
 class DidIt extends Component {
 
@@ -16,15 +18,15 @@ class DidIt extends Component {
   }
 
   dismiss() {
-    alert("Dismiss");
+    this.props.dispatch(signup(""));
   }
 
   sendHighFive() {
-    alert("High Five");
+    this.props.dispatch(signup(""));
   }
 
   sendEyeRoll() {
-    alert("Eye Roll");
+    this.props.dispatch(signup(""));
   }
 
   render() {
@@ -48,4 +50,4 @@ class DidIt extends Component {
   }
 }
 
-module.exports = DidIt
+module.exports = connect()(DidIt);
