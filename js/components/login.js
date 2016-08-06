@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NativeModules, View, Alert } from 'react-native';
 import { DigitsLoginButton } from 'react-native-fabric-digits';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 class Login extends Component {
 
@@ -70,6 +71,7 @@ class Login extends Component {
         completion={this.completion}
         buttonStyle={this.style.digitsAuthenticateButton}
         textStyle={this.style.digitsAuthenticateButtonText}/>
+        <Spinner visible={this.props.loading} />
       </View>
     );
   }

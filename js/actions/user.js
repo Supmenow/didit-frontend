@@ -1,5 +1,11 @@
 import makeAPIRequest from '../networking';
 
+function loading() {
+  return {
+    type: 'LOADING'
+  }
+}
+
 function authenticated(user) {
   return {
     type: 'LOGGED_IN',
@@ -11,6 +17,8 @@ function authenticated(user) {
 function loginWithDigits(session) {
 
   return function (dispatch) {
+
+    dispatch(loading())
 
     makeAPIRequest(session).then((response) => {
 
@@ -34,7 +42,7 @@ function signup(name) {
 
 function didit() {
   return {
-    type: 'DID_IT'
+      type: 'DID_IT'
   }
 }
 

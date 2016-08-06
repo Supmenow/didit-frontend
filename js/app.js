@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.props.didit == true) {
+    if (this.props.didit) {
       return (
         <DidIt style={this.style}/>
       )
@@ -35,7 +35,7 @@ class App extends Component {
       );
     } else {
       return (
-        <Login onLogin={this.login} style={this.style}/>
+        <Login loading={this.props.loading} onLogin={this.login} style={this.style}/>
       );
     }
   }
@@ -56,7 +56,8 @@ class App extends Component {
 function select(state) {
   return {
     loggedIn: state.loggedIn,
-    didit: state.didit
+    didit: state.diditl,
+    loading: state.loading
   };
 }
 
