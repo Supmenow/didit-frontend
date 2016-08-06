@@ -24,7 +24,7 @@ public class ExplosionView extends FrameLayout {
 
     public ExplosionView(Context context){
         super(context);
-        
+
         reactSubviewContainer = new ReactViewGroup(context);
         emitterView = new EmitterView(context, null);
         emitterCell = new EmitterCell();

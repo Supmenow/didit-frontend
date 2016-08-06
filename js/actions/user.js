@@ -1,4 +1,12 @@
+import makeAPIRequest from 'networking';
+
 function authenticiateWithDigits() {
+
+  makeAPIRequest(); // - Check user exists
+  // - If they do  trigger loggedInAction
+  // - If not then trigger enter name action.
+  // - Else trigger error action.
+
   return {
     type: 'AUTHENTICATED'
   }

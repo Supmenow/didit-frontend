@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 const initialState = {
   isAuthenticatedWithDigits: false
@@ -30,5 +31,9 @@ function appStore(state = initialState, action) {
   return state;
 }
 
-let store = createStore(appStore)
+let store = createStore(
+  appStore,
+  applyMiddleware(thunk)
+)
+
 module.exports = store;
