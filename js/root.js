@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   replyContainer: {
+    backgroundColor: 'transparent',
     flexDirection: 'row'
   }
 });
