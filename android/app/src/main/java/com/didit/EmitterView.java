@@ -46,12 +46,23 @@ public class EmitterView extends FrameLayout {
        for CAEmitterLayer over this modified copy of Leonids. */
     private void updateParticleSystems() {
         for (EmitterCell cell: emitterCells) {
+
+            Float velocity = cell.velocity.floatValue() / 1000;
+            Double emissionRange = Math.toDegrees(cell.emissionRange);
+
             ParticleSystem system = new ParticleSystem(this, MAX_PARTICLES, cell.drawable, cell.lifetime.longValue() * 1000)
             .setSpeedModuleAndAngleRange(0f, 0.3f, 180, 180)
-                    .setRotationSpeed(144)
-                    .setAcceleration(0.00005f, 90);
+                    .setRotationSpeed(cell.spin.floatValue() * 100)
+                    .setSpeedModuleAndAngleRange(velocity, velocity, 0, emissionRange.intValue());
+
+                    if (cell.alphaSpeed < 0.0f) {
+                        Float speed = Math.abs(cell.alphaSpeed.floatValue()) * 1000;
+                        system.setFadeOut(4000);
+                    }
+
             system.emit(this, cell.birthRate.intValue());
 
+            system.updateEmitPoint(250, 350);
             particleSystems.add(system);
         }
     }
