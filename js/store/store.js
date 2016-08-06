@@ -2,21 +2,21 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 const initialState = {
-  isAuthenticatedWithDigits: false
+  loggedIn: false
 };
 
 function appStore(state = initialState, action) {
 
   if (action.type === 'LOGGED_IN') {
     return {
-      isAuthenticatedWithDigits: true,
+      loggedIn: true,
       user: action.user
     };
   }
 
   if (action.type === 'SIGN_UP') {
     return {
-      isAuthenticatedWithDigits: true,
+      loggedIn: true,
       name: action.name,
       user: state.user
     };
@@ -24,7 +24,7 @@ function appStore(state = initialState, action) {
 
   if (action.type === 'DID_IT') {
     return {
-      isAuthenticatedWithDigits: true,
+      loggedIn: true,
       user: state.user,
       didit: true
     };
