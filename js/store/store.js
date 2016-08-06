@@ -10,6 +10,7 @@ function appStore(state = initialState, action) {
   if (action.type === 'AUTHENTICATED') {
     return {
       isAuthenticatedWithDigits: true,
+      user: action.user
     };
   }
 

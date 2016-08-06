@@ -11,8 +11,6 @@ function makeAPIRequest() {
       })
     }).then((response) => {
       return response.json()
-    }).then((response) => {
-      alert(JSON.stringify(response));
     })
 }
 

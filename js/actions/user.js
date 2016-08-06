@@ -1,14 +1,27 @@
 import makeAPIRequest from '../networking';
 
+function authenticated(user) {
+  return {
+    type: 'AUTHENTICATED',
+    user: user
+  }
+}
+
+// - Pass in phone-number
 function authenticiateWithDigits() {
 
-  makeAPIRequest(); // - Check user exists
-  // - If they do  trigger loggedInAction
-  // - If not then trigger enter name action.
-  // - Else trigger error action.
+  return function (dispatch) {
 
-  return {
-    type: 'AUTHENTICATED'
+    makeAPIRequest().then((response) => {
+
+      var user = response.success.user
+
+      if (user) {
+        dispatch(authenticated(user))
+      } else {
+        //dispatch(error())
+      }
+    })
   }
 }
 

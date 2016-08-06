@@ -25,7 +25,7 @@ class App extends Component {
       return (
         <DidIt style={this.style}/>
       )
-    } else if (this.props.isSignedUp == true) {
+    } else if (this.props.loggedIn == true) {
       return (
         <SendDidIt onSendDidIt={this.sendDidIt} style={this.style}/>
       );
@@ -55,8 +55,8 @@ class App extends Component {
 
 function select(state) {
   return {
+    loggedIn: (state.user != undefined),
     isAuthenticatedWithDigits: state.isAuthenticatedWithDigits,
-    isSignedUp: (state.isAuthenticatedWithDigits && state.hasOwnProperty("name")),
     didit: state.didit
   };
 }
