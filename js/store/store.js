@@ -17,14 +17,15 @@ function appStore(state = initialState, action) {
   if (action.type === 'SIGN_UP') {
     return {
       isAuthenticatedWithDigits: true,
-      name: action.name
+      name: action.name,
+      user: state.user
     };
   }
 
   if (action.type === 'DID_IT') {
     return {
       isAuthenticatedWithDigits: true,
-      name: action.name,
+      user: state.user,
       didit: true
     };
   }
