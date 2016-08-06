@@ -1,5 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import {persistStore, autoRehydrate} from 'redux-persist';
+import {AsyncStorage} from 'react-native';
 
 const initialState = {
   loggedIn: false
@@ -35,9 +37,12 @@ function appStore(state = initialState, action) {
   return state;
 }
 
-let store = createStore(
+const store = createStore(
   appStore,
-  applyMiddleware(thunk)
+  applyMiddleware(thunk),
+  autoRehydrate()
 )
+
+persistStore(store, {storage: AsyncStorage});
 
 module.exports = store;
