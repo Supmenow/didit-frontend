@@ -86,7 +86,10 @@ const styles = StyleSheet.create({
   },
   replyContainer: {
     backgroundColor: 'transparent',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    position: 'absolute',
+    bottom: 25,
+    justifyContent: 'center',
   }
 });
 
