@@ -50,6 +50,9 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#F8154B',
   },
+  didIt: {
+    flex: 1
+  },
   didItButtonBackground: {
     backgroundColor: '#F8154B',
     borderRadius: 5,
@@ -82,8 +85,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   replyContainer: {
-    flexDirection: 'row',
-    alignSelf: 'flex-end'
+    flexDirection: 'row'
   }
 });
 

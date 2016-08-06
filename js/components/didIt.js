@@ -29,20 +29,18 @@ class DidIt extends Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.dismiss}>
-        <View style={this.style.container}>
-          <Explosion style={this.style.container}>
-            <Text style={this.style.text}>You Did It!</Text>
-            <View style={this.style.replyContainer}>
-              <Button onPress={this.sendHighFive}>
-                <Image source={require('./img/highfive.png')}/>
-              </Button>
-              <Button onPress={this.sendEyeRoll}>
-                <Image source={require('./img/eyeroll.png')}/>
-              </Button>
-            </View>
-          </Explosion>
-        </View>
+      <TouchableWithoutFeedback onPress={this.dismiss} style={this.style.didIt}>
+        <Explosion style={this.style.container}>
+              <Text style={this.style.text}>You Did It!</Text>
+              <View style={this.style.replyContainer}>
+                <Button onPress={this.sendHighFive}>
+                  <Image source={require('./img/highfive.png')}/>
+                </Button>
+                <Button onPress={this.sendEyeRoll}>
+                  <Image source={require('./img/eyeroll.png')}/>
+                </Button>
+              </View>
+        </Explosion>
       </TouchableWithoutFeedback>
     );
   }

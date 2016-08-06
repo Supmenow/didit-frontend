@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -23,16 +24,18 @@ public class ExplosionView extends FrameLayout {
 
     public ExplosionView(Context context){
         super(context);
-
+        
         reactSubviewContainer = new ReactViewGroup(context);
         emitterView = new EmitterView(context, null);
         emitterCell = new EmitterCell();
 
+        //FIXME: EmissionView is a rougth approximation of the iOS CAEMissionLayer - The values may not be the same for both platforms but
+        //in future we would like to make these act the same. For now please adjust values to get effect you want.
         emitterCell.birthRate = 10.0f;
         emitterCell.drawable = getResources().getDrawable(R.drawable.smiley); // Get from React Native
-        emitterCell.lifetime = 5.0f;
-        emitterCell.alphaSpeed = -0.4f;
-        emitterCell.velocity = 250.0;
+        emitterCell.lifetime = 2.0f;
+        emitterCell.alphaSpeed = -1.5f;
+        emitterCell.velocity = 150.0;
         emitterCell.emissionRange = Math.PI * 2.0;
         emitterCell.spin = 0.5;
 

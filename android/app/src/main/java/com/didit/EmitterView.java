@@ -50,20 +50,28 @@ public class EmitterView extends FrameLayout {
             Float velocity = cell.velocity.floatValue() / 1000;
             Double emissionRange = Math.toDegrees(cell.emissionRange);
 
-            ParticleSystem system = new ParticleSystem(this, MAX_PARTICLES, cell.drawable, cell.lifetime.longValue() * 1000)
+            ParticleSystem system = new ParticleSystem(this, getContext(), MAX_PARTICLES, cell.drawable, cell.lifetime.longValue() * 1000)
             .setSpeedModuleAndAngleRange(0f, 0.3f, 180, 180)
                     .setRotationSpeed(cell.spin.floatValue() * 100)
                     .setSpeedModuleAndAngleRange(velocity, velocity, 0, emissionRange.intValue());
 
-                    if (cell.alphaSpeed < 0.0f) {
+                    if (cell.alphaSpeed <= 0.0f) {
                         Float speed = Math.abs(cell.alphaSpeed.floatValue()) * 1000;
-                        system.setFadeOut(4000);
+                        system.setFadeOut(speed.longValue());
                     }
 
             system.emit(this, cell.birthRate.intValue());
 
-            system.updateEmitPoint(250, 350);
+            system.updateEmitPoint(getMeasuredWidth() / 2, getMeasuredHeight() / 2);
             particleSystems.add(system);
+        }
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        for (ParticleSystem system: particleSystems) {
+            system.updateEmitPoint(getMeasuredWidth() / 2, getMeasuredHeight() / 2);
         }
     }
 }
