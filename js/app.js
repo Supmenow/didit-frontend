@@ -7,7 +7,7 @@ import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
 import DidIt from './components/didIt';
 
-import { authenticiateWithDigits, signup, didit } from './actions/user';
+import { loginWithDigits, signup, didit } from './actions/user';
 
 class App extends Component {
 
@@ -40,8 +40,8 @@ class App extends Component {
     }
   }
 
-  login() {
-    this.props.dispatch(authenticiateWithDigits());
+  login(session) {
+    this.props.dispatch(loginWithDigits(session));
   }
 
   signUp() {

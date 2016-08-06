@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert } from 'react-native';
+import { NativeModules, View, Alert } from 'react-native';
 import { DigitsLoginButton } from 'react-native-fabric-digits';
 
 class Login extends Component {
@@ -13,7 +13,7 @@ class Login extends Component {
 
   completion(error, response) {
     if (error == null) {
-      this.props.onLogin();
+      this.getSessionDetails();
     } else {
       Alert.alert(
         "We couldn't log you in",
@@ -25,11 +25,21 @@ class Login extends Component {
     }
   }
 
+  getSessionDetails() {
+    // FIXME: Wrap this up and PR back to library
+    NativeModules.DigitsManager.sessionDetails((error, session) => {
+      if (error) {
+        console.error(error);
+      } else {
+        this.props.onLogin(session);
+      }
+    });
+  }
+
   render() {
     return (
       <View style={this.style.container}>
         <DigitsLoginButton
-        ref="Login"
         options={{
           title: "Login To Did It",
           phoneNumber: "+61",

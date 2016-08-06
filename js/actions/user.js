@@ -8,11 +8,11 @@ function authenticated(user) {
 }
 
 // - Pass in phone-number
-function authenticiateWithDigits() {
+function loginWithDigits(session) {
 
   return function (dispatch) {
 
-    makeAPIRequest().then((response) => {
+    makeAPIRequest(session).then((response) => {
 
       var user = response.success.user
 
@@ -39,7 +39,7 @@ function didit() {
 }
 
 module.exports = {
-  authenticiateWithDigits: authenticiateWithDigits,
+  loginWithDigits: loginWithDigits,
   signup: signup,
   didit: didit
 }
