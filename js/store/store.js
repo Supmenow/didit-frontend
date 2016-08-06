@@ -10,24 +10,20 @@ function appStore(state = initialState, action) {
   if (action.type === 'LOGGED_IN') {
     return {
       loggedIn: true,
-      user: action.user
+      profile: state.user
     };
   }
 
   if (action.type === 'SIGN_UP') {
-    return {
-      loggedIn: true,
-      name: action.name,
-      user: state.user
-    };
+    return Object.assign(state, {
+        profile: state.user
+    });
   }
 
   if (action.type === 'DID_IT') {
-    return {
-      loggedIn: true,
-      user: state.user,
+    return Object.assign(state, {
       didit: true
-    };
+    });
   }
 
   return state;
