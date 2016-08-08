@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "15.2.1",
     "react-native": "^0.30.0",
+    "react-native-contacts": "^0.3.0",
     "react-native-fabric-digits": "jeanlebrument/react-native-fabric-digits",
     "react-native-loading-spinner-overlay": "^0.3.0",
     "react-native-particle-system": "^0.8.3",

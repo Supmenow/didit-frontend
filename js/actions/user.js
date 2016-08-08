@@ -1,4 +1,4 @@
-import makeAPIRequest from '../networking';
+import { makeCheckUserRequest, makeSendDidItRequest } from '../networking';
 
 function loading() {
   return {
@@ -6,28 +6,27 @@ function loading() {
   }
 }
 
-function authenticated(user) {
+function authenticated(profile) {
   return {
     type: 'LOGGED_IN',
-    user: user
+    profile: profile
   }
 }
 
-// - Pass in phone-number
 function loginWithDigits(session) {
 
   return function (dispatch) {
 
     dispatch(loading())
 
-    makeAPIRequest(session).then((response) => {
+    makeCheckUserRequest(session).then((response) => {
 
-      var user = response.success.user
+      var profile = response.success.user
 
-      if (user) {
-        dispatch(authenticated(user))
+      if (profile) {
+        dispatch(authenticated(profile))
       } else {
-        //dispatch(error())
+        // Handle Error
       }
     })
   }
@@ -46,8 +45,24 @@ function didit() {
   }
 }
 
+function sendDidIt(apiKey) {
+  return function(dispatch) {
+
+    dispatch(loading())
+
+    makeSendDidItRequest(apiKey).then((response) => {
+
+      if (response.success) {
+        dispatch(didit())
+      } else {
+        // Handle Error
+      }
+    })
+  }
+}
+
 module.exports = {
   loginWithDigits: loginWithDigits,
   signup: signup,
-  didit: didit
+  sendDidIt: sendDidIt
 }

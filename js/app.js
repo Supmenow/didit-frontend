@@ -7,7 +7,7 @@ import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
 import DidIt from './components/didIt';
 
-import { loginWithDigits, signup, didit } from './actions/user';
+import { loginWithDigits, signup, sendDidIt } from './actions/user';
 
 class App extends Component {
 
@@ -25,7 +25,7 @@ class App extends Component {
       return (
         <DidIt style={this.style}/>
       )
-    } else if (this.props.loggedIn) {
+    } else if (this.props.profile) {
       return (
         <SendDidIt onSendDidIt={this.sendDidIt} style={this.style}/>
       );
@@ -49,13 +49,13 @@ class App extends Component {
   }
 
   sendDidIt() {
-    this.props.dispatch(didit());
+    this.props.dispatch(sendDidIt(this.props.profile["api-key"]));
   }
 }
 
 function select(state) {
   return {
-    loggedIn: state.loggedIn,
+    profile: state.profile,
     didit: state.didit,
     loading: state.loading
   };

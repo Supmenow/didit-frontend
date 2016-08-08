@@ -3,16 +3,13 @@ import thunk from 'redux-thunk';
 import {persistStore, autoRehydrate} from 'redux-persist';
 import {AsyncStorage} from 'react-native';
 
-const initialState = {
-  loggedIn: false
-};
+const initialState = {};
 
 function appStore(state = initialState, action) {
 
   if (action.type === 'LOGGED_IN') {
     return {
-      loggedIn: true,
-      profile: state.user
+      profile: action.profile
     };
   }
 
