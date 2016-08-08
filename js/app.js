@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.props.didit) {
+    if (this.props.didit === true) {
       return (
         <DidIt style={this.style}/>
       )
@@ -35,7 +35,7 @@ class App extends Component {
       return (
         <SendDidIt onSendDidIt={this.sendDidIt} style={this.style}/>
       );
-    } else if (this.props.isAuthenticatedWithDigits == true) {
+    } else if (this.props.isAuthenticatedWithDigits === true) {
       return (
         <Signup onSignUp={this.signUp} style={this.style}/>
       );

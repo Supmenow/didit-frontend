@@ -31,6 +31,12 @@ function appStore(state = initialState, action) {
     });
   }
 
+  if (action.type === 'DISMISS_DID_IT') {
+    return Object.assign({}, state, {
+      didit: false
+    });
+  }
+
   return state;
 }
 

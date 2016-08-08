@@ -74,6 +74,12 @@ function didit() {
   }
 }
 
+function dismissDidit() {
+  return {
+      type: 'DISMISS_DID_IT'
+  }
+}
+
 function sendDidIt(apiKey) {
   return function(dispatch) {
 
@@ -82,7 +88,7 @@ function sendDidIt(apiKey) {
     makeSendDidItRequest(apiKey).then((response) => {
 
       if (response.success) {
-        dispatch(didit())
+        dispatch(didit());
       } else {
         // Handle Error
       }
@@ -94,5 +100,6 @@ module.exports = {
   loginWithDigits: loginWithDigits,
   signup: signup,
   sendDidIt: sendDidIt,
-  uploadContacts: uploadContacts
+  uploadContacts: uploadContacts,
+  dismissDidit: dismissDidit
 }

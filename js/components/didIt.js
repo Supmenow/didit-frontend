@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Button from './button';
 import Explosion from './explosion';
-import { signup } from '../actions/user';
+import { dismissDidit } from '../actions/user';
 
 class DidIt extends Component {
 
@@ -18,15 +18,15 @@ class DidIt extends Component {
   }
 
   dismiss() {
-    this.props.dispatch(signup(""));
+    this.props.dispatch(dismissDidit(""));
   }
 
   sendHighFive() {
-    this.props.dispatch(signup(""));
+    this.props.dispatch(dismissDidit(""));
   }
 
   sendEyeRoll() {
-    this.props.dispatch(signup(""));
+    this.props.dispatch(dismissDidit(""));
   }
 
   render() {
