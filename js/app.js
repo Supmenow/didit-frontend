@@ -29,9 +29,8 @@ class App extends Component {
 
   componentDidMount() {
     FCM.requestPermissions(); // for iOS
-  }
 
-  FCM.getFCMToken().then(token => {
+    FCM.getFCMToken().then(token => {
       console.log(token)
       // store fcm token in your server
     });
@@ -39,7 +38,7 @@ class App extends Component {
     this.notificationUnsubscribe = FCM.on('notification', (notif) => {
       // there are two parts of notif. notif.notification contains the notification payload, notif.data contains data payload
     });
-    
+
     this.refreshUnsubscribe = FCM.on('refreshToken', (token) => {
       console.log(token)
       // fcm token may not be available on first load, catch it here
