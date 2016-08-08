@@ -28,24 +28,12 @@ class App extends Component {
   }
 
   componentDidMount() {
+
     FCM.requestPermissions(); // for iOS
+    FCM.getFCMToken().then(this.tokenDidUpdate);
 
-    FCM.getFCMToken().then(token => {
-      console.log(token)
-      // store fcm token in your server
-    });
-
-    this.notificationUnsubscribe = FCM.on('notification', (notif) => {
-      // there are two parts of notif. notif.notification contains the notification payload, notif.data contains data payload
-    });
-
-    this.refreshUnsubscribe = FCM.on('refreshToken', (token) => {
-      console.log(token)
-      // fcm token may not be available on first load, catch it here
-    });
-    //
-    // FCM.subscribeToTopic('/topics/foo-bar');
-    // FCM.unsubscribeFromTopic('/topics/foo-bar');
+    this.notificationUnsubscribe = FCM.on('notification', this.didReceiveNotification);
+    this.refreshUnsubscribe = FCM.on('refreshToken', this.tokenDidUpdate);
   }
 
   componentWillUnmount() {
@@ -84,6 +72,16 @@ class App extends Component {
 
   sendDidIt() {
     this.props.dispatch(sendDidIt(this.props.profile["api-key"]));
+  }
+
+  tokenDidUpdate(token) {
+    // - Send to server
+  }
+
+  // FIXME: For iOS We should request additional time
+  // and pass through a callback
+  didReceiveNotification(notification) {
+    // - Handle State
   }
 }
 
