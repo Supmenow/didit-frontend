@@ -18,15 +18,15 @@ class DidIt extends Component {
   }
 
   dismiss() {
-    this.props.dispatch(dismissDidit(""));
+    this.props.dispatch(dismissDidit());
   }
 
   sendHighFive() {
-    this.props.dispatch(dismissDidit(""));
+    this.props.dispatch(dismissDidit());
   }
 
   sendEyeRoll() {
-    this.props.dispatch(dismissDidit(""));
+    this.props.dispatch(dismissDidit());
   }
 
   render() {
