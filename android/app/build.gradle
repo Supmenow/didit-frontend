@@ -130,6 +130,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.gms.google-services'
 
 dependencies {
+    compile project(':react-native-fcm')
     compile('com.digits.sdk.android:digits:1.11.2@aar') {
         transitive = true;
     }

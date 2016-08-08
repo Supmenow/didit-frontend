@@ -24,6 +24,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		740198741D5899770006E0A1 /* libRCTContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198691D58996D0006E0A1 /* libRCTContacts.a */; };
 		740198931D58E6280006E0A1 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198921D58E6230006E0A1 /* libRNFIRMessaging.a */; };
+		740198951D58E6750006E0A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 740198941D58E6750006E0A1 /* GoogleService-Info.plist */; };
 		74A841CA1D54BF0800674886 /* RCTExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A841C91D54BF0800674886 /* RCTExplosionManager.m */; };
 		74A841D81D54C00400674886 /* ExplosionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A841D71D54C00400674886 /* ExplosionView.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -157,6 +158,7 @@
 		70FF670DFBC1B7E3279F55D0 /* libPods-DidIt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DidIt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		740198631D58996D0006E0A1 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
 		740198811D58E6230006E0A1 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
+		740198941D58E6750006E0A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "DidIt/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
 		74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DidIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		74A841D71D54C00400674886 /* ExplosionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplosionView.swift; path = DidIt/ExplosionView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		13B07FAE1A68108700A75B9A /* DidIt */ = {
 			isa = PBXGroup;
 			children = (
+				740198941D58E6750006E0A1 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -640,6 +643,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				740198951D58E6750006E0A1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +817,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-fabric-digits/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = DidIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -840,6 +845,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-fabric-digits/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = DidIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
