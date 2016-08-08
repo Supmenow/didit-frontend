@@ -127,6 +127,7 @@ android {
 
 apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 
 dependencies {
     compile('com.digits.sdk.android:digits:1.11.2@aar') {
