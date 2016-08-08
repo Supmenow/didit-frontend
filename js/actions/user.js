@@ -1,4 +1,5 @@
-import { makeCheckUserRequest, makeSendDidItRequest } from '../networking';
+import { makeCheckUserRequest, makeSendDidItRequest, makeUploadContactsRequest } from '../networking';
+import Contacts from '../contacts';
 
 function loading() {
   return {
@@ -6,10 +7,38 @@ function loading() {
   }
 }
 
-function authenticated(profile) {
+function updateProfile(profile) {
   return {
-    type: 'LOGGED_IN',
+    type: 'PROFILE_UPDATED',
     profile: profile
+  }
+}
+
+function uploadContacts(apiKey) {
+  return function (dispatch) {
+
+    Contacts.getAllInBackground().then((contacts) => {
+
+      var phoneNumbers = contacts.map((contact) => {
+          return contact["phoneNumbers"].map((number) => {
+            return number["number"];
+          })
+      })
+      .reduce(function(a, b) {
+        return a.concat(b);
+      }, []);
+
+      makeUploadContactsRequest(apiKey, phoneNumbers).then((response) => {
+
+        var profile = response.success.user
+
+        if (profile) {
+          dispatch(updateProfile(profile))
+        } else {
+          // Handle Error
+        }
+      })
+    })
   }
 }
 
@@ -24,7 +53,7 @@ function loginWithDigits(session) {
       var profile = response.success.user
 
       if (profile) {
-        dispatch(authenticated(profile))
+        dispatch(uploadContacts(profile["api-key"]))
       } else {
         // Handle Error
       }
@@ -64,5 +93,6 @@ function sendDidIt(apiKey) {
 module.exports = {
   loginWithDigits: loginWithDigits,
   signup: signup,
-  sendDidIt: sendDidIt
+  sendDidIt: sendDidIt,
+  uploadContacts: uploadContacts
 }

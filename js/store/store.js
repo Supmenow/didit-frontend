@@ -7,7 +7,7 @@ const initialState = {};
 
 function appStore(state = initialState, action) {
 
-  if (action.type === 'LOGGED_IN') {
+  if (action.type === 'PROFILE_UPDATED') {
     return {
       profile: action.profile
     };

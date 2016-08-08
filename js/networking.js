@@ -30,7 +30,14 @@ function makeSendDidItRequest(apiKey) {
   return makeAPIRequest('/send', {}, apiKey);
 }
 
+function makeUploadContactsRequest(apiKey, numbers) {
+  return makeAPIRequest('/contacts', {
+    "numbers": numbers
+  }, apiKey);
+}
+
 module.exports = {
   makeCheckUserRequest: makeCheckUserRequest,
-  makeSendDidItRequest: makeSendDidItRequest
+  makeSendDidItRequest: makeSendDidItRequest,
+  makeUploadContactsRequest: makeUploadContactsRequest
 };

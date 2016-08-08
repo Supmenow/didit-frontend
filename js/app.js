@@ -7,7 +7,7 @@ import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
 import DidIt from './components/didIt';
 
-import { loginWithDigits, signup, sendDidIt } from './actions/user';
+import { loginWithDigits, signup, sendDidIt, uploadContacts } from './actions/user';
 
 class App extends Component {
 
@@ -18,6 +18,12 @@ class App extends Component {
    this.login = this.login.bind(this);
    this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
+  }
+
+  componentWillMount() {
+    if (this.props.profile) {
+      this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
+    }
   }
 
   render() {
