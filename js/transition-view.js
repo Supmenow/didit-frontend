@@ -3,24 +3,17 @@ import { View } from 'react-native';
 
 class TransitionView extends Component {
 
-  componentWillMount() {
-
-  }
-
   componentWillUpdate(nextProps, nextState) {
     this.previousChildren = this.props.children
-    // - Store Old Compoenent
-    // - Grab Transition
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // - Trigger Transition
-    // - Then Once Done Remove Old Component - How ?
+    this.transition = this.props.createTransition(this, this.previousChildren, this.props.children)
   }
 
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         { this.previousChildren }
         { this.props.children }
       </View>

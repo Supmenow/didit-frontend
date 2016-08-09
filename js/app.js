@@ -44,7 +44,7 @@ class App extends Component {
 
   render() {
     return (
-      <TransitionView>{this.renderContents()}</TransitionView>
+      <TransitionView createTransition={this.createTransition}>{this.renderContents()}</TransitionView>
     )
   }
 
@@ -66,6 +66,11 @@ class App extends Component {
         <Login loading={this.props.loading} onLogin={this.login} style={this.style}/>
       );
     }
+  }
+
+  createTransition(container, prevChildren, nextChildren) {
+    // - Perform transition: prev --> next
+    // Inside of container
   }
 
   login(session) {
