@@ -99,12 +99,6 @@ function signup(name) {
   }
 }
 
-function didit() {
-  return {
-      type: 'DID_IT'
-  }
-}
-
 function dismissDidit() {
   return {
       type: 'DISMISS_DID_IT'
@@ -128,7 +122,9 @@ function sendDidIt(apiKey) {
 }
 
 function viewDidIt() {
-
+  return {
+      type: 'DID_IT'
+  }
 }
 
 module.exports = {
