@@ -41,6 +41,10 @@ class App extends Component {
   }
 
   render() {
+    return this.renderContents();
+  }
+
+  renderContents() {
     if (this.props.didit) {
       return (
         <DidIt didit={this.props.didit} style={this.style}/>
