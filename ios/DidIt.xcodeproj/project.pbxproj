@@ -25,6 +25,7 @@
 		740198741D5899770006E0A1 /* libRCTContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198691D58996D0006E0A1 /* libRCTContacts.a */; };
 		740198951D58E6750006E0A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 740198941D58E6750006E0A1 /* GoogleService-Info.plist */; };
 		740198D01D58F1670006E0A1 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198C91D58F1610006E0A1 /* libRCTPushNotification.a */; };
+		7442D0A91D5A3254006E6BC5 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7442D0A81D5A3254006E6BC5 /* libz.1.2.5.tbd */; };
 		74A841CA1D54BF0800674886 /* RCTExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A841C91D54BF0800674886 /* RCTExplosionManager.m */; };
 		74A841D81D54C00400674886 /* ExplosionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A841D71D54C00400674886 /* ExplosionView.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -167,6 +168,7 @@
 		740198631D58996D0006E0A1 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
 		740198941D58E6750006E0A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "DidIt/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
+		7442D0A81D5A3254006E6BC5 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
 		74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DidIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		74A841D71D54C00400674886 /* ExplosionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplosionView.swift; path = DidIt/ExplosionView.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7442D0A91D5A3254006E6BC5 /* libz.1.2.5.tbd in Frameworks */,
 				740198D01D58F1670006E0A1 /* libRCTPushNotification.a in Frameworks */,
 				740198741D5899770006E0A1 /* libRCTContacts.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -415,6 +418,7 @@
 		B88BAA242A9263446F70B3B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7442D0A81D5A3254006E6BC5 /* libz.1.2.5.tbd */,
 				70FF670DFBC1B7E3279F55D0 /* libPods-DidIt.a */,
 			);
 			name = Frameworks;
