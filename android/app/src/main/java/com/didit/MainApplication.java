@@ -3,6 +3,7 @@ package com.didit;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.facebook.react.shell.MainReactPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.evollu.react.fcm.FIRMessagingPackage;
 import com.facebook.react.ReactNativeHost;
