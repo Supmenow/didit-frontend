@@ -31,7 +31,7 @@
             android:name="io.fabric.ApiKey"
             android:value="dc3d379da27191e14decc9e77edc2d8f640546dd" />
 
-        <service android:name="com.evollu.react.fcm.MessagingService">
+        <service android:name=".MessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
