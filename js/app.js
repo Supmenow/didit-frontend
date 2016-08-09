@@ -23,13 +23,15 @@ class App extends Component {
 
   constructor(props) {
    super(props);
-   this.style = props.style;
 
    this.login = this.login.bind(this);
    this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
+   this.contentForProps = this.contentForProps.bind(this);
    this.didReceiveNotification = this.didReceiveNotification.bind(this);
-   this.renderContents = this.renderContents.bind(this);
+
+   this.style = props.style;
+   this.initialRoute = {content: this.contentForProps(props), index: 0};
   }
 
   componentWillMount() {
@@ -37,34 +39,47 @@ class App extends Component {
       this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
     }
 
-    //FIXME: Where does this belong ask on Redux?
     Notification.addEventListener('notification', this.didReceiveNotification);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+
+    this.initialRoute = {content: this.contentForProps(prevProps), index: 0};
+    var newRoute = {content: this.contentForProps(this.props), index: 1};
+
+    if (this.initialRoute.content.type != newRoute.content.type) {
+        this.navigator.push(newRoute);
+    }
   }
 
   render() {
     return (
-      <Navigator renderScene={this.renderContents} configureScene={(route, routeStack) =>
+      <Navigator ref={(n) => this.navigator = n} initialRoute={this.initialRoute} renderScene={this.renderScene} configureScene={(route, routeStack) =>
     Navigator.SceneConfigs.FloatFromBottom}/>
     )
   }
 
-  renderContents() {
-    if (this.props.didit) {
-      return (
-        <DidIt didit={this.props.didit} style={this.style}/>
-      )
-    } else if (this.props.profile) {
-      return (
+  renderScene(route, navigator) {
+    return route.content.component
+  }
+
+  contentForProps(props) {
+    if (props.didit) {
+      return { component: (
+        <DidIt didit={props.didit} style={this.style}/>
+      ), type: 'DID_IT' }
+    } else if (props.profile) {
+      return {component: (
         <SendDidIt onSendDidIt={this.sendDidIt} style={this.style}/>
-      );
-    } else if (this.props.isAuthenticatedWithDigits === true) {
-      return (
+      ), type: 'SEND_DID_IT' };
+    } else if (props.isAuthenticatedWithDigits === true) {
+      return {component: (
         <Signup onSignUp={this.signUp} style={this.style}/>
-      );
+      ), type: 'SIGN_UP'};
     } else {
-      return (
-        <Login loading={this.props.loading} onLogin={this.login} style={this.style}/>
-      );
+      return {component: (
+        <Login loading={props.loading} onLogin={this.login} style={this.style}/>
+      ), type: 'LOGIN'};
     }
   }
 
