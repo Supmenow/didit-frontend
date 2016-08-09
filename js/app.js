@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
+import TransitionView from './transition-view';
 import Login from './components/login';
 import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
@@ -29,6 +30,7 @@ class App extends Component {
    this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
    this.didReceiveNotification = this.didReceiveNotification.bind(this);
+   this.renderContents = this.renderContents.bind(this);
   }
 
   componentWillMount() {
@@ -41,7 +43,9 @@ class App extends Component {
   }
 
   render() {
-    return this.renderContents();
+    return (
+      <TransitionView renderContent={this.renderContents}/>
+    )
   }
 
   renderContents() {
