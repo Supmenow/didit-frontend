@@ -1,4 +1,5 @@
 //FIXME: Break this down once we know the actions we will need
+//FIXME: Split into actions and events
 import { makeCheckUserRequest, makeSendDidItRequest, makeUploadContactsRequest, makeUpdateUserTokenRequest } from '../networking';
 import Contacts from '../contacts';
 import Notification from '../notification';
@@ -125,6 +126,12 @@ function viewDidIt(notification) {
   return {
       type: 'DID_IT',
       didit: notification
+  }
+}
+
+function sendReply() {
+  return {
+    type: 'SENT_REPLY'
   }
 }
 
