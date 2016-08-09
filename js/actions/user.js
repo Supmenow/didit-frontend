@@ -4,16 +4,12 @@ import { makeCheckUserRequest, makeSendDidItRequest, makeUploadContactsRequest, 
 import Contacts from '../contacts';
 import Notification from '../notification';
 
-function loading() {
-  return {
-    type: 'LOADING'
-  }
-}
+import startedLoading from '../events/started-loading';
+import profileUpdated from '../events/profile-updated';
 
-function profileUpdated(profile) {
+function dismissDidit() {
   return {
-    type: 'PROFILE_UPDATED',
-    profile: profile
+      type: 'DISMISS_DID_IT'
   }
 }
 
@@ -77,7 +73,7 @@ function loginWithDigits(session) {
 
   return function (dispatch) {
 
-    dispatch(loading())
+    dispatch(startedLoading())
 
     makeCheckUserRequest(session).then((response) => {
 
@@ -100,16 +96,10 @@ function signup(name) {
   }
 }
 
-function dismissDidit() {
-  return {
-      type: 'DISMISS_DID_IT'
-  }
-}
-
 function sendDidIt(apiKey) {
   return function(dispatch) {
 
-    dispatch(loading())
+    dispatch(startedLoading())
 
     makeSendDidItRequest(apiKey).then((response) => {
 
