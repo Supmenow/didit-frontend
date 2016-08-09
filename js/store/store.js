@@ -25,13 +25,13 @@ function appStore(state = initialState, action) {
     });
   }
 
-  if (action.type === 'DID_IT') {
+  if (action.type === 'RECEIVED_DID_IT') {
     return Object.assign({}, state, {
       didit: action.didit
     });
   }
 
-  if (action.type === 'DISMISS_DID_IT') {
+  if (action.type === 'DISMISSED_DID_IT') {
     return Object.assign({}, state, {
       didit: false
     });

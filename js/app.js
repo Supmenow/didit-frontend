@@ -13,9 +13,12 @@ import {
   signup,
   sendDidIt,
   uploadContacts,
-  updateToken,
-  viewDidIt
+  updateToken
 } from './actions';
+
+import {
+  receivedDidIt
+} from './events';
 
 class App extends Component {
 
@@ -71,7 +74,7 @@ class App extends Component {
   }
 
   didReceiveNotification(notification) {
-    this.props.dispatch(viewDidIt(notification));
+    this.props.dispatch(receivedDidIt(notification));
   }
 }
 

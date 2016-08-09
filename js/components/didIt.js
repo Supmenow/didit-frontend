@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Button from './button';
 import Explosion from './explosion';
-import { dismissDidit } from '../events';
+import { dismissedDidIt } from '../events';
 
 class DidIt extends Component {
 
@@ -18,15 +18,15 @@ class DidIt extends Component {
   }
 
   dismiss() {
-    this.props.dispatch(dismissDidit());
+    this.props.dispatch(dismissedDidIt());
   }
 
   sendHighFive() {
-    this.props.dispatch(dismissDidit());
+    this.props.dispatch(dismissedDidIt());
   }
 
   sendEyeRoll() {
-    this.props.dispatch(dismissDidit());
+    this.props.dispatch(dismissedDidIt());
   }
 
   render() {

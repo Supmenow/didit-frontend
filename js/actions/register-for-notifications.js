@@ -1,4 +1,5 @@
 import Notification from '../notification';
+import { updateToken } from './update-token';
 
 function registerForNotifications(apiKey) {
   return function (dispatch) {

@@ -1,3 +1,6 @@
+import { makeUpdateUserTokenRequest } from '../networking';
+import { profileUpdated } from '../events';
+
 function updateToken(apiKey, token) {
   return function (dispatch) {
 

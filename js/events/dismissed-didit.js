@@ -1,6 +1,6 @@
 function dismissedDidIt() {
   return {
-    type: 'VIEWED_DID_IT'
+    type: 'DISMISSED_DID_IT'
   }
 }
 

@@ -1,9 +1,11 @@
-import dismissDidit from './dismissed-didit';
+import dismissedDidIt from './dismissed-didit';
 import startedLoading from './started-loading';
 import profileUpdated from './profile-updated';
+import receivedDidIt from './received-didit';
 
 module.exports = {
-  ...dismissDidit,
+  ...dismissedDidIt,
   ...startedLoading,
-  ...profileUpdated
+  ...profileUpdated,
+  ...receivedDidIt
 };
