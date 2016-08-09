@@ -1,4 +1,4 @@
-//FIXME: Break this down
+//FIXME: Break this down once we know the actions we will need
 import { makeCheckUserRequest, makeSendDidItRequest, makeUploadContactsRequest, makeUpdateUserTokenRequest } from '../networking';
 import Contacts from '../contacts';
 import Notification from '../notification';

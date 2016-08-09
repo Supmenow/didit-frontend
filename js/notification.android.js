@@ -1,6 +1,7 @@
 import FCM from 'react-native-fcm';
 import NotificationCore from './notification/core';
 
+// How do background requests work?
 class Notification extends NotificationCore {
   static requestPermissions() {
     FCM.getFCMToken().then(this.tokenDidUpdate);

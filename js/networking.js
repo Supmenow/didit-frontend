@@ -1,4 +1,4 @@
-//FIXME: Break this down
+//FIXME: Break this down once we know the apis we will need
 function makeAPIRequest(path, data, key, method = 'POST') {
 
     var headers = {
