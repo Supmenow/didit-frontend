@@ -44,7 +44,7 @@ class App extends Component {
 
   render() {
     return (
-      <TransitionView renderContent={this.renderContents}/>
+      <TransitionView>{this.renderContents()}</TransitionView>
     )
   }
 
