@@ -4,4 +4,6 @@ function startedLoading() {
   }
 }
 
-module.exports = startedLoading;
+module.exports = {
+  startedLoading
+}

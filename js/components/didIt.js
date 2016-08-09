@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Button from './button';
 import Explosion from './explosion';
-import { dismissDidit } from '../actions/user';
+import { dismissDidit } from '../events';
 
 class DidIt extends Component {
 

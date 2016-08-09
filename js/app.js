@@ -8,7 +8,14 @@ import SendDidIt from './components/sendDidIt';
 import DidIt from './components/didIt';
 import Notification from './notification';
 
-import { loginWithDigits, signup, sendDidIt, uploadContacts, updateToken, viewDidIt } from './actions/user';
+import {
+  loginWithDigits,
+  signup,
+  sendDidIt,
+  uploadContacts,
+  updateToken,
+  viewDidIt
+} from './actions';
 
 class App extends Component {
 

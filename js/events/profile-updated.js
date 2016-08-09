@@ -5,4 +5,6 @@ function profileUpdated(profile) {
   }
 }
 
-module.exports = profileUpdated;
+module.exports = {
+  profileUpdated
+}
