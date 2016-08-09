@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.props.didit === true) {
+    if (this.props.didit) {
       return (
         <DidIt style={this.style}/>
       )
@@ -64,9 +64,7 @@ class App extends Component {
   }
 
   didReceiveNotification(notification) {
-    // - Pass in shared data
-    alert(JSON.stringify(notification));
-    this.props.dispatch(viewDidIt());
+    this.props.dispatch(viewDidIt(notification));
   }
 }
 

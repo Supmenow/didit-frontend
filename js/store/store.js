@@ -27,7 +27,7 @@ function appStore(state = initialState, action) {
 
   if (action.type === 'DID_IT') {
     return Object.assign({}, state, {
-      didit: true
+      didit: action.didit
     });
   }
 

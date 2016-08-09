@@ -121,9 +121,10 @@ function sendDidIt(apiKey) {
   }
 }
 
-function viewDidIt() {
+function viewDidIt(notification) {
   return {
-      type: 'DID_IT'
+      type: 'DID_IT',
+      didit: notification
   }
 }
 

@@ -1,4 +1,5 @@
 import EventEmitter from 'EventEmitter';
+import PushNotification from './push-notification';
 import invariant from 'invariant';
 
 const NotificationEventEmitter = new EventEmitter();
@@ -19,7 +20,9 @@ class NotificationCore {
     if (type === 'notification') {
       listener =  NotificationEventEmitter.addListener(
         DEVICE_NOTIF_EVENT,
-        handler
+        (notification) => {
+          handler(new PushNotification(notification));
+        }
       );
     } else if (type === 'localNotification') {
       listener = NotificationEventEmitter.addListener(
