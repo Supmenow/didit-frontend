@@ -7,13 +7,10 @@ import com.microsoft.codepush.react.CodePush;
 import com.evollu.react.fcm.FIRMessagingPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.shell.MainReactPackage;
 import com.proxima.RCTDigits.DigitsPackage;
 import com.rt2zz.reactnativecontacts.ReactNativeContacts;
-
 import java.util.Arrays;
 import java.util.List;
-import com.microsoft.codepush.react.CodePush;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -36,7 +33,6 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected String getJSBundleFile() {
-
       if (BuildConfig.DEBUG) {
         return super.getJSBundleFile();
       } else {
