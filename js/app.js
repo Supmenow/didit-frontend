@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Navigator } from 'react-native';
 import { connect } from 'react-redux';
 
+import TransitionView from './transition-view';
 import Login from './components/login';
 import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
@@ -27,11 +27,10 @@ class App extends Component {
    this.login = this.login.bind(this);
    this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
-   this.contentForProps = this.contentForProps.bind(this);
+   this.sceneForProps = this.sceneForProps.bind(this);
    this.didReceiveNotification = this.didReceiveNotification.bind(this);
 
    this.style = props.style;
-   this.initialRoute = {content: this.contentForProps(props), index: 0};
   }
 
   componentWillMount() {
@@ -42,28 +41,13 @@ class App extends Component {
     Notification.addEventListener('notification', this.didReceiveNotification);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-
-    this.initialRoute = {content: this.contentForProps(prevProps), index: 0};
-    var newRoute = {content: this.contentForProps(this.props), index: 1};
-
-    if (this.initialRoute.content.type != newRoute.content.type) {
-        this.navigator.push(newRoute);
-    }
-  }
-
   render() {
     return (
-      <Navigator ref={(n) => this.navigator = n} initialRoute={this.initialRoute} renderScene={this.renderScene} configureScene={(route, routeStack) =>
-    Navigator.SceneConfigs.FloatFromBottom}/>
+      <TransitionView {...this.props} sceneForProps={this.sceneForProps}/>
     )
   }
 
-  renderScene(route, navigator) {
-    return route.content.component
-  }
-
-  contentForProps(props) {
+  sceneForProps(props) {
     if (props.didit) {
       return { component: (
         <DidIt didit={props.didit} style={this.style}/>
@@ -82,7 +66,6 @@ class App extends Component {
       ), type: 'LOGIN'};
     }
   }
-
 
   login(session) {
     this.props.dispatch(loginWithDigits(session));
