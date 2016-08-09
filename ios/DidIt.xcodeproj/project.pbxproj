@@ -25,6 +25,7 @@
 		740198741D5899770006E0A1 /* libRCTContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198691D58996D0006E0A1 /* libRCTContacts.a */; };
 		740198931D58E6280006E0A1 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198921D58E6230006E0A1 /* libRNFIRMessaging.a */; };
 		740198951D58E6750006E0A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 740198941D58E6750006E0A1 /* GoogleService-Info.plist */; };
+		740198D01D58F1670006E0A1 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198C91D58F1610006E0A1 /* libRCTPushNotification.a */; };
 		74A841CA1D54BF0800674886 /* RCTExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A841C91D54BF0800674886 /* RCTExplosionManager.m */; };
 		74A841D81D54C00400674886 /* ExplosionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A841D71D54C00400674886 /* ExplosionView.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -110,6 +111,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFIRMessaging;
 		};
+		740198C81D58F1610006E0A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
 		74C737091D5359F600D5FC82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 682A11318AF94A39B2F18014 /* RCTDigitsManager.xcodeproj */;
@@ -159,6 +167,7 @@
 		740198631D58996D0006E0A1 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
 		740198811D58E6230006E0A1 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 		740198941D58E6750006E0A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "DidIt/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
 		74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DidIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		74A841D71D54C00400674886 /* ExplosionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplosionView.swift; path = DidIt/ExplosionView.swift; sourceTree = "<group>"; };
@@ -181,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				740198D01D58F1670006E0A1 /* libRCTPushNotification.a in Frameworks */,
 				740198931D58E6280006E0A1 /* libRNFIRMessaging.a in Frameworks */,
 				740198741D5899770006E0A1 /* libRCTContacts.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -325,6 +335,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		740198BE1D58F1600006E0A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				740198C91D58F1610006E0A1 /* libRCTPushNotification.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		74C737051D5359F600D5FC82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +362,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */,
 				740198811D58E6230006E0A1 /* RNFIRMessaging.xcodeproj */,
 				740198631D58996D0006E0A1 /* RCTContacts.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -503,6 +522,10 @@
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
 				},
 				{
+					ProductGroup = 740198BE1D58F1600006E0A1 /* Products */;
+					ProjectRef = 740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */;
+				},
+				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
 				},
@@ -604,6 +627,13 @@
 			fileType = archive.ar;
 			path = libRNFIRMessaging.a;
 			remoteRef = 740198911D58E6230006E0A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		740198C91D58F1610006E0A1 /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = 740198C81D58F1610006E0A1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		74C7370A1D5359F600D5FC82 /* libRCTDigitsManager.a */ = {
@@ -818,6 +848,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-fabric-digits/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS",
 				);
 				INFOPLIST_FILE = DidIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -846,6 +877,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-fabric-digits/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS",
 				);
 				INFOPLIST_FILE = DidIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

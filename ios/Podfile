@@ -5,7 +5,6 @@
 
 target 'DidIt' do
   pod 'Digits'
-  pod 'Firebase/Messaging'
 end
 
 target 'DidItTests' do

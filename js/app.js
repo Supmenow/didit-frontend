@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import FCM from 'react-native-fcm';
 
 import Login from './components/login';
 import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
 import DidIt from './components/didIt';
+import Notification from './notification';
 
-import { loginWithDigits, signup, sendDidIt, uploadContacts } from './actions/user';
+import { loginWithDigits, signup, sendDidIt, uploadContacts, updateToken, viewDidIt } from './actions/user';
 
 class App extends Component {
 
@@ -19,27 +19,16 @@ class App extends Component {
    this.login = this.login.bind(this);
    this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
+   this.didReceiveNotification = this.didReceiveNotification.bind(this);
   }
 
   componentWillMount() {
     if (this.props.profile) {
       this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
     }
-  }
 
-  componentDidMount() {
-
-    FCM.requestPermissions(); // for iOS
-    FCM.getFCMToken().then(this.tokenDidUpdate);
-
-    this.notificationUnsubscribe = FCM.on('notification', this.didReceiveNotification);
-    this.refreshUnsubscribe = FCM.on('refreshToken', this.tokenDidUpdate);
-  }
-
-  componentWillUnmount() {
-    // prevent leaking
-    this.refreshUnsubscribe();
-    this.notificationUnsubscribe();
+    //FIXME: Where does this belong ask on Redux
+    Notification.addEventListener('notification', this.didReceiveNotification);
   }
 
   render() {
@@ -74,14 +63,8 @@ class App extends Component {
     this.props.dispatch(sendDidIt(this.props.profile["api-key"]));
   }
 
-  tokenDidUpdate(token) {
-    // - Send to server
-  }
-
-  // FIXME: For iOS We should request additional time
-  // and pass through a callback
   didReceiveNotification(notification) {
-    // - Handle State
+    this.props.dispatch(viewDidIt());
   }
 }
 

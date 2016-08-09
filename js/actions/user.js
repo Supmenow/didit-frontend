@@ -1,5 +1,7 @@
-import { makeCheckUserRequest, makeSendDidItRequest, makeUploadContactsRequest } from '../networking';
+//FIXME: Break this down
+import { makeCheckUserRequest, makeSendDidItRequest, makeUploadContactsRequest, makeUpdateUserTokenRequest } from '../networking';
 import Contacts from '../contacts';
+import Notification from '../notification';
 
 function loading() {
   return {
@@ -7,10 +9,26 @@ function loading() {
   }
 }
 
-function updateProfile(profile) {
+function profileUpdated(profile) {
   return {
     type: 'PROFILE_UPDATED',
     profile: profile
+  }
+}
+
+function updateToken(apiKey, token) {
+  return function (dispatch) {
+
+    makeUpdateUserTokenRequest(apiKey, token).then((response) => {
+
+      var profile = response.success.user
+
+      if (profile) {
+        dispatch(profileUpdated(profile))
+      } else {
+        // Handle Error
+      }
+    })
   }
 }
 
@@ -33,12 +51,24 @@ function uploadContacts(apiKey) {
         var profile = response.success.user
 
         if (profile) {
-          dispatch(updateProfile(profile))
+          dispatch(profileUpdated(profile))
         } else {
           // Handle Error
         }
       })
     })
+  }
+}
+
+function registerForNotifications(apiKey) {
+  return function (dispatch) {
+
+    Notification.addEventListener('register', (token) => {
+        console.log("FCM Token: " + token);
+        dispatch(updateToken(apiKey, token))
+    });
+
+    Notification.requestPermissions();
   }
 }
 
@@ -53,6 +83,7 @@ function loginWithDigits(session) {
       var profile = response.success.user
 
       if (profile) {
+        dispatch(registerForNotifications(profile["api-key"]))
         dispatch(uploadContacts(profile["api-key"]))
       } else {
         // Handle Error
@@ -88,7 +119,7 @@ function sendDidIt(apiKey) {
     makeSendDidItRequest(apiKey).then((response) => {
 
       if (response.success) {
-        dispatch(didit());
+        dispatch(viewDidIt());
       } else {
         // Handle Error
       }
@@ -96,10 +127,15 @@ function sendDidIt(apiKey) {
   }
 }
 
+function viewDidIt() {
+
+}
+
 module.exports = {
   loginWithDigits: loginWithDigits,
   signup: signup,
   sendDidIt: sendDidIt,
+  viewDidIt: viewDidIt,
   uploadContacts: uploadContacts,
   dismissDidit: dismissDidit
 }

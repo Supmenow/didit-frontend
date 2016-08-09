@@ -1,4 +1,5 @@
-function makeAPIRequest(path, data, key) {
+//FIXME: Break this down
+function makeAPIRequest(path, data, key, method = 'POST') {
 
     var headers = {
       'Accept': 'application/json',
@@ -11,7 +12,7 @@ function makeAPIRequest(path, data, key) {
     }
 
     return fetch('http://139.59.184.179/api/v1' + path, {
-      method: 'POST',
+      method: method,
       headers: headers,
       body: JSON.stringify(data)
     }).then((response) => {
@@ -36,8 +37,15 @@ function makeUploadContactsRequest(apiKey, numbers) {
   }, apiKey);
 }
 
+function makeUpdateUserTokenRequest(apiKey, token) {
+  return makeAPIRequest('/users', {
+    "iid_token": token
+  }, apiKey, 'PUT');
+}
+
 module.exports = {
   makeCheckUserRequest: makeCheckUserRequest,
   makeSendDidItRequest: makeSendDidItRequest,
-  makeUploadContactsRequest: makeUploadContactsRequest
+  makeUploadContactsRequest: makeUploadContactsRequest,
+  makeUpdateUserTokenRequest: makeUpdateUserTokenRequest
 };
