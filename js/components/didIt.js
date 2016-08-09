@@ -34,7 +34,7 @@ class DidIt extends Component {
       <TouchableWithoutFeedback onPress={this.dismiss} style={this.style.didIt}>
         <Explosion style={this.style.container}>
               <View style={this.style.diditTextContainer}>
-                <Text style={this.style.text}>You Did It!</Text>
+                <Text style={this.style.text}>{this.props.didit.body}</Text>
               </View>
               <View style={this.style.replyContainer}>
                 <Button onPress={this.sendHighFive}>

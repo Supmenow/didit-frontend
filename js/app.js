@@ -27,14 +27,14 @@ class App extends Component {
       this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
     }
 
-    //FIXME: Where does this belong ask on Redux
+    //FIXME: Where does this belong ask on Redux?
     Notification.addEventListener('notification', this.didReceiveNotification);
   }
 
   render() {
     if (this.props.didit) {
       return (
-        <DidIt style={this.style}/>
+        <DidIt didit={this.props.didit} style={this.style}/>
       )
     } else if (this.props.profile) {
       return (

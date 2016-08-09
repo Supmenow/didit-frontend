@@ -3,7 +3,7 @@ class PushNotification {
   body: String
 
   constructor(props) {
-    body = props['_alert']
+    this.body = props['_alert'];
   }
 }
 
