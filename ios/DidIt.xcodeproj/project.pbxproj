@@ -23,7 +23,6 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		740198741D5899770006E0A1 /* libRCTContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198691D58996D0006E0A1 /* libRCTContacts.a */; };
-		740198931D58E6280006E0A1 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198921D58E6230006E0A1 /* libRNFIRMessaging.a */; };
 		740198951D58E6750006E0A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 740198941D58E6750006E0A1 /* GoogleService-Info.plist */; };
 		740198D01D58F1670006E0A1 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740198C91D58F1610006E0A1 /* libRCTPushNotification.a */; };
 		74A841CA1D54BF0800674886 /* RCTExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A841C91D54BF0800674886 /* RCTExplosionManager.m */; };
@@ -104,13 +103,6 @@
 			remoteGlobalIDString = 1441618E1BD0A79300FA4F59;
 			remoteInfo = RCTContacts;
 		};
-		740198911D58E6230006E0A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 740198811D58E6230006E0A1 /* RNFIRMessaging.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNFIRMessaging;
-		};
 		740198C81D58F1610006E0A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */;
@@ -165,7 +157,6 @@
 		682A11318AF94A39B2F18014 /* RCTDigitsManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTDigitsManager.xcodeproj; path = "../node_modules/react-native-fabric-digits/ios/RCTDigitsManager.xcodeproj"; sourceTree = "<group>"; };
 		70FF670DFBC1B7E3279F55D0 /* libPods-DidIt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DidIt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		740198631D58996D0006E0A1 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
-		740198811D58E6230006E0A1 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 		740198941D58E6750006E0A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "DidIt/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
@@ -191,7 +182,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				740198D01D58F1670006E0A1 /* libRCTPushNotification.a in Frameworks */,
-				740198931D58E6280006E0A1 /* libRNFIRMessaging.a in Frameworks */,
 				740198741D5899770006E0A1 /* libRCTContacts.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -327,14 +317,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		740198821D58E6230006E0A1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				740198921D58E6230006E0A1 /* libRNFIRMessaging.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		740198BE1D58F1600006E0A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				740198BD1D58F1600006E0A1 /* RCTPushNotification.xcodeproj */,
-				740198811D58E6230006E0A1 /* RNFIRMessaging.xcodeproj */,
 				740198631D58996D0006E0A1 /* RCTContacts.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -545,10 +526,6 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
-				{
-					ProductGroup = 740198821D58E6230006E0A1 /* Products */;
-					ProjectRef = 740198811D58E6230006E0A1 /* RNFIRMessaging.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -620,13 +597,6 @@
 			fileType = archive.ar;
 			path = libRCTContacts.a;
 			remoteRef = 740198681D58996D0006E0A1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		740198921D58E6230006E0A1 /* libRNFIRMessaging.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFIRMessaging.a;
-			remoteRef = 740198911D58E6230006E0A1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		740198C91D58F1610006E0A1 /* libRCTPushNotification.a */ = {

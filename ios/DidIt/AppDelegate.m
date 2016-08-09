@@ -11,6 +11,7 @@
 
 #import <Fabric/Fabric.h>
 #import <DigitsKit/DigitsKit.h>
+#import <SimulatorRemoteNotifications/UIApplication+SimulatorRemoteNotifications.h>
 
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
@@ -21,6 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [Fabric with:@[[Digits class]]];
+  
+#if (TARGET_OS_SIMULATOR)
+  [application listenForRemoteNotifications];
+#endif
   
   NSURL *jsCodeLocation;
 
