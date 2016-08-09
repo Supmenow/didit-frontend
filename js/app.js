@@ -64,6 +64,8 @@ class App extends Component {
   }
 
   didReceiveNotification(notification) {
+    // - Pass in shared data
+    alert(JSON.stringify(notification));
     this.props.dispatch(viewDidIt());
   }
 }
