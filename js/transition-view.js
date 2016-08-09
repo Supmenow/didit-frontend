@@ -8,14 +8,34 @@ class TransitionView extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.transition = this.props.createTransition(this, this.previousChildren, this.props.children)
+    this.transition = this.props.createTransition(this, this.prev, this.next)
   }
 
   render() {
     return (
       <View style={{flex: 1}}>
+        {this.renderPreviousChild()}
+        {this.renderNextChild()}
+      </View>
+    )
+  }
+
+  renderPreviousChild() {
+    if (this.previousChildren) {
+      return (
+        <View ref={component => this.prev = component} style={{flex: 1}}>
         { this.previousChildren }
-        { this.props.children }
+        </View>
+      )
+    } else {
+      return null
+    }
+  }
+
+  renderNextChild() {
+    return (
+      <View ref={component => this.next = component} style={{flex: 1}}>
+      { this.props.children }
       </View>
     )
   }

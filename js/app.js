@@ -69,6 +69,19 @@ class App extends Component {
   }
 
   createTransition(container, prevChildren, nextChildren) {
+
+    prevChildren.setNativeProps({
+      style: {
+        opacity: 0
+      }
+    });
+
+    // - Take style properties of each
+    // - Modify for animation
+    // - Animate
+    // - Remove Prev Child
+    // - Restore style attributes for Next Child
+
     // - Perform transition: prev --> next
     // Inside of container
   }
