@@ -19,6 +19,8 @@ public class MessagingService extends com.evollu.react.fcm.MessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
+        // Detect if app is in foreground if it is then lets only trigger the broadcast
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
