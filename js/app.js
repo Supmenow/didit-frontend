@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Navigator } from 'react-native';
 import { connect } from 'react-redux';
 
-import TransitionView from './transition-view';
 import Login from './components/login';
 import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
@@ -44,7 +43,8 @@ class App extends Component {
 
   render() {
     return (
-      <TransitionView createTransition={this.createTransition}>{this.renderContents()}</TransitionView>
+      <Navigator renderScene={this.renderContents} configureScene={(route, routeStack) =>
+    Navigator.SceneConfigs.FloatFromBottom}/>
     )
   }
 
@@ -68,23 +68,6 @@ class App extends Component {
     }
   }
 
-  createTransition(container, prevChildren, nextChildren) {
-
-    prevChildren.setNativeProps({
-      style: {
-        opacity: 0
-      }
-    });
-
-    // - Take style properties of each
-    // - Modify for animation
-    // - Animate
-    // - Remove Prev Child
-    // - Restore style attributes for Next Child
-
-    // - Perform transition: prev --> next
-    // Inside of container
-  }
 
   login(session) {
     this.props.dispatch(loginWithDigits(session));
