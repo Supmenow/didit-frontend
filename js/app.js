@@ -13,7 +13,6 @@ import {
   signup,
   sendDidIt,
   uploadContacts,
-  updateToken
 } from './actions';
 
 import {

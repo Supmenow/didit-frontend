@@ -1,3 +1,6 @@
+import { makeSendDidItRequest } from '../networking';
+import { startedLoading } from '../events';
+
 function sendDidIt(apiKey) {
   return function(dispatch) {
 
