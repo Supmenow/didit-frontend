@@ -1,6 +1,4 @@
 <resources>
-    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">LuHDN2cThhkCSSwPlTjLWe85Xal94yKaAYdQx</string>
-
-
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
     <string name="app_name">DidIt</string>
 </resources>

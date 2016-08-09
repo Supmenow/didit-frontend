@@ -13,6 +13,7 @@ import com.rt2zz.reactnativecontacts.ReactNativeContacts;
 
 import java.util.Arrays;
 import java.util.List;
+import com.microsoft.codepush.react.CodePush;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -24,15 +25,23 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-
       return Arrays.<ReactPackage>asList(
-              new MainReactPackage(),
-            new CodePush(this.getResources().getString(R.strings.reactNativeCodePush_androidDeploymentKey), this, BuildConfig.DEBUG),
-            new FIRMessagingPackage(),
+              new CodePush(getApplicationContext().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
+              new FIRMessagingPackage(),
               new DigitsPackage(),
               new ReactExplosionPackage(),
               new ReactNativeContacts()
       );
+    }
+
+    @Override
+    protected String getJSBundleFile() {
+
+      if (BuildConfig.DEBUG) {
+        return super.getJSBundleFile();
+      } else {
+        return CodePush.getJSBundleFile();
+      }
     }
   };
 
