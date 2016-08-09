@@ -1,5 +1,12 @@
 package com.didit;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+
 import com.google.firebase.messaging.RemoteMessage;
 
 /**
@@ -12,7 +19,26 @@ public class MessagingService extends com.evollu.react.fcm.MessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
-        // - Show a local notification which triggers the original intent
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
+                PendingIntent.FLAG_ONE_SHOT);
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Did It!")
+                .setContentText(remoteMessage.getData().get("body"))
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(0, notificationBuilder.build());
+
+        Intent i = new Intent("com.evollu.react.fcm.ReceiveNotification");
+        i.putExtra("data", remoteMessage);
+        sendOrderedBroadcast(i, null);
 
         super.onMessageReceived(remoteMessage);
     }
