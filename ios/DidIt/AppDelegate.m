@@ -13,6 +13,7 @@
 #import <DigitsKit/DigitsKit.h>
 #import <SimulatorRemoteNotifications/UIApplication+SimulatorRemoteNotifications.h>
 
+#import "CodePush.h"
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 #import "RCTPushNotificationManager.h"
@@ -31,6 +32,9 @@
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
+  // Production
+  // jsCodeLocation = [CodePush bundleURL];
+  
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"DidIt"
                                                initialProperties:nil
