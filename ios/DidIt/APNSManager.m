@@ -21,6 +21,10 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications)
   [[UIApplication sharedApplication] registerUserNotificationSettings];
 }
 
+- (NSArray<NSString *> *)supportedEvents {
+  return @[];
+}
+
 - (void)startObserving {
   
 }
