@@ -1,21 +1,19 @@
 import { makeSendReplyRequest } from '../networking';
-import { startedLoading, sentReply, error } from '../events';
+import { startedLoading, finishedLoading, receivedError, sentDidIt } from '../events';
 
 function sendReply(apiKey) {
   return function (dispatch) {
-    
+
     dispatch(startedLoading())
 
     makeSendReplyRequest(apiKey)
     .then((response) => {
-      if (response.success) {
-        dispatch(sentReply());
-      } else {
-        dispatch(error("Couldn't send reply", "Please try again later"));
-      }
+      dispatch(finishedLoading());
+      dispatch(sentReply());
     })
     .catch((err) => {
-        dispatch(error("Couldn't send reply", "Please try again later"));
+      dispatch(finishedLoading());
+      dispatch(receivedError("Couldn't send reply", "Please try again later"));
     })
   }
 }
