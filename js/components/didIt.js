@@ -24,7 +24,7 @@ class DidIt extends Component {
   render() {
     return (
       <TouchableWithoutFeedback onPress={this.props.onDismiss} style={this.style.didIt}>
-        <Explosion sprite={{uri:'smiley'}} style={this.style.container}>
+        <Explosion sprite={{uri:this.props.didit.data.image}} style={this.style.container}>
               <View style={this.style.diditTextContainer}>
                 <Text style={this.style.text}>{this.props.didit.body}</Text>
               </View>

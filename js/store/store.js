@@ -44,7 +44,10 @@ function appStore(state = initialState, action) {
       didit: {
         body: "You did it!",
         hideReplyButtons: true,
-        sound: 'dong.wav'
+        sound: 'dong.wav',
+        data: {
+          image: 'smiley'
+        }
       }
     });
   }
