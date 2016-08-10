@@ -3,6 +3,7 @@ import startedLoading from './started-loading';
 import profileUpdated from './profile-updated';
 import receivedDidIt from './received-didit';
 import sentDidIt from './sent-didit';
+import sentReply from './sent-reply';
 import error from './error';
 
 module.exports = {
@@ -11,5 +12,6 @@ module.exports = {
   ...profileUpdated,
   ...receivedDidIt,
   ...sentDidIt,
+  ...sentReply,
   ...error
 };

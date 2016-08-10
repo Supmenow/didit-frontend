@@ -34,7 +34,9 @@ function appStore(state = initialState, action) {
 
   if (action.type === 'SENT_DID_IT') {
     return Object.assign({}, state, {
-      didit: action.didit
+      didit: {
+        body: "You did it!"
+      }
     });
   }
 
@@ -44,7 +46,7 @@ function appStore(state = initialState, action) {
     });
   }
 
-  if (action.type === 'DISMISSED_DID_IT') {
+  if (action.type === 'DISMISSED_DID_IT' || action.type === 'SENT_REPLY') {
     return Object.assign({}, state, {
       didit: false
     });

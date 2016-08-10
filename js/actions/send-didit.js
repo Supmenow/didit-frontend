@@ -7,7 +7,6 @@ function sendDidIt(apiKey) {
     dispatch(startedLoading())
 
     makeSendDidItRequest(apiKey).then((response) => {
-
       if (response.success) {
         dispatch(sentDidIt());
       } else {

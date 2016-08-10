@@ -8,6 +8,7 @@ import Explosion from './explosion';
 import { sendReply } from '../actions';
 import { dismissedDidIt } from '../events';
 
+//FIXME: Push up into App Component?
 class DidIt extends Component {
 
   constructor(props) {

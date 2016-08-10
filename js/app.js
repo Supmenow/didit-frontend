@@ -1,7 +1,9 @@
-import React, { Component, Alert } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TransitionView from './transition-view';
+import TransitionNavigation from './transition-navigation';
+import NetworkOperation from './network-operation';
+
 import Login from './components/login';
 import Signup from './components/signup';
 import SendDidIt from './components/sendDidIt';
@@ -38,17 +40,14 @@ class App extends Component {
       this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
     }
 
-    if (this.props.error) {
-      // Show Alert
-      alert();
-    }
-
     Notification.addEventListener('notification', this.didReceiveNotification);
   }
 
   render() {
     return (
-      <TransitionView {...this.props} sceneForProps={this.sceneForProps}/>
+      <NetworkOperation loading={this.props.loading} error={this.props.error}>
+        <TransitionNavigation {...this.props} sceneForProps={this.sceneForProps}/>
+      </NetworkOperation>
     )
   }
 
@@ -67,7 +66,7 @@ class App extends Component {
       ), type: 'SIGN_UP'};
     } else {
       return {component: (
-        <Login loading={props.loading} onLogin={this.login} style={this.style}/>
+        <Login onLogin={this.login} style={this.style}/>
       ), type: 'LOGIN'};
     }
   }

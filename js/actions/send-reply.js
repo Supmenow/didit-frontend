@@ -1,9 +1,17 @@
-import { dismissedDidIt } from '../events';
+import { makeSendReplyRequest } from '../networking';
+import { startedLoading, sentReply, error } from '../events';
 
-function sendReply() {
+function sendReply(apiKey) {
   return function (dispatch) {
     dispatch(startedLoading())
-    dispatch(dismissedDidIt())
+
+    makeSendReplyRequest(apiKey).then((response) => {
+      if (response.success) {
+        dispatch(sentReply());
+      } else {
+        dispatch(error({}));
+      }
+    })
   }
 }
 

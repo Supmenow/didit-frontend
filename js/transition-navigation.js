@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 
-class TransitionView extends Component {
+class TransitionNavigation extends Component {
 
   constructor(props) {
    super(props);
@@ -41,4 +41,4 @@ class TransitionView extends Component {
   }
 }
 
-module.exports = TransitionView;
+module.exports = TransitionNavigation;
