@@ -1,5 +1,5 @@
 import { makeSendDidItRequest } from '../networking';
-import { startedLoading, sentDidIt } from '../events';
+import { startedLoading, finishedLoading, receivedError, sentDidIt } from '../events';
 
 function sendDidIt(apiKey) {
   return function(dispatch) {
@@ -8,14 +8,12 @@ function sendDidIt(apiKey) {
 
     makeSendDidItRequest(apiKey)
     .then((response) => {
-      if (response.success) {
-        dispatch(sentDidIt());
-      } else {
-        dispatch(error("Couldn't send reply", "Please try again later"));
-      }
+      dispatch(finishedLoading())
+      dispatch(sentDidIt());
     })
     .catch((err) => {
-        dispatch(error("Couldn't send reply", "Please try again later"));
+        dispatch(finishedLoading())
+        dispatch(receivedError("Couldn't send reply", "Please try again later"));
     })
   }
 }
