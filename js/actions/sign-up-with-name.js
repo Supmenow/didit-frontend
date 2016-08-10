@@ -3,13 +3,13 @@ import { makeSignUpRequest } from '../networking';
 import { registerForNotifications } from './register-for-notifications';
 import { uploadContacts } from './upload-contacts'
 
-function signUpWithName(session, name) {
+function signUpWithName(session, name, proto) {
 
   return function (dispatch) {
 
     dispatch(startedLoading())
 
-    makeSignUpRequest(session, name)
+    makeSignUpRequest(session, name, proto)
     .then((response) => {
 
       dispatch(finishedLoading())

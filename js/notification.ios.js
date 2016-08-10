@@ -8,6 +8,10 @@ class Notification extends NotificationCore {
     PushNotificationIOS.addEventListener('notification', this.remoteNotification);
     PushNotificationIOS.requestPermissions();
   }
+
+  static protocol() {
+    return 'apns';
+  }
 }
 
 module.exports = Notification;

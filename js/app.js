@@ -60,7 +60,7 @@ class App extends Component {
   }
 
   signUp(name) {
-    this.props.dispatch(signUpWithName(this.props.session, name));
+    this.props.dispatch(signUpWithName(this.props.session, name, Notification.proto()));
   }
 
   sendDidIt() {
