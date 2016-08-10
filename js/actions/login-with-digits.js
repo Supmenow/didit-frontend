@@ -1,4 +1,4 @@
-import { startedLoading } from '../events';
+import { error, startedLoading } from '../events';
 import { makeCheckUserRequest } from '../networking';
 import { registerForNotifications } from './register-for-notifications';
 import { uploadContacts } from './upload-contacts';
@@ -17,8 +17,10 @@ function loginWithDigits(session) {
         dispatch(registerForNotifications(profile["api-key"]))
         dispatch(uploadContacts(profile["api-key"]))
       } else {
-        // Handle Error
+        dispatch(error());
       }
+    }).catch((err) => {
+        dispatch(error(err));
     })
   }
 }

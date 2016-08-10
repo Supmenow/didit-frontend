@@ -13,15 +13,28 @@ function appStore(state = initialState, action) {
     };
   }
 
-  if (action.type === 'LOADING') {
+  if (action.type === 'STARTED_LOADING') {
     return Object.assign({}, state, {
         loading: true
+    });
+  }
+
+  if (action.type === 'ERROR') {
+    return Object.assign({}, state, {
+        loading: false,
+        error: action.error
     });
   }
 
   if (action.type === 'SIGN_UP') {
     return Object.assign({}, state, {
         profile: state.user
+    });
+  }
+
+  if (action.type === 'SENT_DID_IT') {
+    return Object.assign({}, state, {
+      didit: action.didit
     });
   }
 

@@ -1,5 +1,5 @@
 import { makeSendDidItRequest } from '../networking';
-import { startedLoading } from '../events';
+import { startedLoading, sentDidIt } from '../events';
 
 function sendDidIt(apiKey) {
   return function(dispatch) {
@@ -9,7 +9,7 @@ function sendDidIt(apiKey) {
     makeSendDidItRequest(apiKey).then((response) => {
 
       if (response.success) {
-        dispatch(viewDidIt());
+        dispatch(sentDidIt());
       } else {
         // Handle Error
       }

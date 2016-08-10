@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Alert } from 'react';
 import { connect } from 'react-redux';
 
 import TransitionView from './transition-view';
@@ -36,6 +36,11 @@ class App extends Component {
   componentWillMount() {
     if (this.props.profile) {
       this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
+    }
+
+    if (this.props.error) {
+      // Show Alert
+      alert();
     }
 
     Notification.addEventListener('notification', this.didReceiveNotification);
@@ -88,7 +93,8 @@ function select(state) {
   return {
     profile: state.profile,
     didit: state.didit,
-    loading: state.loading
+    loading: state.loading,
+    error: state.error
   };
 }
 
