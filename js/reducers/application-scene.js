@@ -5,10 +5,10 @@ import SendDidIt from '../components/sendDidIt';
 import DidIt from '../components/didIt';
 
 function applicationSceneNameForState(state) {
-  if (state.profile) {
-    return 'SEND_DID_IT'
-  } else if (state.didit) {
+  if (state.didit) {
     return 'DID_IT'
+  } else if (state.profile) {
+    return 'SEND_DID_IT'
   } else if (state.signup) {
     return 'SIGN_UP'
   } else {
