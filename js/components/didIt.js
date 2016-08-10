@@ -28,11 +28,11 @@ class DidIt extends Component {
   }
 
   sendHighFive() {
-    this.props.dispatch(sendReply());
+    this.props.dispatch(sendReply(this.props.profile["api-key"]));
   }
 
   sendEyeRoll() {
-    this.props.dispatch(sendReply());
+    this.props.dispatch(sendReply(this.props.profile["api-key"]));
   }
 
   render() {

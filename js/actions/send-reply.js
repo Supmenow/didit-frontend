@@ -1,5 +1,5 @@
 import { makeSendReplyRequest } from '../networking';
-import { startedLoading, finishedLoading, receivedError, sentDidIt } from '../events';
+import { startedLoading, finishedLoading, receivedError, sentDidIt, sentReply } from '../events';
 
 function sendReply(apiKey) {
   return function (dispatch) {
@@ -10,8 +10,7 @@ function sendReply(apiKey) {
     .then((response) => {
       dispatch(finishedLoading());
       dispatch(sentReply());
-    })
-    .catch((err) => {
+    }, (error) => {
       dispatch(finishedLoading());
       dispatch(receivedError("Couldn't send reply", "Please try again later"));
     })

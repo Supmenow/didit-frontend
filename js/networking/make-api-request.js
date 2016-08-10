@@ -2,6 +2,9 @@
 // FIXME: Implement logging with React Native and requests
 function parseAPIResponse(json) {
   return new Promise(function(resolve, reject) {
+
+    console.log("Response: " + JSON.stringify(json));
+
     if (json.success) {
       resolve(json.success);
     } else {
@@ -9,7 +12,6 @@ function parseAPIResponse(json) {
     }
   });
 }
-
 
 function makeAPIRequest(path, data, key, method = 'POST') {
 
