@@ -28,20 +28,20 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications)
 }
 
 - (void)startObserving {
-  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleActionPressed:) name:APNSManagerRemoteNotificationActionEvent object:nil];
 }
 
 - (void)stopObserving {
-  
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 + (void)actionPressed:(void (^)())completionHandler {
-  
+  [[NSNotificationCenter defaultCenter] postNotificationName:APNSManagerRemoteNotificationActionEvent object:completionHandler];
 }
 
-- (void)handleActionPressed:(void (^)())completionHandler
+- (void)handleActionPressed:(NSNotification *)notification
 {
-  [self sendEventWithName:APNSManagerRemoteNotificationActionEvent body:completionHandler];
+  [self sendEventWithName:APNSManagerRemoteNotificationActionEvent body:notification.object];
 }
 
 @end
