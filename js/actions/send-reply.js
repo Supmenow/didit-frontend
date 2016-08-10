@@ -5,12 +5,16 @@ function sendReply(apiKey) {
   return function (dispatch) {
     dispatch(startedLoading())
 
-    makeSendReplyRequest(apiKey).then((response) => {
+    makeSendReplyRequest(apiKey)
+    .then((response) => {
       if (response.success) {
         dispatch(sentReply());
       } else {
-        dispatch(error({}));
+        dispatch(error("Couldn't send reply", "Please try again later"));
       }
+    })
+    .catch((err) => {
+        dispatch(error("Couldn't send reply", "Please try again later"));
     })
   }
 }

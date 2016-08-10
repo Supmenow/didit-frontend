@@ -1,7 +1,10 @@
-function error(error) {
+function error(title, message) {
   return {
     type: 'ERROR',
-    error: error
+    error: {
+      title: title,
+      message: message
+    }
   }
 }
 

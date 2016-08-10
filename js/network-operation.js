@@ -5,10 +5,12 @@ import Spinner from 'react-native-loading-spinner-overlay';
 class NetworkOperation extends Component {
 
   componentWillUpdate(nextProps, nextState) {
+
+    // - Add ability to dismiss error
     if (nextProps.error) {
       Alert.alert(
-        'Alert Title',
-        'My Alert Msg',
+        nextProps.error.title,
+        nextProps.error.message,
         [
           {text: 'OK'},
         ]
