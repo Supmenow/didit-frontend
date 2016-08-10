@@ -17,7 +17,7 @@
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 #import "RCTPushNotificationManager.h"
-#import "RCTAPNSManager.m"
+#import "APNSManager.h"
 #import "DidIt-Swift.h"
 
 @implementation AppDelegate
@@ -88,16 +88,9 @@
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)())completionHandler {
   
   [BackgroundTask run:application handler:^(BackgroundTask * _Nonnull task) {
-    
-    // - Trigger React Call
-    // - Only call end when we have a callback
-    [RCTAPNSManager handleActionPressed:^{
-      
+    [APNSManager handleActionPressed:^{
       [task end];
-
     }];
-    
-    
   }];
   
   completionHandler();
