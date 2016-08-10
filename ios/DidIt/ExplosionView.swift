@@ -10,13 +10,23 @@ import UIKit
 
 @objc class ExplosionView: UIView {
   
+  var sprite: UIImage? {
+    didSet {
+      guard let sprite = sprite else {
+        return
+      }
+      
+      cell.contents = sprite.CGImage
+
+    }
+  }
+  
   let emmiterLayer = CAEmitterLayer()
   let cell = CAEmitterCell()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    cell.contents = UIImage(named: "smiley")?.CGImage // Get this from React Native
     cell.birthRate = 10
     cell.lifetime = 5.0
     
