@@ -8,8 +8,8 @@ class Notification extends NotificationCore {
     PushNotificationIOS.addEventListener('register', this.tokenDidUpdate);
     PushNotificationIOS.addEventListener('notification', this.remoteNotification);
 
-    var APNSManager = NativeModules.RCTAPNSManager;
-    APNSManager.registerForRemoteNotifications();
+    var manager = NativeModules.APNSManager;
+    manager.registerForRemoteNotifications();
   }
 
   static protocol() {

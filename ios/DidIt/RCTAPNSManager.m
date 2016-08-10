@@ -12,11 +12,11 @@
 #import "RCTBridgeModule.h"
 #import "Didit-Swift.h"
 
-@interface RCTAPNSManager : NSObject <RCTBridgeModule>
+@interface APNSManager : NSObject <RCTBridgeModule>
 
 @end
 
-@implementation RCTAPNSManager
+@implementation APNSManager
 
 RCT_EXPORT_MODULE()
 
