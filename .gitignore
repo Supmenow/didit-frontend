@@ -22,7 +22,7 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Cocoapods
+# CocoaPods
 #
 Pods/
 
