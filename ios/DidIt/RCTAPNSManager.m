@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 #import "RCTBridgeModule.h"
+#import "Didit-Swift.h"
 
 @interface RCTAPNSManager : NSObject <RCTBridgeModule>
 
@@ -19,9 +22,7 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(registerForRemoteNotifications)
 {
-  NSLog(@":D");
-  
-  
+  [[UIApplication sharedApplication] registerUserNotificationSettings];
 }
 
 @end

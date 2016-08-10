@@ -1,5 +1,5 @@
 //
-//  AppDelegate+registerForRemoteNotifications.swift
+//  UIApplication+registerForRemoteNotifications.swift
 //  DidIt
 //
 //  Created by James Campbell on 8/10/16.
@@ -9,11 +9,9 @@
 import Foundation
 import UIKit
 
-extension AppDelegate {
+extension UIApplication {
   
-  func registerForRemoteNotifications() {
-    
-    let application = UIApplication.sharedApplication()
+  @objc func registerUserNotificationSettings() {
     
     guard #available(iOS 8.0, *) else {
       return
@@ -35,7 +33,7 @@ extension AppDelegate {
     notificationCategory.identifier = "REPLY_CATEGORY"
     notificationCategory.setActions([notificationActionHighFive, notificationActionEyeRoll], forContext: UIUserNotificationActionContext.Default)
     
-    application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert,
+    registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert,
       UIUserNotificationType.Badge], categories: [notificationCategory]))
   }
 }
