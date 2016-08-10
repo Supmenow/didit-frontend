@@ -13,9 +13,10 @@
 #import "Didit-Swift.h"
 
 // Class for working around built in React Native class
-// not allowing you to specify actions and categories.
+// not allowing you to handle actions and register categories.
 //
-// FIXME: Send a PR to Facebook to allow this.
+// FIXME: Send a PR to Facebook to allow this once we un-hardcode
+//        things.
 //
 @interface APNSManager : NSObject <RCTBridgeModule>
 
