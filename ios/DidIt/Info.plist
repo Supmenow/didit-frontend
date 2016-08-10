@@ -56,15 +56,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Did It!</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>DIDIT_IDENTIFIER</string>
-		</dict>
-	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
