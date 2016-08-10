@@ -39,17 +39,27 @@ class DidIt extends Component {
               <View style={this.style.diditTextContainer}>
                 <Text style={this.style.text}>{this.props.didit.body}</Text>
               </View>
-              <View style={this.style.replyContainer}>
-                <Button onPress={this.sendHighFive}>
-                  <Image source={require('./img/highfive.png')}/>
-                </Button>
-                <Button onPress={this.sendEyeRoll}>
-                  <Image source={require('./img/eyeroll.png')}/>
-                </Button>
-              </View>
+              {this.renderReplyButtons()}
         </Explosion>
       </TouchableWithoutFeedback>
     );
+  }
+
+  renderReplyButtons() {
+    if (!this.props.didit.hideReplyButtons) {
+      return (
+        <View hidden={!this.props.didit.hideReplyButtons} style={this.style.replyContainer}>
+          <Button onPress={this.sendHighFive}>
+            <Image source={require('./img/highfive.png')}/>
+          </Button>
+          <Button onPress={this.sendEyeRoll}>
+            <Image source={require('./img/eyeroll.png')}/>
+          </Button>
+        </View>
+      )
+    }
+
+    return null
   }
 }
 

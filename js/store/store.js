@@ -35,7 +35,8 @@ function appStore(state = initialState, action) {
   if (action.type === 'SENT_DID_IT') {
     return Object.assign({}, state, {
       didit: {
-        body: "You did it!"
+        body: "You did it!",
+        hideReplyButtons: true
       }
     });
   }
