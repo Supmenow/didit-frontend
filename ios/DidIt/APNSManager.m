@@ -29,7 +29,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications)
   
 }
 
-+ (void)actionPressed:(void (^)())completionHandler {
++ (void)handleActionPressed:(void (^)())completionHandler {
   
 }
 
