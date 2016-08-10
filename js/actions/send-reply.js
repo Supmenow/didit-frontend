@@ -3,6 +3,7 @@ import { startedLoading, sentReply, error } from '../events';
 
 function sendReply(apiKey) {
   return function (dispatch) {
+    
     dispatch(startedLoading())
 
     makeSendReplyRequest(apiKey)

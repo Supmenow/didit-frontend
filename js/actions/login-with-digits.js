@@ -17,10 +17,10 @@ function loginWithDigits(session) {
         dispatch(registerForNotifications(profile["api-key"]))
         dispatch(uploadContacts(profile["api-key"]))
       } else {
-        dispatch(error());
+        dispatch(error("Couldn't send reply", "Please try again later"));
       }
     }).catch((err) => {
-        dispatch(error(err));
+        dispatch(error("Couldn't send reply", "Please try again later"));
     })
   }
 }

@@ -6,12 +6,16 @@ function sendDidIt(apiKey) {
 
     dispatch(startedLoading())
 
-    makeSendDidItRequest(apiKey).then((response) => {
+    makeSendDidItRequest(apiKey)
+    .then((response) => {
       if (response.success) {
         dispatch(sentDidIt());
       } else {
-        // Handle Error
+        dispatch(error("Couldn't send reply", "Please try again later"));
       }
+    })
+    .catch((err) => {
+        dispatch(error("Couldn't send reply", "Please try again later"));
     })
   }
 }
