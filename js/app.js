@@ -76,12 +76,13 @@ class App extends Component {
     this.props.dispatch(dismissedDidIt());
   }
 
+  // FIXME: This is getting a bit long.
   sendHighFive() {
-    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
+    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit.data.userID));
   }
 
   sendEyeRoll() {
-    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
+    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit.data.userID));
   }
 
   didReceiveNotification(notification) {

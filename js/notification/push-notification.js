@@ -2,7 +2,7 @@ class PushNotification {
 
   body: String
   sound: String
-  userID: String
+  data: Object
 
   constructor(props) {
 
@@ -17,8 +17,8 @@ class PushNotification {
       this.sound = props['_sound'];
     }
 
-    if (props['userID']) {
-      this.userID = props['userID'];
+    if (props['_data']) {
+      this.data = props['_data'];
     }
 
     //FCM
@@ -27,6 +27,7 @@ class PushNotification {
     }
 
     // Parse Sound for FCM
+    // Parse Data for FCM
   }
 }
 

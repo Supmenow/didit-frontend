@@ -38,6 +38,7 @@ function appStore(state = initialState, action) {
     });
   }
 
+  // FIXME: Side effects are bad, make View DidIt
   if (action.type === 'SENT_DID_IT') {
     return Object.assign({}, state, {
       didit: {
