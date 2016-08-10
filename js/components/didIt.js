@@ -15,15 +15,9 @@ class DidIt extends Component {
 
   componentDidMount() {
     var sound = new Sound(this.props.didit.sound, Sound.MAIN_BUNDLE, (error) => {
-
-      if (error) {
-        console.log('failed to load the sound', error);
-      } else { // loaded successfully
-        console.log('duration in seconds: ' + sound.getDuration() +
-            'number of channels: ' + sound.getNumberOfChannels());
+      if (!error) {
+        sound.play();
       }
-
-      sound.play();
     });
   }
 

@@ -19,7 +19,7 @@ class PushNotification {
       this.body = props['body'];
     }
 
-    // Parse Sound
+    // Parse Sound for FCM
   }
 }
 
