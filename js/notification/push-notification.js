@@ -2,8 +2,11 @@ class PushNotification {
 
   body: String
   sound: String
+  userID: String
 
   constructor(props) {
+
+    console.log("Parsing Notification With Properties: " + JSON.stringify(props))
 
     //APNS
     if (props['_alert']) {
@@ -12,6 +15,10 @@ class PushNotification {
 
     if (props['_sound']) {
       this.sound = props['_sound'];
+    }
+
+    if (props['userID']) {
+      this.userID = props['userID'];
     }
 
     //FCM

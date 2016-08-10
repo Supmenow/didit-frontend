@@ -77,11 +77,11 @@ class App extends Component {
   }
 
   sendHighFive() {
-    this.props.dispatch(sendReply(this.props.profile["api-key"]));
+    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
   }
 
   sendEyeRoll() {
-    this.props.dispatch(sendReply(this.props.profile["api-key"]));
+    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
   }
 
   didReceiveNotification(notification) {
