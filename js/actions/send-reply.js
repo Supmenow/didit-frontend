@@ -1,6 +1,9 @@
+import { dismissedDidIt } from '../events';
+
 function sendReply() {
-  return {
-    type: 'SENT_REPLY'
+  return function (dispatch) {
+    dispatch(startedLoading())
+    dispatch(dismissedDidIt())
   }
 }
 

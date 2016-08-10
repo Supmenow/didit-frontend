@@ -17,6 +17,7 @@
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 #import "RCTPushNotificationManager.h"
+#import "DidIt-Swift.h"
 
 @implementation AppDelegate
 
@@ -68,6 +69,7 @@
 // Required for the notification event.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
 {
+  
   [RCTPushNotificationManager didReceiveRemoteNotification:notification];
 }
 
@@ -75,6 +77,22 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
   [RCTPushNotificationManager didReceiveLocalNotification:notification];
+}
+
+// Notification Action
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler {
+  [self application:application handleActionWithIdentifier:identifier forRemoteNotification:userInfo withResponseInfo:@{} completionHandler:completionHandler];
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)())completionHandler {
+  
+  [BackgroundTask run:application handler:^(BackgroundTask * _Nonnull task) {
+    
+    // - Trigger React Call
+    // - Only call end when we have a callback
+    [task end];
+    
+  }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error

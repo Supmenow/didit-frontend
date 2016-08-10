@@ -35,7 +35,7 @@ class TransitionView extends Component {
 
   sceneForProps(props) {
     // FIXME:
-    // - Allow Navigator to perform Pop via a Reduction
+    // - Is there a Pop Animation
     // - Expose ability to customize animations
     return this.props.sceneForProps(props)
   }
