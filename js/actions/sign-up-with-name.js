@@ -1,4 +1,4 @@
-function signup(name) {
+function signUpWithName(name) {
   return {
     type: 'SIGN_UP',
     name: name
@@ -6,5 +6,5 @@ function signup(name) {
 }
 
 module.exports = {
-  signup
+  signUpWithName
 }

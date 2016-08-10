@@ -9,7 +9,7 @@ import { applicationSceneForName } from './reducers/application-scene';
 
 import {
   loginWithDigits,
-  signup,
+  signUpWithName,
   sendDidIt,
   uploadContacts,
 } from './actions';
@@ -59,8 +59,8 @@ class App extends Component {
     this.props.dispatch(loginWithDigits(session));
   }
 
-  signUp() {
-    this.props.dispatch(signup("James"));
+  signUp(text) {
+    this.props.dispatch(signUpWithName(text));
   }
 
   sendDidIt() {

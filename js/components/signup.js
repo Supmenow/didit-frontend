@@ -12,13 +12,14 @@ class Signup extends Component {
   }
 
   signUp() {
-    this.props.onSignUp();
+    this.props.onSignUp(this.state.text);
   }
 
   render() {
     return (
       <View style={this.style.container}>
         <TextInput
+          onChangeText={(text) => this.setState({text})}
           placeholder="Enter Your Name"
           selectionColor="#fff"
           style={this.style.nameInput}
