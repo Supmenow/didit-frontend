@@ -6,7 +6,7 @@ function sendReply(apiKey, didit) {
 
     dispatch(startedLoading())
 
-    makeSendReplyRequest(apiKey, didit.userID)
+    makeSendReplyRequest(apiKey, didit.data.userID)
     .then((response) => {
       dispatch(finishedLoading());
       dispatch(sentReply());
