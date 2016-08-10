@@ -8,7 +8,10 @@ import Explosion from './explosion';
 import { sendReply } from '../actions';
 import { dismissedDidIt } from '../events';
 
-//FIXME: Push up into App Component?
+//FIXME:
+// - Push up login into component
+// - Implement Play Sound
+// - Implement choose particle effect
 class DidIt extends Component {
 
   constructor(props) {
