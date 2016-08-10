@@ -45,7 +45,7 @@ class App extends Component {
     Notification.addEventListener('notification', this.didReceiveNotification);
     Notification.addEventListener('remoteNotificationAction', (action) => {
       alert("ACT");
-      action();
+      //action(); // - Does this work ?
     });
   }
 
