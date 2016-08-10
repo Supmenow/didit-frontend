@@ -14,7 +14,10 @@ class TransitionNavigation extends Component {
     this.initialScene = {content: this.sceneForProps(prevProps), index: 0};
     var newScene = {content: this.sceneForProps(this.props), index: 1};
 
-    // - Grab Other Properties From Scene
+    this.configuration = Object.assign(
+      defaultConfiguration(),
+      newScene.configuration
+    )
 
     if (this.initialScene.content.type !== newScene.content.type) {
         this.navigator.push(newScene);
@@ -27,7 +30,8 @@ class TransitionNavigation extends Component {
       style={{ flex:1 }}
       ref={(n) => this.navigator = n}
       initialRoute={this.initialScene}
-      renderScene={this.renderScene}/>
+      renderScene={this.renderScene}
+      configureScene={this.configuration}/>
     )
   }
 
@@ -37,6 +41,10 @@ class TransitionNavigation extends Component {
 
   sceneForProps(props) {
     return this.props.sceneForProps(props)
+  }
+
+  defaultConfiguration() {
+    return Navigator.SceneConfigs.PushFromRight
   }
 }
 
