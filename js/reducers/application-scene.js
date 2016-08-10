@@ -5,7 +5,6 @@ import SendDidIt from '../components/sendDidIt';
 import DidIt from '../components/didIt';
 
 function applicationSceneNameForState(state) {
-  alert(JSON.stringify(state));
   if (state.didit) {
     return 'SEND_DID_IT'
   } else if (state.profile) {
@@ -18,7 +17,7 @@ function applicationSceneNameForState(state) {
 }
 
 function applicationSceneForName(parent, sceneName, props) {
-  switch (props.scene) {
+  switch (sceneName) {
     case 'DID_IT':
     return ( <DidIt didit={props.didit} style={parent.style}/> )
 
