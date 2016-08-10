@@ -9,12 +9,22 @@ class DidIt extends Component {
 
   constructor(props) {
    super(props);
+
    this.style = props.style;
   }
 
   componentDidMount() {
-    var sound = new Sound(this.props.didit.sound, Sound.MAIN_BUNDLE);
-    sound.play();
+    var sound = new Sound(this.props.didit.sound, Sound.MAIN_BUNDLE, (error) => {
+
+      if (error) {
+        console.log('failed to load the sound', error);
+      } else { // loaded successfully
+        console.log('duration in seconds: ' + sound.getDuration() +
+            'number of channels: ' + sound.getNumberOfChannels());
+      }
+
+      sound.play();
+    });
   }
 
   render() {

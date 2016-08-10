@@ -42,7 +42,8 @@ function appStore(state = initialState, action) {
     return Object.assign({}, state, {
       didit: {
         body: "You did it!",
-        hideReplyButtons: true
+        hideReplyButtons: true,
+        sound: 'dong.wav'
       }
     });
   }
