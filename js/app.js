@@ -50,7 +50,7 @@ class App extends Component {
 
   sceneForProps(props) {
     return {
-      component: applicationSceneForName(this, props.scene, props.scene),
+      component: applicationSceneForName(this, props.scene, props),
       type: props.scene
     }
   }
