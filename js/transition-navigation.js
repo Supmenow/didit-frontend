@@ -10,14 +10,18 @@ class TransitionNavigation extends Component {
    this.initialScene = {content: this.sceneForProps(props), index: 0};
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentWillUpdate(nextProps, nextState) {
 
-    this.initialScene = {content: this.sceneForProps(prevProps), index: 0};
-    var newScene = {content: this.sceneForProps(this.props), index: 1};
+    var newScene = {content: this.sceneForProps(nextProps), index: 1};
 
     this.configureScene = () => {
-      return (newScene.configuration) ? newScene.configuration : this.defaultConfiguration()
+      return (newScene.content.configuration) ? newScene.content.configuration : this.defaultConfiguration()
     }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    this.initialScene = {content: this.sceneForProps(prevProps), index: 0};
+    var newScene = {content: this.sceneForProps(this.props), index: 1};
 
     if (this.initialScene.content.type !== newScene.content.type) {
         this.navigator.push(newScene);

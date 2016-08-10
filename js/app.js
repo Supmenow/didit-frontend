@@ -5,7 +5,7 @@ import Notification from './notification';
 import TransitionNavigation from './transition-navigation';
 import NetworkOperation from './network-operation';
 import { applicationState } from './reducers/application-state';
-import { applicationSceneForName } from './reducers/application-scene';
+import { applicationSceneForName, configurationForSceneName } from './reducers/application-scene';
 
 import {
   loginWithDigits,
@@ -60,7 +60,8 @@ class App extends Component {
   sceneForProps(props) {
     return {
       component: applicationSceneForName(this, props.scene, props),
-      type: props.scene
+      type: props.scene,
+      configuration: configurationForSceneName(props.scene)
     }
   }
 
