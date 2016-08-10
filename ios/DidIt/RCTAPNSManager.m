@@ -12,6 +12,9 @@
 #import "RCTBridgeModule.h"
 #import "Didit-Swift.h"
 
+// Class for working around built in React Native class
+// not allowing you to specify categories
+//
 @interface APNSManager : NSObject <RCTBridgeModule>
 
 @end
