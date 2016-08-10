@@ -4,12 +4,12 @@ import NotificationCore from './notification/core';
 
 const APNSManager = NativeModules.APNSManager;
 
-// Ask for additional time for notifications
 class Notification extends NotificationCore {
   static requestPermissions() {
     PushNotificationIOS.addEventListener('register', this.tokenDidUpdate);
     PushNotificationIOS.addEventListener('notification', this.remoteNotification);
 
+    APNSManager.addEventListener('remoteNotificationAction', this.remoteNotificationAction);
     APNSManager.registerForRemoteNotifications();
   }
 

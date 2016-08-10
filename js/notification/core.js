@@ -6,6 +6,7 @@ const NotificationEventEmitter = new EventEmitter();
 const _listenerHandlers = new Map();
 
 const DEVICE_NOTIF_EVENT = 'remoteNotificationReceived';
+const DEVICE_NOTIF_ACTION_EVENT = 'remoteNotificationAction';
 const NOTIF_REGISTER_EVENT = 'remoteNotificationsRegistered';
 const DEVICE_LOCAL_NOTIF_EVENT = 'localNotificationReceived';
 
@@ -13,8 +14,8 @@ class NotificationCore {
 
   static addEventListener(type: string, handler: Function) {
     invariant(
-      type === 'notification' || type === 'register' || type === 'localNotification',
-      'PushNotificationIOS only supports `notification`, `register` and `localNotification` events'
+      type === 'notification' || type === 'remoteNotificationAction' || type === 'register' || type === 'localNotification',
+      'PushNotificationIOS only supports `notification`, `remoteNotificationAction`, `register` and `localNotification` events'
     );
     var listener;
     if (type === 'notification') {
@@ -23,6 +24,11 @@ class NotificationCore {
         (notification) => {
           handler(new PushNotification(notification));
         }
+      );
+    } else if (type === 'remoteNotificationAction') {
+      listener = NotificationEventEmitter.addListener(
+        DEVICE_NOTIF_ACTION_EVENT,
+        handler
       );
     } else if (type === 'localNotification') {
       listener = NotificationEventEmitter.addListener(
@@ -40,8 +46,8 @@ class NotificationCore {
 
   static removeEventListener(type: string, handler: Function) {
     invariant(
-      type === 'notification' || type === 'register' || type === 'localNotification',
-      'Notification only supports `notification`, `register` and `localNotification` events'
+      type === 'notification' || type === 'remoteNotificationAction' || type === 'register' || type === 'localNotification',
+      'Notification only supports `notification`, `remoteNotificationAction`, `register` and `localNotification` events'
     );
     var listener = _listenerHandlers.get(handler);
     if (!listener) {
@@ -53,6 +59,10 @@ class NotificationCore {
 
   static remoteNotification(notification) {
     NotificationEventEmitter.emit(DEVICE_NOTIF_EVENT, notification);
+  }
+
+  static remoteNotificationAction(notification) {
+    NotificationEventEmitter.emit(DEVICE_NOTIF_ACTION_EVENT, notification);
   }
 
   static tokenDidUpdate(token) {
