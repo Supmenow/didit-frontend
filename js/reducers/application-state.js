@@ -5,7 +5,7 @@ function applicationState(state) {
     scene: applicationSceneNameForState(state),
     profile: state.profile,
     didit: state.didit,
-    loading: state.loading,
+    isLoading: state.isLoading,
     error: state.error
   };
 }

@@ -21,7 +21,13 @@ function appStore(state = initialState, action) {
 
   if (action.type === 'STARTED_LOADING') {
     return Object.assign({}, state, {
-        loading: true
+        isLoading: true
+    });
+  }
+
+  if (action.type === 'FINISHED_LOADING') {
+    return Object.assign({}, state, {
+        isLoading: undefined
     });
   }
 

@@ -1,5 +1,6 @@
 import dismissedDidIt from './dismissed-didit';
 import startedLoading from './started-loading';
+import finishedLoading from './finished-loading';
 import profileUpdated from './profile-updated';
 import receivedDidIt from './received-didit';
 import sentDidIt from './sent-didit';
@@ -10,6 +11,7 @@ import startedSignup from './started-signup';
 module.exports = {
   ...dismissedDidIt,
   ...startedLoading,
+  ...finishedLoading,
   ...profileUpdated,
   ...receivedDidIt,
   ...sentDidIt,

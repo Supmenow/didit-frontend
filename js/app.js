@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
     return (
-      <NetworkOperation loading={this.props.loading} error={this.props.error}>
+      <NetworkOperation loading={this.props.isLoading} error={this.props.error}>
         <TransitionNavigation {...this.props} sceneForProps={this.sceneForProps}/>
       </NetworkOperation>
     )
