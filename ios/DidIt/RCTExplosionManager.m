@@ -8,20 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RCTViewManager.h"
-#import "DidIt-Swift.h"
+#import "RCTBridgeModule.h"
 
-@interface RCTExplosionManager : RCTViewManager
+@interface RCTExplosionManager : NSObject <RCTBridgeModule>
 
 @end
 
 @implementation RCTExplosionManager
 
 RCT_EXPORT_MODULE()
-RCT_EXPORT_VIEW_PROPERTY(sprite, UIImage)
 
-- (UIView *)view {
-  return [[ExplosionView alloc] initWithFrame:CGRectZero];
+RCT_EXPORT_METHOD(registerForRemoteNotifications)
+{
+  RCTLogInfo(@"Pretending to create an event");
 }
 
 @end
