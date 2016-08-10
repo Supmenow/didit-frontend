@@ -12,6 +12,8 @@
 #import "APNSManager.h"
 #import "Didit-Swift.h"
 
+static NSString * const APNSManagerRemoteNotificationActionEvent = @"remoteNotificationAction";
+
 @implementation APNSManager
 
 RCT_EXPORT_MODULE()
@@ -22,7 +24,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications)
 }
 
 - (NSArray<NSString *> *)supportedEvents {
-  return @[];
+  return @[ APNSManagerRemoteNotificationActionEvent ];
 }
 
 - (void)startObserving {
@@ -39,7 +41,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications)
 
 - (void)handleActionPressed:(void (^)())completionHandler
 {
-  [self sendEventWithName:@"" body:completionHandler];
+  [self sendEventWithName:APNSManagerRemoteNotificationActionEvent body:completionHandler];
 }
 
 @end
