@@ -1,6 +1,6 @@
-function error(title, message) {
+function receivedError(title, message) {
   return {
-    type: 'ERROR',
+    type: 'RECEIVED_ERROR',
     error: {
       title: title,
       message: message
@@ -9,5 +9,5 @@ function error(title, message) {
 }
 
 module.exports = {
-  error
+  receivedError
 }

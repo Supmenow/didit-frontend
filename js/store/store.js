@@ -7,6 +7,12 @@ const initialState = {};
 
 function appStore(state = initialState, action) {
 
+  if (action.type === 'STARTED_SIGN_UP') {
+    return Object.assign({}, state, {
+        signup: true
+    });
+  }
+
   if (action.type === 'PROFILE_UPDATED') {
     return {
       profile: action.profile
@@ -19,16 +25,10 @@ function appStore(state = initialState, action) {
     });
   }
 
-  if (action.type === 'ERROR') {
+  if (action.type === 'RECEIVED_ERROR') {
     return Object.assign({}, state, {
         loading: false,
         error: action.error
-    });
-  }
-
-  if (action.type === 'SIGN_UP') {
-    return Object.assign({}, state, {
-        profile: state.user
     });
   }
 

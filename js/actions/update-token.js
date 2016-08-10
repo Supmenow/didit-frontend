@@ -6,6 +6,8 @@ function updateToken(apiKey, token) {
 
     makeUpdateUserTokenRequest(apiKey, token).then((response) => {
 
+      alert("API Response: " + JSON.stringify(response));
+
       var profile = response.success.user
 
       if (profile) {

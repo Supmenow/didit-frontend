@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Notification from './notification';
 import TransitionNavigation from './transition-navigation';
 import NetworkOperation from './network-operation';
-
-import Login from './components/login';
-import Signup from './components/signup';
-import SendDidIt from './components/sendDidIt';
-import DidIt from './components/didIt';
-import Notification from './notification';
+import { applicationState } from './reducers/application-state';
+import { applicationSceneForName } from './reducers/application-scene';
 
 import {
   loginWithDigits,
@@ -52,22 +49,9 @@ class App extends Component {
   }
 
   sceneForProps(props) {
-    if (props.didit) {
-      return { component: (
-        <DidIt didit={props.didit} style={this.style}/>
-      ), type: 'DID_IT' }
-    } else if (props.profile) {
-      return {component: (
-        <SendDidIt onSendDidIt={this.sendDidIt} style={this.style}/>
-      ), type: 'SEND_DID_IT' };
-    } else if (props.isAuthenticatedWithDigits === true) {
-      return {component: (
-        <Signup onSignUp={this.signUp} style={this.style}/>
-      ), type: 'SIGN_UP'};
-    } else {
-      return {component: (
-        <Login onLogin={this.login} style={this.style}/>
-      ), type: 'LOGIN'};
+    return {
+      component: applicationSceneForName(this, props.scene, props.scene),
+      type: props.scene
     }
   }
 
@@ -88,13 +72,4 @@ class App extends Component {
   }
 }
 
-function select(state) {
-  return {
-    profile: state.profile,
-    didit: state.didit,
-    loading: state.loading,
-    error: state.error
-  };
-}
-
-module.exports = connect(select)(App);
+module.exports = connect(applicationState)(App);

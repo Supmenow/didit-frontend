@@ -1,6 +1,6 @@
 function startedLoading() {
   return {
-    type: 'LOADING'
+    type: 'STARTED_LOADING'
   }
 }
 

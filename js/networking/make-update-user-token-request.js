@@ -1,8 +1,13 @@
 import { makeAPIRequest } from './make-api-request';
 
 function makeUpdateUserTokenRequest(apiKey, token) {
+
+  console.log(apiKey);
+  console.log(token);
+
   return makeAPIRequest('/users', {
-    "iid_token": token
+    "device_token": token,
+    "proto": "apns"
   }, apiKey, 'PUT');
 }
 

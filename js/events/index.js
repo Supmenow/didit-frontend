@@ -4,7 +4,8 @@ import profileUpdated from './profile-updated';
 import receivedDidIt from './received-didit';
 import sentDidIt from './sent-didit';
 import sentReply from './sent-reply';
-import error from './error';
+import receivedError from './received-error';
+import startedSignup from './started-signup';
 
 module.exports = {
   ...dismissedDidIt,
@@ -13,5 +14,6 @@ module.exports = {
   ...receivedDidIt,
   ...sentDidIt,
   ...sentReply,
-  ...error
+  ...receivedError,
+  ...startedSignup
 };

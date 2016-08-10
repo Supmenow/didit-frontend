@@ -1,4 +1,4 @@
-import { error, startedLoading } from '../events';
+import { startedLoading, startedSignup, receivedError } from '../events';
 import { makeCheckUserRequest } from '../networking';
 import { registerForNotifications } from './register-for-notifications';
 import { uploadContacts } from './upload-contacts';
@@ -11,17 +11,17 @@ function loginWithDigits(session) {
 
     makeCheckUserRequest(session).then((response) => {
 
-      var profile = response.success.user
+      dispatch(registerForNotifications(response.user["api-key"]))
+      dispatch(uploadContacts(response.user["api-key"]))
 
-      if (profile) {
-        dispatch(registerForNotifications(profile["api-key"]))
-        dispatch(uploadContacts(profile["api-key"]))
-      } else {
-        dispatch(error("Couldn't send reply", "Please try again later"));
-      }
-    }).catch((err) => {
-        dispatch(error("Couldn't send reply", "Please try again later"));
-    })
+    }, function(error) {
+
+        if (error.status_code == 404) {
+          dispatch(startedSignup());
+        } else {
+          dispatch(receivedError("We couldn't log you in", "Please try again later"));
+        }
+    });
   }
 }
 
