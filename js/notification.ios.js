@@ -11,7 +11,7 @@ class Notification extends NotificationCore {
     PushNotificationIOS.addEventListener('register', this.tokenDidUpdate);
     PushNotificationIOS.addEventListener('notification', this.remoteNotification);
 
-    APNSManagerEmitter.addEventListener('remoteNotificationAction', this.remoteNotificationAction);
+    APNSManagerEmitter.addListener('remoteNotificationAction', this.remoteNotificationAction);
     APNSManager.registerForRemoteNotifications();
   }
 
