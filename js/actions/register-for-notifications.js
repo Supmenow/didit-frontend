@@ -5,7 +5,7 @@ function registerForNotifications(apiKey) {
   return function (dispatch) {
 
     Notification.addEventListener('register', (token) => {
-        console.log("FCM Token: " + token);
+        console.log("Push Token: " + token);
         dispatch(updateToken(apiKey, token))
     });
 
