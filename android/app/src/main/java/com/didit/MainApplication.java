@@ -3,6 +3,7 @@ package com.didit;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.zmxv.RNSound.RNSoundPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.evollu.react.fcm.FIRMessagingPackage;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
               new MainReactPackage(),
+            new RNSoundPackage(),
               new CodePush(getApplicationContext().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
               new FIRMessagingPackage(),
               new DigitsPackage(),
