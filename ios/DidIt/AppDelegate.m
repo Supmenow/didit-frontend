@@ -88,7 +88,7 @@
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)())completionHandler {
   
   [BackgroundTask run:application handler:^(BackgroundTask * _Nonnull task) {
-    [APNSManager handleActionPressed:^{
+    [APNSManager actionPressed:^{
       [task end];
     }];
   }];
