@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableWithoutFeedback } from 'react-native';
+import Sound from 'react-native-sound';
 
 import Button from './button';
 import Explosion from './explosion';
@@ -8,8 +9,12 @@ class DidIt extends Component {
 
   constructor(props) {
    super(props);
-
    this.style = props.style;
+  }
+
+  componentDidMount() {
+    var sound = new Sound(this.props.didit.sound, Sound.MAIN_BUNDLE);
+    sound.play();
   }
 
   render() {
