@@ -12,10 +12,12 @@ import {
   signUpWithName,
   sendDidIt,
   uploadContacts,
+  sendReply
 } from './actions';
 
 import {
-  receivedDidIt
+  receivedDidIt,
+  dismissedDidIt
 } from './events';
 
 class App extends Component {
@@ -27,6 +29,9 @@ class App extends Component {
    this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
    this.sceneForProps = this.sceneForProps.bind(this);
+   this.dismissDidIt = this.dismissDidIt.bind(this);
+   this.sendHighFive = this.sendHighFive.bind(this);
+   this.sendEyeRoll = this.sendEyeRoll.bind(this);
    this.didReceiveNotification = this.didReceiveNotification.bind(this);
 
    this.style = props.style;
@@ -65,6 +70,18 @@ class App extends Component {
 
   sendDidIt() {
     this.props.dispatch(sendDidIt(this.props.profile["api-key"]));
+  }
+
+  dismissDidIt() {
+    this.props.dispatch(dismissedDidIt());
+  }
+
+  sendHighFive() {
+    this.props.dispatch(sendReply(this.props.profile["api-key"]));
+  }
+
+  sendEyeRoll() {
+    this.props.dispatch(sendReply(this.props.profile["api-key"]));
   }
 
   didReceiveNotification(notification) {
