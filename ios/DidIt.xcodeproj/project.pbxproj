@@ -28,7 +28,7 @@
 		7425AFFB1D5B65730010E11A /* dong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7425AFF81D5B65730010E11A /* dong.wav */; };
 		7425AFFC1D5B65730010E11A /* eyeroll.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7425AFF91D5B65730010E11A /* eyeroll.wav */; };
 		7425AFFD1D5B65730010E11A /* highfive.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7425AFFA1D5B65730010E11A /* highfive.wav */; };
-		7425B0021D5B98A00010E11A /* RCTAPNSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7425B0011D5B98A00010E11A /* RCTAPNSManager.m */; };
+		7425B0021D5B98A00010E11A /* APNSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7425B0011D5B98A00010E11A /* APNSManager.m */; };
 		7442D0A91D5A3254006E6BC5 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7442D0A81D5A3254006E6BC5 /* libz.1.2.5.tbd */; };
 		7442D0AB1D5A3870006E6BC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7442D0AA1D5A3870006E6BC5 /* LaunchScreen.storyboard */; };
 		74472AA51D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */; };
@@ -186,10 +186,11 @@
 		7425AFF81D5B65730010E11A /* dong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dong.wav; sourceTree = "<group>"; };
 		7425AFF91D5B65730010E11A /* eyeroll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eyeroll.wav; sourceTree = "<group>"; };
 		7425AFFA1D5B65730010E11A /* highfive.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = highfive.wav; sourceTree = "<group>"; };
-		7425B0011D5B98A00010E11A /* RCTAPNSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTAPNSManager.m; path = DidIt/RCTAPNSManager.m; sourceTree = "<group>"; };
+		7425B0011D5B98A00010E11A /* APNSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APNSManager.m; path = DidIt/APNSManager.m; sourceTree = "<group>"; };
 		7442D0A81D5A3254006E6BC5 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		7442D0AA1D5A3870006E6BC5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DidIt/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIApplication+registerForRemoteNotifications.swift"; path = "DidIt/UIApplication+registerForRemoteNotifications.swift"; sourceTree = "<group>"; };
+		74472AB51D5BA61800C0D5DC /* APNSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APNSManager.h; path = DidIt/APNSManager.h; sourceTree = "<group>"; };
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
 		74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DidIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		74A841D71D54C00400674886 /* ExplosionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplosionView.swift; path = DidIt/ExplosionView.swift; sourceTree = "<group>"; };
@@ -314,20 +315,21 @@
 		13B07FAE1A68108700A75B9A /* DidIt */ = {
 			isa = PBXGroup;
 			children = (
-				7425AFF71D5B65730010E11A /* Sounds */,
-				7425AFAA1D5B18580010E11A /* BackgroundTask.swift */,
-				7442D0AA1D5A3870006E6BC5 /* LaunchScreen.storyboard */,
-				740198941D58E6750006E0A1 /* GoogleService-Info.plist */,
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				74472AB51D5BA61800C0D5DC /* APNSManager.h */,
+				7425B0011D5B98A00010E11A /* APNSManager.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				7425AFAA1D5B18580010E11A /* BackgroundTask.swift */,
+				74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */,
+				74A841D71D54C00400674886 /* ExplosionView.swift */,
+				740198941D58E6750006E0A1 /* GoogleService-Info.plist */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				7442D0AA1D5A3870006E6BC5 /* LaunchScreen.storyboard */,
+				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				74A841C91D54BF0800674886 /* RCTExplosionManager.m */,
-				74A841D71D54C00400674886 /* ExplosionView.swift */,
-				74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */,
-				7425B0011D5B98A00010E11A /* RCTAPNSManager.m */,
+				7425AFF71D5B65730010E11A /* Sounds */,
 				74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */,
 			);
 			name = DidIt;
@@ -834,7 +836,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				7425B0021D5B98A00010E11A /* RCTAPNSManager.m in Sources */,
+				7425B0021D5B98A00010E11A /* APNSManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				74A841D81D54C00400674886 /* ExplosionView.swift in Sources */,
 				7425AFAB1D5B18580010E11A /* BackgroundTask.swift in Sources */,

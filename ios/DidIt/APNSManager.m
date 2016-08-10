@@ -1,5 +1,5 @@
 //
-//  RCTAPNSManager.m
+//  APNSManager.m
 //  DidIt
 //
 //  Created by James Campbell on 8/10/16.
@@ -9,18 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "RCTBridgeModule.h"
+#import "APNSManager.h"
 #import "Didit-Swift.h"
-
-// Class for working around built in React Native class
-// not allowing you to handle actions and register categories.
-//
-// FIXME: Send a PR to Facebook to allow this once we un-hardcode
-//        things.
-//
-@interface APNSManager : NSObject <RCTBridgeModule>
-
-@end
 
 @implementation APNSManager
 
@@ -29,6 +19,23 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(registerForRemoteNotifications)
 {
   [[UIApplication sharedApplication] registerUserNotificationSettings];
+}
+
+- (void)startObserving {
+  
+}
+
+- (void)stopObserving {
+  
+}
+
++ (void)actionPressed:(void (^)())completionHandler {
+  
+}
+
+- (void)handleActionPressed:(void (^)())completionHandler
+{
+  [self sendEventWithName:@"" body:completionHandler];
 }
 
 @end

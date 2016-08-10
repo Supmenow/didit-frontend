@@ -17,6 +17,7 @@
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 #import "RCTPushNotificationManager.h"
+#import "RCTAPNSManager.m"
 #import "DidIt-Swift.h"
 
 @implementation AppDelegate
@@ -90,9 +91,16 @@
     
     // - Trigger React Call
     // - Only call end when we have a callback
-    [task end];
+    [RCTAPNSManager handleActionPressed:^{
+      
+      [task end];
+
+    }];
+    
     
   }];
+  
+  completionHandler();
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
