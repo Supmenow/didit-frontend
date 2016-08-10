@@ -1,6 +1,6 @@
 import { makeAPIRequest } from './make-api-request';
 
-function makeSignUpRequest(session, name), proto {
+function makeSignUpRequest(session, name, proto) {
   return makeAPIRequest('/users',
   {
     "phone": session.phoneNumber,
