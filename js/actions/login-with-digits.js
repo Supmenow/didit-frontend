@@ -13,6 +13,8 @@ function loginWithDigits(session) {
     .then((response) => {
 
       dispatch(finishedLoading())
+
+      // FIXME: Move into common action
       dispatch(registerForNotifications(response.user["api-key"]))
       dispatch(uploadContacts(response.user["api-key"]))
 
@@ -21,7 +23,7 @@ function loginWithDigits(session) {
         dispatch(finishedLoading())
 
         if (error.status_code == 404) {
-          dispatch(startedSignup());
+          dispatch(startedSignup(session));
         } else {
           dispatch(receivedError("We couldn't log you in", "Please try again later"));
         }

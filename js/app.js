@@ -59,8 +59,8 @@ class App extends Component {
     this.props.dispatch(loginWithDigits(session));
   }
 
-  signUp(text) {
-    this.props.dispatch(signUpWithName(text));
+  signUp(name) {
+    this.props.dispatch(signUpWithName(this.props.session, name));
   }
 
   sendDidIt() {

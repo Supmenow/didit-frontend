@@ -9,7 +9,7 @@ function appStore(state = initialState, action) {
 
   if (action.type === 'STARTED_SIGN_UP') {
     return Object.assign({}, state, {
-        signup: true
+        signup: action.session
     });
   }
 

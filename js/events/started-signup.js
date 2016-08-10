@@ -1,6 +1,7 @@
-function startedSignup() {
+function startedSignup(session) {
   return {
-    type: 'STARTED_SIGN_UP'
+    type: 'STARTED_SIGN_UP',
+    session: session
   }
 }
 

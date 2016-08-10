@@ -17,13 +17,8 @@ function uploadContacts(apiKey) {
       }, []);
 
       makeUploadContactsRequest(apiKey, phoneNumbers).then((response) => {
-
-        var profile = response.success.user
-
-        if (profile) {
-          dispatch(profileUpdated(profile))
-        } else {
-          // Handle Error
+        if (response.user) {
+          dispatch(profileUpdated(response.user))
         }
       })
     })
