@@ -21,9 +21,6 @@ import {
   dismissedDidIt
 } from './events';
 
-//FIXME:
-// - Simplify unwinding
-// - Add pop animation
 class App extends Component {
 
   constructor(props) {
