@@ -20,7 +20,7 @@ function applicationSceneNameForState(state) {
 function applicationSceneForName(parent, sceneName, props) {
   switch (sceneName) {
     case 'DID_IT':
-    return ( <DidIt didit={props.didit} onDismiss={parent.dismissDidIt} onSendHighFive={() => parent.sendHighFive(parent.props)} onSendEyeRoll={() => parent.sendEyeRoll(parent.props)} style={parent.style}/> )
+    return ( <DidIt didit={props.didit} onDismiss={parent.dismissDidIt} onSendHighFive={() => parent.sendHighFive(props.didit)} onSendEyeRoll={() => parent.sendEyeRoll(props.didit)} style={parent.style}/> )
 
     case 'SEND_DID_IT':
     return ( <SendDidIt onSendDidIt={parent.sendDidIt} style={parent.style}/> )

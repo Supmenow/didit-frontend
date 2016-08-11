@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Navigator } from 'react-native';
 
 import Notification from './notification';
+import PushNotification from './notification/push-notification';
 import TransitionNavigation from './transition-navigation';
 import NetworkOperation from './network-operation';
 import { applicationState } from './reducers/application-state';
@@ -51,12 +52,15 @@ class App extends Component {
     Notification.addEventListener('notification', this.didReceiveNotification);
     Notification.addEventListener('remoteNotificationAction', (action) => {
 
+      //FIXME: PushNotification --> Didit
+      var didit = new PushNotification(action)
+
       switch (action.identifier) {
         case 'HIGH_FIVE_IDENTIFIER':
-        this.sendHighFive()
+        this.sendHighFive(didit)
         break
         case 'EYE_ROLL_IDENTIFIER':
-        this.sendEyeRoll()
+        this.sendEyeRoll(didit)
         break
       }
     });
@@ -118,13 +122,13 @@ class App extends Component {
   }
 
   // FIXME: This is getting a bit long.
-  sendHighFive() {
+  sendHighFive(didit) {
     alert("high five")
     return
     this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
   }
 
-  sendEyeRoll() {
+  sendEyeRoll(didit) {
     alert("eye roll")
     return
     this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
