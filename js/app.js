@@ -39,7 +39,11 @@ class App extends Component {
    this.style = props.style;
   }
 
+  //FIXME:
+  // - Does this belong elsewhere ?
+  // - Unit Test?
   componentWillMount() {
+
     if (this.props.profile) {
       this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
     }
@@ -49,6 +53,8 @@ class App extends Component {
       alert("ACT");
       //action();
     });
+
+    Notification.requestPermissions();
   }
 
   render() {
