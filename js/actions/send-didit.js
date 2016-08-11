@@ -10,10 +10,9 @@ function sendDidIt(apiKey) {
     .then((response) => {
       dispatch(finishedLoading())
       dispatch(sentDidIt());
-    })
-    .catch((err) => {
-        dispatch(finishedLoading())
-        dispatch(receivedError("Couldn't send reply", "Please try again later"));
+    }, (error) => {
+      dispatch(finishedLoading());
+      dispatch(receivedError("Couldn't send Did It", "Please try again later"));
     })
   }
 }

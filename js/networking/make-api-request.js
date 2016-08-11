@@ -1,5 +1,4 @@
 
-// FIXME: Implement logging with React Native and requests
 function parseAPIResponse(json) {
   return new Promise(function(resolve, reject) {
 
