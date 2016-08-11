@@ -45,7 +45,7 @@ public class ExplosionView extends FrameLayout {
         emitterCell.emissionRange = Math.PI * 2.0;
         emitterCell.spin = 0.5;
 
-        emitterView.addCell(emitterCell);
+
         emitterView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         emitterView.renderMode = EmitterCellRenderMode.OldestLast;
 
@@ -60,7 +60,11 @@ public class ExplosionView extends FrameLayout {
     }
 
     public void setSprite(ReadableMap source) {
-        int drawableId = getResources().getIdentifier(source.getString("uri"), "drawable", context.getPackageName());
+        String uri = source.getString("uri");
+        int actualID = R.drawable.smiley;
+        int drawableId = getResources().getIdentifier(uri, "drawable", context.getPackageName());
         emitterCell.drawable = ResourcesCompat.getDrawable(getResources(), drawableId, null);
+
+        emitterView.addCell(emitterCell);
     }
 }
