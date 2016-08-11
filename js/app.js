@@ -51,7 +51,7 @@ class App extends Component {
     Notification.addEventListener('notification', this.didReceiveNotification);
     Notification.addEventListener('remoteNotificationAction', (action) => {
 
-      switch action.identifier {
+      switch (action.identifier) {
         case 'HIGH_FIVE_IDENTIFIER':
         this.sendHighFive()
         break
@@ -120,11 +120,13 @@ class App extends Component {
   // FIXME: This is getting a bit long.
   sendHighFive() {
     alert("high five")
+    return
     this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
   }
 
   sendEyeRoll() {
     alert("eye roll")
+    return
     this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
   }
 

@@ -16,10 +16,11 @@ function applicationSceneNameForState(state) {
   }
 }
 
+// FIXME: Look into simplifying this
 function applicationSceneForName(parent, sceneName, props) {
   switch (sceneName) {
     case 'DID_IT':
-    return ( <DidIt didit={props.didit} onDismiss={parent.dismissDidIt} onSendHighFive={parent.sendHighFive} onSendEyeRoll={parent.sendEyeRoll} style={parent.style}/> )
+    return ( <DidIt didit={props.didit} onDismiss={parent.dismissDidIt} onSendHighFive={() => parent.sendHighFive(parent.props)} onSendEyeRoll={() => parent.sendEyeRoll(parent.props)} style={parent.style}/> )
 
     case 'SEND_DID_IT':
     return ( <SendDidIt onSendDidIt={parent.sendDidIt} style={parent.style}/> )
