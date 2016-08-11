@@ -138,7 +138,9 @@ class App extends Component {
   }
 
   didReceiveNotification(notification) {
-    this.props.dispatch(receivedDidIt(notification));
+    if (!this.props.didit) {
+      this.props.dispatch(receivedDidIt(notification));
+    }
   }
 }
 
