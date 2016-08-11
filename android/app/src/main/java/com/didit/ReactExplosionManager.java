@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -26,9 +27,9 @@ public class ReactExplosionManager extends ViewGroupManager<ExplosionView> {
         return new ExplosionView(context);
     }
 
-    @ReactProp(name = "source")
-    public void setSrc(ExplosionView view, @Nullable String src) {
-        view.setSource(src);
+    @ReactProp(name = "sprite")
+    public void setSprite(ExplosionView view, @Nullable ReadableArray sprite) {
+        view.setSprite(sprite);
     }
 
     @Override

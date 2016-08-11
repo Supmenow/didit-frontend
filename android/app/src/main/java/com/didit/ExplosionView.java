@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.views.view.ReactViewGroup;
 import com.plattysoft.leonids.ParticleSystem;
 
@@ -57,8 +58,8 @@ public class ExplosionView extends FrameLayout {
         emitterView.emitterPosition = new Point(getMeasuredWidth() / 2, getMeasuredHeight() / 2);
     }
 
-    public void setSource(String src) {
-        int drawableId = getResources().getIdentifier(src, "drawable", context.getPackageName());
+    public void setSprite(ReadableArray sources) {
+        int drawableId = getResources().getIdentifier(sources.getMap(0).getString("uri"), "drawable", context.getPackageName());
         emitterCell.drawable = ResourcesCompat.getDrawable(getResources(), drawableId, null);
     }
 }
