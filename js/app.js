@@ -71,7 +71,7 @@ class App extends Component {
 
   unwindScene(scene) {
     if (scene.content.type == 'DID_IT') {
-      this.props.dispatch(dismissedDidIt())
+      this.dismissDidIt()
     }
   }
 
