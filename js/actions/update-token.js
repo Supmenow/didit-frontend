@@ -1,10 +1,10 @@
 import { makeUpdateUserTokenRequest } from '../networking';
 import { profileUpdated } from '../events';
 
-function updateToken(apiKey, token) {
+function updateToken(apiKey, token, protocol) {
   return function (dispatch) {
 
-    makeUpdateUserTokenRequest(apiKey, token).then((response) => {
+    makeUpdateUserTokenRequest(apiKey, token, protocol).then((response) => {
       if (response.user) {
         dispatch(profileUpdated(response.user))
       }
