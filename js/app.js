@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Navigator } from 'react-native';
 
 import Notification from './notification';
 import TransitionNavigation from './transition-navigation';
@@ -56,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <NetworkOperation loading={this.props.isLoading} error={this.props.error}>
-        <TransitionNavigation {...this.props} sceneForProps={this.sceneForProps} unwindScene={this.unwindScene}/>
+        <TransitionNavigation {...this.props} sceneForProps={this.sceneForProps} configurationForTransition={this.configurationForTransition} unwindScene={this.unwindScene}/>
       </NetworkOperation>
     )
   }
@@ -64,9 +65,25 @@ class App extends Component {
   sceneForProps(props) {
     return {
       component: applicationSceneForName(this, props.scene, props),
-      type: props.scene,
-      configuration: configurationForSceneName(props.scene)
+      type: props.scene
     }
+  }
+
+  configurationForTransition(prevScene, newScene) {
+    switch (newScene.content.type) {
+      case 'DID_IT':
+      return Navigator.SceneConfigs.FloatFromBottom
+    }
+
+    var configuration = Navigator.SceneConfigs.PushFromRight
+
+    if (prevScene.content.type == 'DID_IT' && newScene.content.type == 'SEND_DID_IT') {
+      configuration.pop = true
+    }
+
+
+    configuration.gestures = {}
+    return configuration
   }
 
   unwindScene(scene) {

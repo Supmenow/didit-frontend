@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navigator } from 'react-native';
 import Login from '../components/login';
 import Signup from '../components/signup';
 import SendDidIt from '../components/sendDidIt';
@@ -33,19 +32,7 @@ function applicationSceneForName(parent, sceneName, props) {
   }
 }
 
-function configurationForSceneName(sceneName) {
-  switch (sceneName) {
-    case 'DID_IT':
-    return Navigator.SceneConfigs.FloatFromBottom
-  }
-
-  var configuration = Navigator.SceneConfigs.PushFromRight
-  configuration.gestures = {}
-  return configuration
-}
-
 module.exports = {
   applicationSceneNameForState,
-  applicationSceneForName,
-  configurationForSceneName
+  applicationSceneForName
 }

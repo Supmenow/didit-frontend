@@ -14,8 +14,10 @@ class TransitionNavigation extends Component {
     this.initialScene = {content: this.sceneForProps(this.props), index: 0};
     this.newScene = {content: this.sceneForProps(nextProps), index: 1};
 
+    var configuration = this.props.configurationForTransition(this.initialScene, this.newScene);
+
     this.configureScene = () => {
-      return (this.newScene.content.configuration) ? this.newScene.content.configuration : this.defaultConfiguration()
+      return (configuration) ? configuration : this.defaultConfiguration()
     }
   }
 
@@ -25,7 +27,11 @@ class TransitionNavigation extends Component {
 
         var configuration = this.configureScene();
 
-        this.navigator.push(this.newScene);
+        if (configuration.pop) {
+          this.navigator.replacePreviousAndPop(this.newScene);
+        } else {
+          this.navigator.push(this.newScene);
+        }
     }
   }
 
