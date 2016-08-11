@@ -35,6 +35,9 @@ function makeAPIRequest(path, data, key, method = 'POST') {
     .then((json) => {
       return parseAPIResponse(json);
     })
+    .catch((error) => {
+      console.log("Network Error: " + error)
+    })
 }
 
 module.exports = {

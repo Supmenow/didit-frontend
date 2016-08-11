@@ -8,9 +8,11 @@ function sendReply(apiKey, didit, reply) {
 
     makeSendReplyRequest(apiKey, didit, reply)
     .then((response) => {
+      console.log("Reply Sent");
       dispatch(finishedLoading());
       dispatch(sentReply());
     }, (error) => {
+      console.log("Failed Sending Reply: " + error);
       dispatch(finishedLoading());
       dispatch(receivedError("Couldn't send reply", "Please try again later"));
     })
