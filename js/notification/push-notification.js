@@ -1,3 +1,4 @@
+//FIXME: Get format consistent across platforms and routes.
 class PushNotification {
 
   body: String
@@ -19,6 +20,20 @@ class PushNotification {
 
     if (props['_data']) {
       this.data = props['_data'];
+    }
+
+    if (props['_alert']) {
+      this.body = props['_alert'];
+    }
+
+    if (props['_sound']) {
+      this.sound = props['_sound'];
+    }
+
+    if (props['userID']) {
+      this.data = {
+        'userID': props['userID']
+      }
     }
 
     //FCM

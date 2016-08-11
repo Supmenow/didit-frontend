@@ -54,7 +54,7 @@ class App extends Component {
     Notification.addEventListener('remoteNotificationAction', (action) => {
 
       //FIXME: PushNotification --> Didit
-      var didit = new PushNotification(action)
+      var didit = new PushNotification(action.userInfo)
 
       switch (action.identifier) {
         case 'HIGH_FIVE_IDENTIFIER':
