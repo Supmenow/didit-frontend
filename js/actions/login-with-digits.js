@@ -2,6 +2,7 @@ import { startedLoading, finishedLoading, startedSignup, receivedError } from '.
 import { makeCheckUserRequest } from '../networking';
 import { registerForNotifications } from './register-for-notifications';
 import { uploadContacts } from './upload-contacts';
+import { profileUpdated } from './events';
 
 function loginWithDigits(session) {
 
@@ -14,7 +15,7 @@ function loginWithDigits(session) {
 
       dispatch(finishedLoading())
 
-      // FIXME: Move into common action
+      dispatch(profileUpdated(response.user))
       dispatch(registerForNotifications(response.user["api-key"]))
       dispatch(uploadContacts(response.user["api-key"]))
 
