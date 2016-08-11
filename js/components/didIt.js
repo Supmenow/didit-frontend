@@ -14,11 +14,13 @@ class DidIt extends Component {
   }
 
   componentDidMount() {
-    var sound = new Sound(this.props.didit.sound, Sound.MAIN_BUNDLE, (error) => {
-      if (!error) {
-        sound.play();
-      }
-    });
+    if (this.props.didit.sound) {
+      var sound = new Sound(this.props.didit.sound, Sound.MAIN_BUNDLE, (error) => {
+        if (!error) {
+          sound.play();
+        }
+      });
+    }
   }
 
   render() {
