@@ -26,7 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
               new MainReactPackage(),
-            new RNSoundPackage(),
+              new RNSoundPackage(),
               new CodePush(getApplicationContext().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
               new FIRMessagingPackage(),
               new DigitsPackage(),
@@ -37,11 +37,11 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected String getJSBundleFile() {
-//      if (BuildConfig.DEBUG) {
+      if (BuildConfig.DEBUG) {
         return super.getJSBundleFile();
-//      } else {
-//        return CodePush.getJSBundleFile();
-//      }
+      } else {
+        return CodePush.getJSBundleFile();
+      }
     }
   };
 

@@ -18,12 +18,16 @@ import com.plattysoft.leonids.ParticleSystem;
 public class ExplosionView extends FrameLayout {
 
     public  ReactViewGroup reactSubviewContainer;
+
+    private Context context;
     private EmitterView emitterView;
     private EmitterCell emitterCell;
     private ParticleSystem particleSystem;
 
     public ExplosionView(Context context){
         super(context);
+
+        this.context = context;
 
         reactSubviewContainer = new ReactViewGroup(context);
         emitterView = new EmitterView(context, null);
@@ -32,7 +36,6 @@ public class ExplosionView extends FrameLayout {
         //FIXME: EmissionView is a rougth approximation of the iOS CAEMissionLayer - The values may not be the same for both platforms but
         //in future we would like to make these act the same. For now please adjust values to get effect you want.
         emitterCell.birthRate = 10.0f;
-        emitterCell.drawable = getResources().getDrawable(R.drawable.smiley); // Get from React Native
         emitterCell.lifetime = 2.0f;
         emitterCell.alphaSpeed = -1.5f;
         emitterCell.velocity = 150.0;
@@ -51,5 +54,10 @@ public class ExplosionView extends FrameLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         emitterView.emitterPosition = new Point(getMeasuredWidth() / 2, getMeasuredHeight() / 2);
+    }
+
+    public void setSource(String src) {
+        int drawableId = getResources().getIdentifier(src, "drawable", context.getPackageName());
+        emitterCell.drawable = getResources().getDrawable(drawableId);
     }
 }
