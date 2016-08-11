@@ -53,8 +53,8 @@ class PushNotification {
       this.image = props['image']
     }
 
-    if (props['sound']) {
-      this.sound = props['image']
+    if (props['userID']) {
+      this.userID = props['userID']
     }
   }
 }
