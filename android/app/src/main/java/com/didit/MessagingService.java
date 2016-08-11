@@ -19,6 +19,7 @@ public class MessagingService extends com.evollu.react.fcm.MessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
+
         // Detect if app is in foreground if it is then lets only trigger the broadcast
 
         Intent intent = new Intent(this, MainActivity.class);
@@ -30,7 +31,7 @@ public class MessagingService extends com.evollu.react.fcm.MessagingService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Did It!")
-                .setContentText(remoteMessage.getData().get("body"))
+                .setContentText(remoteMessage.getData().get("message"))
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent);
 

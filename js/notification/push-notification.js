@@ -3,7 +3,8 @@ class PushNotification {
 
   body: String
   sound: String
-  data: Object
+  image: String
+  userID: String
 
   constructor(props) {
 
@@ -18,8 +19,12 @@ class PushNotification {
       this.sound = props['_sound'];
     }
 
-    if (props['_data']) {
-      this.data = props['_data'];
+    if (props['_data']['image']) {
+      this.image = props['_data']['image'];
+    }
+
+    if (props['_data']['userID']) {
+      this.userID = props['_data']['userID'];
     }
 
     if (props['_alert']) {
@@ -30,19 +35,27 @@ class PushNotification {
       this.sound = props['_sound'];
     }
 
+    //Actions / FCM
     if (props['userID']) {
-      this.data = {
-        'userID': props['userID']
-      }
+      this.userID = props['userID']
     }
 
     //FCM
-    if (props['body']) {
-      this.body = props['body'];
+    if (props['message']) {
+      this.body = props['message'];
     }
 
-    // Parse Sound for FCM
-    // Parse Data for FCM
+    if (props['sound']) {
+      this.sound = props['sound'];
+    }
+
+    if (props['image']) {
+      this.image = props['image']
+    }
+
+    if (props['sound']) {
+      this.sound = props['image']
+    }
   }
 }
 
