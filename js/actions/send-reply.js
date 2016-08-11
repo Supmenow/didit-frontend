@@ -1,12 +1,12 @@
 import { makeSendReplyRequest } from '../networking';
 import { startedLoading, finishedLoading, receivedError, sentDidIt, sentReply } from '../events';
 
-function sendReply(apiKey, didit) {
+function sendReply(apiKey, didit, reply) {
   return function (dispatch) {
 
     dispatch(startedLoading())
 
-    makeSendReplyRequest(apiKey, didit.data.userID)
+    makeSendReplyRequest(apiKey, didit, reply)
     .then((response) => {
       dispatch(finishedLoading());
       dispatch(sentReply());
