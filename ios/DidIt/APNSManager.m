@@ -41,7 +41,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications)
 
 - (void)handleActionPressed:(NSNotification *)notification
 {
-  [self sendEventWithName:APNSManagerRemoteNotificationActionEvent body:notification.object];
+  [self sendEventWithName:APNSManagerRemoteNotificationActionEvent body:@{}];
 }
 
 @end

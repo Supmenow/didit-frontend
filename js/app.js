@@ -47,7 +47,7 @@ class App extends Component {
     Notification.addEventListener('notification', this.didReceiveNotification);
     Notification.addEventListener('remoteNotificationAction', (action) => {
       alert("ACT");
-      action();
+      //action();
     });
   }
 
@@ -77,7 +77,6 @@ class App extends Component {
     if (prevScene.content.type == 'DID_IT' && newScene.content.type == 'SEND_DID_IT') {
       configuration.pop = true
     }
-
 
     configuration.gestures = {}
     return configuration

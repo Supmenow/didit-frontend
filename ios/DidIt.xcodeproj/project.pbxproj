@@ -37,6 +37,7 @@
 		74A841D81D54C00400674886 /* ExplosionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A841D71D54C00400674886 /* ExplosionView.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		AF7DA1F3EA9C48EFB4A58691 /* libRCTDigitsManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99EFCBFE368E40FC937FD4BA /* libRCTDigitsManager.a */; };
+		C1155BAC22794F95B86D12E2 /* libRNNotificationActions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25DB7A5C0906464ABAA94797 /* libRNNotificationActions.a */; };
 		CD344404CE742C730AFACAB2 /* libPods-DidIt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FF670DFBC1B7E3279F55D0 /* libPods-DidIt.a */; };
 		E17A61F617844015B970122A /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA99B95255164291A68BC2F5 /* libCodePush.a */; };
 /* End PBXBuildFile section */
@@ -119,6 +120,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTPushNotification;
 		};
+		740A8C801D5C976800EF49AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEA3583CAD2643829BBB5170 /* RNNotificationActions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E2B7F22F1C36E6D800945232;
+			remoteInfo = RNNotificationActions;
+		};
 		7425AFF51D5B65430010E11A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5B384EA4C8A84712BCFF75AB /* RNSound.xcodeproj */;
@@ -175,6 +183,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DidIt/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DidIt/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		25DB7A5C0906464ABAA94797 /* libRNNotificationActions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNNotificationActions.a; sourceTree = "<group>"; };
 		33EE2F811A529ED62C4B82C5 /* Pods-DidIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DidIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DidIt/Pods-DidIt.debug.xcconfig"; sourceTree = "<group>"; };
 		5B384EA4C8A84712BCFF75AB /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		682A11318AF94A39B2F18014 /* RCTDigitsManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTDigitsManager.xcodeproj; path = "../node_modules/react-native-fabric-digits/ios/RCTDigitsManager.xcodeproj"; sourceTree = "<group>"; };
@@ -199,6 +208,7 @@
 		9803D7C188634994BA1CC271 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		99EFCBFE368E40FC937FD4BA /* libRCTDigitsManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTDigitsManager.a; sourceTree = "<group>"; };
 		B64A6597A6534492B1A0186A /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
+		BEA3583CAD2643829BBB5170 /* RNNotificationActions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNNotificationActions.xcodeproj; path = "../node_modules/react-native-ios-notification-actions/RNNotificationActions/RNNotificationActions.xcodeproj"; sourceTree = "<group>"; };
 		DA99B95255164291A68BC2F5 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		E5C47CAA73C92F80B831615D /* Pods-DidIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DidIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-DidIt/Pods-DidIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +243,7 @@
 				CD344404CE742C730AFACAB2 /* libPods-DidIt.a in Frameworks */,
 				E17A61F617844015B970122A /* libCodePush.a in Frameworks */,
 				74A28045FD1B45DB9F31DDE3 /* libRNSound.a in Frameworks */,
+				C1155BAC22794F95B86D12E2 /* libRNNotificationActions.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +379,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		740A8C6F1D5C976800EF49AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				740A8C811D5C976800EF49AA /* libRNNotificationActions.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7425AFE41D5B65430010E11A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +448,7 @@
 				682A11318AF94A39B2F18014 /* RCTDigitsManager.xcodeproj */,
 				9803D7C188634994BA1CC271 /* CodePush.xcodeproj */,
 				5B384EA4C8A84712BCFF75AB /* RNSound.xcodeproj */,
+				BEA3583CAD2643829BBB5170 /* RNNotificationActions.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -604,6 +624,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 740A8C6F1D5C976800EF49AA /* Products */;
+					ProjectRef = BEA3583CAD2643829BBB5170 /* RNNotificationActions.xcodeproj */;
+				},
+				{
 					ProductGroup = 7425AFE41D5B65430010E11A /* Products */;
 					ProjectRef = 5B384EA4C8A84712BCFF75AB /* RNSound.xcodeproj */;
 				},
@@ -685,6 +709,13 @@
 			fileType = archive.ar;
 			path = libRCTPushNotification.a;
 			remoteRef = 740198C81D58F1610006E0A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		740A8C811D5C976800EF49AA /* libRNNotificationActions.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNNotificationActions.a;
+			remoteRef = 740A8C801D5C976800EF49AA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7425AFF61D5B65430010E11A /* libRNSound.a */ = {
@@ -872,6 +903,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DidIt.app/DidIt";
@@ -888,6 +920,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -914,6 +947,7 @@
 					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-ios-notification-actions/RNNotificationActions",
 				);
 				INFOPLIST_FILE = DidIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -945,6 +979,7 @@
 					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-ios-notification-actions/RNNotificationActions",
 				);
 				INFOPLIST_FILE = DidIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1000,6 +1035,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fabric-digits/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-ios-notification-actions/RNNotificationActions",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1043,6 +1079,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fabric-digits/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-ios-notification-actions/RNNotificationActions",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
