@@ -4,7 +4,7 @@ import { registerForNotifications } from './register-for-notifications';
 import { uploadContacts } from './upload-contacts';
 import { profileUpdated } from '../events';
 
-function loginWithDigits(session) {
+function loginWithDigits(session, proto) {
 
   return function (dispatch) {
 
@@ -16,7 +16,7 @@ function loginWithDigits(session) {
       dispatch(finishedLoading())
 
       dispatch(profileUpdated(response.user))
-      dispatch(registerForNotifications(response.user["api-key"]))
+      dispatch(registerForNotifications(response.user["api-key"], proto))
       dispatch(uploadContacts(response.user["api-key"]))
 
     }, function(error) {

@@ -108,7 +108,7 @@ class App extends Component {
   }
 
   login(session) {
-    this.props.dispatch(loginWithDigits(session));
+    this.props.dispatch(loginWithDigits(session, Notification.protocol()));
   }
 
   signUp(name) {

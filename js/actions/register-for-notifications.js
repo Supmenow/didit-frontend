@@ -1,7 +1,7 @@
 import Notification from '../notification';
 import { updateToken } from './update-token';
 
-function registerForNotifications(apiKey) {
+function registerForNotifications(apiKey, proto) {
   return function (dispatch) {
 
     Notification.addEventListener('register', (token) => {
