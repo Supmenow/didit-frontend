@@ -21,7 +21,7 @@
 //
 @interface APNSManager : RCTEventEmitter
 
-+ (void)actionPressed:(void (^)())completionHandler;
++ (void)actionPressed:(NSDictionary *)userInfo;
 
 @end
 
