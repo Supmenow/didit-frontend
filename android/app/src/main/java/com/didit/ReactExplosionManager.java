@@ -26,7 +26,7 @@ public class ReactExplosionManager extends ViewGroupManager<ExplosionView> {
         return new ExplosionView(context);
     }
 
-    @ReactProp(name = "src")
+    @ReactProp(name = "source")
     public void setSrc(ExplosionView view, @Nullable String src) {
         view.setSource(src);
     }
