@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 
-// FIXME: Handle pop gesture with state
 class TransitionNavigation extends Component {
 
   constructor(props) {
