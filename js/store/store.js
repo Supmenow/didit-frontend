@@ -65,7 +65,7 @@ function appStore(state = initialState, action) {
     });
   }
 
-  if (action.type === 'Persist/autoRehydrate') {
+  if (action.type === 'persist/REHYDRATE') {
     return Object.assign({}, action.payload, {
       isLoading: false
     });
