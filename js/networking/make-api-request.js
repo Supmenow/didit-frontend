@@ -30,7 +30,7 @@ function makeAPIRequest(path, data, key, method = 'POST') {
 
     console.log("URL: " + url)
     console.log("Method: " + method)
-    console.log("Headers: " + headers)
+    console.log("Headers: " + JSON.stringify(headers))
     console.log("Body: " + body)
 
     return fetch(url, {
@@ -38,14 +38,11 @@ function makeAPIRequest(path, data, key, method = 'POST') {
       headers: headers,
       body: body
     })
-    .then(function(response) {
+    .then((response) => {
       return response.json();
     })
     .then((json) => {
       return parseAPIResponse(json);
-    })
-    .catch((error) => {
-      console.log("Network Error: " + error)
     })
 }
 
