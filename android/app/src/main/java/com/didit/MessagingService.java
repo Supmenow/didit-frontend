@@ -19,12 +19,11 @@ public class MessagingService extends com.evollu.react.fcm.MessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
-
-        // Detect if app is in foreground if it is then lets only trigger the broadcast
-
-        Intent intent = new Intent(this, MainActivity.class);
+        //FIXME: Detect when app is in foreground and react accordingly
+        Intent intent = new Intent("com.evollu.react.fcm.ReceiveNotification");
         intent.putExtra("data", remoteMessage);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        sendOrderedBroadcast(intent, null);
+
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
@@ -40,9 +39,7 @@ public class MessagingService extends com.evollu.react.fcm.MessagingService {
 
         notificationManager.notify(0, notificationBuilder.build());
 
-        Intent i = new Intent("com.evollu.react.fcm.ReceiveNotification");
-        i.putExtra("data", remoteMessage);
-        sendOrderedBroadcast(i, null);
+        // Eye roll and high five actions
 
         super.onMessageReceived(remoteMessage);
     }
