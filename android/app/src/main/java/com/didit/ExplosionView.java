@@ -3,6 +3,7 @@ package com.didit;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,6 @@ public class ExplosionView extends FrameLayout {
 
     public void setSource(String src) {
         int drawableId = getResources().getIdentifier(src, "drawable", context.getPackageName());
-        emitterCell.drawable = getResources().getDrawable(drawableId);
+        emitterCell.drawable = ResourcesCompat.getDrawable(getResources(), drawableId, null);
     }
 }
