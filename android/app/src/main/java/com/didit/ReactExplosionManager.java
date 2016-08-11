@@ -1,10 +1,10 @@
 package com.didit;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 
-import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -28,8 +28,8 @@ public class ReactExplosionManager extends ViewGroupManager<ExplosionView> {
     }
 
     @ReactProp(name = "sprite")
-    public void setSprite(ExplosionView view, @Nullable ReadableArray sprite) {
-        view.setSprite(sprite);
+    public void setSprite(final ExplosionView view, @Nullable ReadableMap sprite) {
+       view.setSprite(sprite);
     }
 
     @Override
