@@ -49,9 +49,8 @@ class App extends Component {
     }
 
     Notification.addEventListener('notification', this.didReceiveNotification);
-    Notification.addEventListener('remoteNotificationAction', (action) => {
-      alert("ACT");
-      //action();
+    Notification.addEventListener('remoteNotificationAction', (notification) => {
+      alert(JSON.stringify(notification));
     });
 
     Notification.requestPermissions();
