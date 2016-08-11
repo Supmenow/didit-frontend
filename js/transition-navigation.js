@@ -20,6 +20,7 @@ class TransitionNavigation extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    //FIXME: Add ability for transition to pop instead
     if (this.initialScene.content.type !== this.newScene.content.type && !this.unwinding) {
         this.navigator.push(this.newScene);
     }
