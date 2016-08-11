@@ -8,9 +8,11 @@ class TransitionNavigation extends Component {
    super(props);
 
    this.initialScene = {content: this.sceneForProps(props), index: 0};
+   this.onDidFocus = this.onDidFocus.bind(this);
   }
 
   componentWillUpdate(nextProps, nextState) {
+    this.initialScene = {content: this.sceneForProps(this.props), index: 0};
     this.newScene = {content: this.sceneForProps(nextProps), index: 1};
 
     this.configureScene = () => {
@@ -19,9 +21,7 @@ class TransitionNavigation extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.initialScene = {content: this.sceneForProps(prevProps), index: 0};
-
-    if (this.initialScene.content.type !== this.newScene.content.type) {
+    if (this.initialScene.content.type !== this.newScene.content.type && !this.unwinding) {
         this.navigator.push(this.newScene);
     }
   }
@@ -33,7 +33,8 @@ class TransitionNavigation extends Component {
       ref={(n) => this.navigator = n}
       initialRoute={this.initialScene}
       renderScene={this.renderScene}
-      configureScene={this.configureScene}/>
+      configureScene={this.configureScene}
+      onDidFocus={this.onDidFocus}/>
     )
   }
 
@@ -47,6 +48,17 @@ class TransitionNavigation extends Component {
 
   defaultConfiguration() {
     return Navigator.SceneConfigs.PushFromRight
+  }
+
+  onDidFocus(route) {
+    if (this.newScene && route != this.newScene) {
+
+      var unwindingScene = this.newScene
+
+      this.unwinding = true
+      this.props.unwindScene(unwindingScene)
+      this.unwinding = false
+    }
   }
 }
 

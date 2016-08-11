@@ -20,6 +20,9 @@ import {
   dismissedDidIt
 } from './events';
 
+//FIXME:
+// - Simplify unwinding
+// - Add pop animation
 class App extends Component {
 
   constructor(props) {
@@ -29,6 +32,7 @@ class App extends Component {
    this.signUp = this.signUp.bind(this);
    this.sendDidIt = this.sendDidIt.bind(this);
    this.sceneForProps = this.sceneForProps.bind(this);
+   this.unwindScene = this.unwindScene.bind(this);
    this.dismissDidIt = this.dismissDidIt.bind(this);
    this.sendHighFive = this.sendHighFive.bind(this);
    this.sendEyeRoll = this.sendEyeRoll.bind(this);
@@ -52,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <NetworkOperation loading={this.props.isLoading} error={this.props.error}>
-        <TransitionNavigation {...this.props} sceneForProps={this.sceneForProps}/>
+        <TransitionNavigation {...this.props} sceneForProps={this.sceneForProps} unwindScene={this.unwindScene}/>
       </NetworkOperation>
     )
   }
@@ -62,6 +66,12 @@ class App extends Component {
       component: applicationSceneForName(this, props.scene, props),
       type: props.scene,
       configuration: configurationForSceneName(props.scene)
+    }
+  }
+
+  unwindScene(scene) {
+    if (scene.content.type == 'DID_IT') {
+      this.props.dispatch(dismissedDidIt())
     }
   }
 
