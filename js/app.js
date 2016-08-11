@@ -23,6 +23,7 @@ import {
 } from './events';
 
 // FIXME: This file is getting large.
+// - No animation on hydration
 class App extends Component {
 
   constructor(props) {
