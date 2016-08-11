@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 
+//FIXME: When rehydrating disable animation.
 class TransitionNavigation extends Component {
 
   constructor(props) {
