@@ -61,11 +61,8 @@ class TransitionNavigation extends Component {
 
   onDidFocus(route) {
     if (this.newScene && route != this.newScene) {
-
-      var unwindingScene = this.newScene
-
       this.unwinding = true
-      this.props.unwindScene(unwindingScene)
+      this.props.unwindScene(this.newScene)
       this.unwinding = false
     }
   }
