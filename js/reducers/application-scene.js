@@ -39,7 +39,9 @@ function configurationForSceneName(sceneName) {
     return Navigator.SceneConfigs.FloatFromBottom
   }
 
-  return null
+  var configuration = Navigator.SceneConfigs.PushFromRight
+  configuration.gestures = {}
+  return configuration
 }
 
 module.exports = {
