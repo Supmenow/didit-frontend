@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {persistStore, autoRehydrate} from 'redux-persist';
 import {AsyncStorage} from 'react-native';
@@ -67,9 +68,10 @@ function appStore(state = initialState, action) {
   return state;
 }
 
+const logger = createLogger();
 const store = createStore(
   appStore,
-  applyMiddleware(thunk),
+  applyMiddleware(thunk, logger),
   autoRehydrate()
 )
 
