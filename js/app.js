@@ -22,6 +22,7 @@ import {
   dismissedDidIt
 } from './events';
 
+// FIXME: This file is getting large.
 class App extends Component {
 
   constructor(props) {
@@ -121,17 +122,12 @@ class App extends Component {
     this.props.dispatch(dismissedDidIt());
   }
 
-  // FIXME: This is getting a bit long.
   sendHighFive(didit) {
-    alert("high five")
-    return
-    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
+    this.props.dispatch(sendReply(this.props.profile["api-key"], didit));
   }
 
   sendEyeRoll(didit) {
-    alert("eye roll")
-    return
-    this.props.dispatch(sendReply(this.props.profile["api-key"], this.props.didit));
+    this.props.dispatch(sendReply(this.props.profile["api-key"], didit));
   }
 
   didReceiveNotification(notification) {
