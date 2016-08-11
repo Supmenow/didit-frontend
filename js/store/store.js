@@ -28,7 +28,7 @@ function appStore(state = initialState, action) {
 
   if (action.type === 'FINISHED_LOADING') {
     return Object.assign({}, state, {
-        isLoading: undefined
+        isLoading: false
     });
   }
 
@@ -62,6 +62,12 @@ function appStore(state = initialState, action) {
   if (action.type === 'DISMISSED_DID_IT' || action.type === 'SENT_REPLY') {
     return Object.assign({}, state, {
       didit: false
+    });
+  }
+
+  if (action.type === 'Persist/autoRehydrate') {
+    return Object.assign({}, action.payload, {
+      isLoading: false
     });
   }
 
