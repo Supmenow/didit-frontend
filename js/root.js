@@ -43,8 +43,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   sendDidItEmoji: {
-    width: 125,
-    height: 125
+    display: 'inline-block',
+    width: 50,
+    height: 50
   },
   buttonBackground: {
     backgroundColor: '#FFF',

@@ -29,7 +29,7 @@ class SendDidIt extends Component {
         <Image style={this.style.sendDidItEmoji} source={{uri: 'airplane'}}/>
         <Image style={this.style.sendDidItEmoji} source={{uri: 'medal'}}/>
         <Image style={this.style.sendDidItEmoji} source={{uri: 'wink'}}/>
-        <Image style={this.style.sendDidItEmoji} source={{uri: 'knifeandfork'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'forkandknife'}}/>
         <Image style={this.style.sendDidItEmoji} source={{uri: '100'}}/>
         <Image style={this.style.sendDidItEmoji} source={{uri: 'cycling'}}/>
         <Image style={this.style.sendDidItEmoji} source={{uri: 'beer'}}/>
