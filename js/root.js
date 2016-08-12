@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
     backgroundColor: '#F8154B',
     fontSize: 35,
+    padding: 15
   },
   sendDidItContainer: {
     flex: 1,
