@@ -23,21 +23,29 @@ class SendDidIt extends Component {
         I Did It!
         </Button>
         <View style={this.style.sendDidItEmojiList}>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'weightlifter'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'icecream'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'obojene'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'champagne'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'airplane'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'medal'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'wink'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'forkandknife'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: '100'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'cycling'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'beer'}}/>
-          <Image style={this.style.sendDidItEmoji} source={{uri: 'nosmoking'}}/>
+          {this.renderEmoji('weightlifter')}
+          {this.renderEmoji('icecream')}
+          {this.renderEmoji('obojene')}
+          {this.renderEmoji('champagne')}
+          {this.renderEmoji('airplane')}
+          {this.renderEmoji('medal')}
+          {this.renderEmoji('wink')}
+          {this.renderEmoji('forkandknife')}
+          {this.renderEmoji('100')}
+          {this.renderEmoji('cycling')}
+          {this.renderEmoji('beer')}
+          {this.renderEmoji('nosmoking')}
         </View>
       </View>
     );
+  }
+
+  renderEmoji(name) {
+    return (
+      <Button>
+      <Image style={this.style.sendDidItEmoji} source={{uri: name}}/>
+      </Button>
+    )
   }
 }
 
