@@ -91,8 +91,8 @@ class App extends Component {
     this.props.dispatch(signUpWithName(this.props.session, name, Notification.protocol()));
   }
 
-  sendDidIt(emoji) {
-    this.props.dispatch(sendDidIt(this.props.profile["api-key"], emoji));
+  sendDidIt(emoji, unicode) {
+    this.props.dispatch(sendDidIt(this.props.profile["api-key"], emoji, unicode));
   }
 
   dismissDidIt() {

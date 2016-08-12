@@ -1,12 +1,12 @@
 import { makeSendDidItRequest } from '../networking';
 import { startedLoading, finishedLoading, receivedError, sentDidIt } from '../events';
 
-function sendDidIt(apiKey, emoji) {
+function sendDidIt(apiKey, emoji, unicode) {
   return function(dispatch) {
 
     dispatch(startedLoading())
 
-    makeSendDidItRequest(apiKey, emoji)
+    makeSendDidItRequest(apiKey, emoji, unicode)
     .then((response) => {
       dispatch(finishedLoading())
 
