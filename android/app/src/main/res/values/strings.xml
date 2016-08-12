@@ -1,5 +1,5 @@
 <resources>
 
-    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">EX0-inYEnvgdPHqX0nfOeCRbb5cc4yKaAYdQx</string>
     <string name="app_name">DidIt</string>
 </resources>
