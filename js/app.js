@@ -22,8 +22,6 @@ import {
   dismissedDidIt
 } from './events';
 
-// FIXME: This file is getting large.
-// - No animation on hydration
 class App extends Component {
 
   constructor(props) {
@@ -42,32 +40,10 @@ class App extends Component {
    this.style = props.style;
   }
 
-  //FIXME:
-  // - Does this belong elsewhere ?
-  // - Unit Test?
-  componentWillMount() {
-
-    if (this.props.profile) {
-      this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevProps.profile && this.props.profile) {
+      this.didAuthenticate();
     }
-
-    Notification.addEventListener('notification', this.didReceiveNotification);
-    Notification.addEventListener('remoteNotificationAction', (action) => {
-
-      //FIXME: PushNotification --> Didit
-      var didit = new PushNotification(action.userInfo)
-
-      switch (action.identifier) {
-        case 'HIGH_FIVE_IDENTIFIER':
-        this.sendHighFive(didit)
-        break
-        case 'EYE_ROLL_IDENTIFIER':
-        this.sendEyeRoll(didit)
-        break
-      }
-    });
-
-    Notification.requestPermissions();
   }
 
   render() {
@@ -135,6 +111,28 @@ class App extends Component {
       'type': 'eyeroll',
       'emoji': '🙄'
     }));
+  }
+
+  didAuthenticate() {
+    this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
+
+    Notification.addEventListener('notification', this.didReceiveNotification);
+    Notification.addEventListener('remoteNotificationAction', (action) => {
+
+      //FIXME: PushNotification --> Didit
+      var didit = new PushNotification(action.userInfo)
+
+      switch (action.identifier) {
+        case 'HIGH_FIVE_IDENTIFIER':
+        this.sendHighFive(didit)
+        break
+        case 'EYE_ROLL_IDENTIFIER':
+        this.sendEyeRoll(didit)
+        break
+      }
+    });
+
+    Notification.requestPermissions();
   }
 
   didReceiveNotification(notification) {
