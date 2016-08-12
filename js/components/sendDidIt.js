@@ -11,15 +11,14 @@ class SendDidIt extends Component {
    this.sendDidIt = this.sendDidIt.bind(this);
   }
 
-  sendDidIt() {
-    this.props.onSendDidIt()
+  sendDidIt(emoji) {
+    this.props.onSendDidIt(emoji)
   }
 
-  //FIXME: Load Emojis from a file.
   render() {
     return (
       <View style={this.style.sendDidItContainer}>
-        <Button onPress={this.sendDidIt} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
+        <Button onPress={() => this.sendDidIt('smiley')} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
         I Did It!
         </Button>
         <View style={this.style.sendDidItEmojiList}>
@@ -42,7 +41,7 @@ class SendDidIt extends Component {
 
   renderEmoji(name) {
     return (
-      <Button onPress={this.sendDidIt}>
+      <Button onPress={() => this.sendDidIt(name)}>
       <Image style={this.style.sendDidItEmoji} source={{uri: name}}/>
       </Button>
     )

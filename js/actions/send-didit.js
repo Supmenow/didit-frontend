@@ -1,7 +1,7 @@
 import { makeSendDidItRequest } from '../networking';
 import { startedLoading, finishedLoading, receivedError, sentDidIt } from '../events';
 
-function sendDidIt(apiKey) {
+function sendDidIt(apiKey, emoji) {
   return function(dispatch) {
 
     dispatch(startedLoading())

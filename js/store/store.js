@@ -42,13 +42,7 @@ function appStore(state = initialState, action) {
   // FIXME: Side effects are bad, make View DidIt
   if (action.type === 'SENT_DID_IT') {
     return Object.assign({}, state, {
-      didit: {
-        body: "You did it!",
-        hideReplyButtons: true,
-        sound: 'dong.wav',
-        image: 'smiley'
-      }
-    });
+      didit: action.didit);
   }
 
   if (action.type === 'RECEIVED_DID_IT') {
