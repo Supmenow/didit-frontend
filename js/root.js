@@ -36,11 +36,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8154B',
     fontSize: 35,
   },
-  sendDongContainer: {
+  sendDidItContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFF',
+  },
+  sendDidItEmoji: {
+    width: 125,
+    height: 125
   },
   buttonBackground: {
     backgroundColor: '#FFF',

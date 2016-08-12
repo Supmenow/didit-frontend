@@ -18,11 +18,11 @@ class SendDidIt extends Component {
   //FIXME: Load Emojis from a file.
   render() {
     return (
-      <View style={this.style.sendDongContainer}>
+      <View style={this.style.sendDidItContainer}>
         <Button onPress={this.sendDidIt} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
         I Did It!
         </Button>
-        <Image source={{uri: 'weightlifter'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'weightlifter'}}/>
         <Image source={{uri: 'icecream'}}/>
         <Image source={{uri: 'obojene'}}/>
         <Image source={{uri: 'champagne'}}/>
