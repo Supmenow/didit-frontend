@@ -1,9 +1,9 @@
 import { makeAPIRequest } from './make-api-request';
 
-function makeSendDidItRequest(apiKey) {
+function makeSendDidItRequest(apiKey, emoji) {
   return makeAPIRequest('/send', {
     'message': 'just did it',
-    'image': 'smiley',
+    'image': emoji,
     'sound': 'dong.wav'
   }, apiKey);
 }

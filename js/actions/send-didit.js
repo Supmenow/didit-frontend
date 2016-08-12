@@ -6,7 +6,7 @@ function sendDidIt(apiKey, emoji) {
 
     dispatch(startedLoading())
 
-    makeSendDidItRequest(apiKey)
+    makeSendDidItRequest(apiKey, emoji)
     .then((response) => {
       dispatch(finishedLoading())
 
