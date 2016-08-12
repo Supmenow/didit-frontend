@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import App from './app';
 import Store from './store/store';
 import { Provider } from 'react-redux';
+import codePush from "react-native-code-push";
 
 class Root extends Component {
 
@@ -95,4 +96,4 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = Root
+module.exports = codePush(Root);
