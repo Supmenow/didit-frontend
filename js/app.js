@@ -114,8 +114,7 @@ class App extends Component {
   }
 
   didAuthenticate() {
-    var key = this.props.profile["api-key"];
-    this.props.dispatch(uploadContacts(key));
+    this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
 
     Notification.addEventListener('notification', this.didReceiveNotification);
     Notification.addEventListener('remoteNotificationAction', (action) => {
