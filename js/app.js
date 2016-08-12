@@ -114,12 +114,12 @@ class App extends Component {
   }
 
   didAuthenticate() {
-    this.props.dispatch(uploadContacts(this.props.profile["api-key"]));
+    var key = this.props.profile["api-key"];
+    this.props.dispatch(uploadContacts(key));
 
     Notification.addEventListener('notification', this.didReceiveNotification);
     Notification.addEventListener('remoteNotificationAction', (action) => {
 
-      //FIXME: PushNotification --> Didit
       var didit = new PushNotification(action.userInfo)
 
       switch (action.identifier) {
