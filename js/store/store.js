@@ -46,9 +46,7 @@ function appStore(state = initialState, action) {
         body: "You did it!",
         hideReplyButtons: true,
         sound: 'dong.wav',
-        data: {
-          image: 'smiley'
-        }
+        image: 'smiley'
       }
     });
   }
