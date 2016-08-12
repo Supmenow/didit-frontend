@@ -19,7 +19,7 @@ class SendDidIt extends Component {
     return (
       <View style={this.style.sendDongContainer}>
         <Button onPress={this.sendDidIt} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
-        You Did It!
+        I Did It!
         </Button>
       </View>
     );
