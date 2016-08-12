@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text} from 'react-native';
+import { View, Image} from 'react-native';
 import Button from './button';
 
 class SendDidIt extends Component {
@@ -15,16 +15,25 @@ class SendDidIt extends Component {
     this.props.onSendDidIt()
   }
 
+  //FIXME: Load Emojis from a file.
   render() {
     return (
       <View style={this.style.sendDongContainer}>
         <Button onPress={this.sendDidIt} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
         I Did It!
         </Button>
-        <Text>🏋🍦🍆
-🍾✈️🏅
-😉🍴 💯
-🚴🍺🚭</Text>
+        <Image source={{uri: 'weightlifter'}}/>
+        <Image source={{uri: 'icecream'}}/>
+        <Image source={{uri: 'obojene'}}/>
+        <Image source={{uri: 'champagne'}}/>
+        <Image source={{uri: 'airplane'}}/>
+        <Image source={{uri: 'medal'}}/>
+        <Image source={{uri: 'wink'}}/>
+        <Image source={{uri: 'knifeandfork'}}/>
+        <Image source={{uri: '100'}}/>
+        <Image source={{uri: 'cycling'}}/>
+        <Image source={{uri: 'beer'}}/>
+        <Image source={{uri: 'nosmoking'}}/>
       </View>
     );
   }
