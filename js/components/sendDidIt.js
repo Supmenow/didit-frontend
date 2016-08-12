@@ -42,7 +42,7 @@ class SendDidIt extends Component {
 
   renderEmoji(name) {
     return (
-      <Button>
+      <Button onPress={this.sendDidIt}>
       <Image style={this.style.sendDidItEmoji} source={{uri: name}}/>
       </Button>
     )
