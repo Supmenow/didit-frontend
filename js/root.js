@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 20,
+    marginTop: 40,
     justifyContent: 'center'
   },
   buttonBackground: {
