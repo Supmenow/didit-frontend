@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50
   },
+  sendDidItEmojiList: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
   buttonBackground: {
     backgroundColor: '#FFF',
     borderRadius: 5,
