@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.messaging.RemoteMessage;
@@ -30,11 +31,13 @@ public class MessagingService extends com.evollu.react.fcm.MessagingService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, launchAppIntent,
                 PendingIntent.FLAG_ONE_SHOT);
 
+        Uri soundUri = Uri.parse("android.resource://" + getPackageName() + "/" + remoteMessage.getData().get("sound"));
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Did It!")
                 .setContentText(remoteMessage.getData().get("message"))
                 .setAutoCancel(true)
+                .setSound(soundUri)
                 .setContentIntent(pendingIntent);
 
         NotificationManager notificationManager =

@@ -61,7 +61,6 @@ public class ExplosionView extends FrameLayout {
 
     public void setSprite(ReadableMap source) {
         String uri = source.getString("uri");
-        int actualID = R.drawable.smiley;
         int drawableId = getResources().getIdentifier(uri, "drawable", context.getPackageName());
         emitterCell.drawable = ResourcesCompat.getDrawable(getResources(), drawableId, null);
 
