@@ -23,17 +23,17 @@ class SendDidIt extends Component {
         I Did It!
         </Button>
         <Image style={this.style.sendDidItEmoji} source={{uri: 'weightlifter'}}/>
-        <Image source={{uri: 'icecream'}}/>
-        <Image source={{uri: 'obojene'}}/>
-        <Image source={{uri: 'champagne'}}/>
-        <Image source={{uri: 'airplane'}}/>
-        <Image source={{uri: 'medal'}}/>
-        <Image source={{uri: 'wink'}}/>
-        <Image source={{uri: 'knifeandfork'}}/>
-        <Image source={{uri: '100'}}/>
-        <Image source={{uri: 'cycling'}}/>
-        <Image source={{uri: 'beer'}}/>
-        <Image source={{uri: 'nosmoking'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'icecream'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'obojene'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'champagne'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'airplane'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'medal'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'wink'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'knifeandfork'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: '100'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'cycling'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'beer'}}/>
+        <Image style={this.style.sendDidItEmoji} source={{uri: 'nosmoking'}}/>
       </View>
     );
   }
