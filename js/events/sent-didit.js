@@ -4,8 +4,8 @@ function sentDidIt(didit) {
     didit: {
       body: "You did it!",
       hideReplyButtons: true,
-      sound: 'dong.wav',
-      image: 'smiley'
+      sound: didit.sound,
+      image: didit.emoji
     }
   }
 }

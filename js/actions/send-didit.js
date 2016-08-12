@@ -9,7 +9,10 @@ function sendDidIt(apiKey, emoji) {
     makeSendDidItRequest(apiKey)
     .then((response) => {
       dispatch(finishedLoading())
-      dispatch(sentDidIt());
+      dispatch(sentDidIt({
+        sound: 'dong.wav',
+        image: emoji
+      }));
     }, (error) => {
       dispatch(finishedLoading());
       dispatch(receivedError("Couldn't send Did It", "Please try again later"));
