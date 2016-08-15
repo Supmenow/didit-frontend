@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image} from 'react-native';
+import { View, Image, Text } from 'react-native';
 import Button from './button';
 
 class SendDidIt extends Component {
@@ -18,22 +18,26 @@ class SendDidIt extends Component {
   render() {
     return (
       <View style={this.style.sendDidItContainer}>
-        <Button onPress={() => this.sendDidIt('smiley', '')} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
-        I Did It!
-        </Button>
-        <View style={this.style.sendDidItEmojiList}>
-          {this.renderEmoji('weightlifter', '🏋')}
-          {this.renderEmoji('icecream', '🍦')}
-          {this.renderEmoji('obojene', '🍆')}
-          {this.renderEmoji('champagne', '🍾')}
-          {this.renderEmoji('airplane', '✈️')}
-          {this.renderEmoji('medal', '🏅')}
-          {this.renderEmoji('wink', '😉')}
-          {this.renderEmoji('forkandknife', '🍴')}
-          {this.renderEmoji('100', '💯')}
-          {this.renderEmoji('cycling', '🚴')}
-          {this.renderEmoji('beer', '🍺')}
-          {this.renderEmoji('nosmoking', '🚭')}
+        <View style={this.style.sendDidItEmojiListWrapper}>
+          <View style={this.style.sendDidItEmojiList}>
+            {this.renderEmoji('weightlifter', '🏋')}
+            {this.renderEmoji('icecream', '🍦')}
+            {this.renderEmoji('obojene', '🍆')}
+            {this.renderEmoji('champagne', '🍾')}
+            {this.renderEmoji('airplane', '✈️')}
+            {this.renderEmoji('medal', '🏅')}
+            {this.renderEmoji('wink', '😉')}
+            {this.renderEmoji('forkandknife', '🍴')}
+            {this.renderEmoji('100', '💯')}
+            {this.renderEmoji('cycling', '🚴')}
+            {this.renderEmoji('beer', '🍺')}
+            {this.renderEmoji('nosmoking', '🚭')}
+          </View>
+        </View>
+        <View style={this.style.sendDidItButtonContainer}>
+          <Button onPress={() => this.sendDidIt('smiley', '')} backgroundStyle={this.style.didItButtonBackground} textStyle={this.style.didItButtonText}>
+          <Text style={this.style.didItButtonText}>I Did It!</Text>
+          </Button>
         </View>
       </View>
     );
@@ -41,8 +45,8 @@ class SendDidIt extends Component {
 
   renderEmoji(name, unicode) {
     return (
-      <Button onPress={() => this.sendDidIt(name, unicode)}>
-      <Image style={this.style.sendDidItEmoji} source={{uri: name}}/>
+      <Button backgroundStyle={this.style.sendDidItEmojiButton} onPress={() => this.sendDidIt(name, unicode)}>
+      <Image resizeMode='contain' style={this.style.sendDidItEmoji} source={{uri: name}}/>
       </Button>
     )
   }

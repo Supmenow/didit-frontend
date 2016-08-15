@@ -38,20 +38,25 @@ const styles = StyleSheet.create({
     padding: 15
   },
   sendDidItContainer: {
+    flexDirection: 'column',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFF'
+  },
+  sendDidItEmojiButton: {
+    flex: 1,
+    height: 100,
+    width: 100,
+    marginTop: 20
   },
   sendDidItEmoji: {
-    width: 50,
-    height: 50
+    flex: 1,
   },
   sendDidItEmojiList: {
-    justifyContent: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 40,
+    flexWrap: 'wrap'
+  },
+  sendDidItEmojiListWrapper: {
+    flex: 4,
     justifyContent: 'center'
   },
   buttonBackground: {
@@ -70,11 +75,17 @@ const styles = StyleSheet.create({
     flex: 0.6,
     justifyContent: 'center',
   },
+  sendDidItButtonContainer: {
+    flex: 1
+  },
   didItButtonBackground: {
+    flexDirection: 'row',
     backgroundColor: '#F8154B',
     borderRadius: 5,
     paddingHorizontal: 40,
-    paddingVertical: 15
+    paddingVertical: 15,
+    marginHorizontal: 20,
+    justifyContent: 'center'
   },
   didItButtonText: {
     color: '#FFF',

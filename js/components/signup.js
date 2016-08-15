@@ -24,8 +24,8 @@ class Signup extends Component {
           selectionColor="#fff"
           style={this.style.nameInput}
         />
-        <Button onPress={this.signUp} backgroundStyle={this.style.buttonBackground} textStyle={this.style.buttonText}>
-        Sign Up
+        <Button onPress={this.signUp} backgroundStyle={this.style.buttonBackground}>
+          <Text style={this.props.textStyle}>Sign Up</Text>
         </Button>
       </View>
     );
