@@ -14,7 +14,7 @@ function parseAPIResponse(json) {
 
 function makeAPIRequest(path, data, key, method = 'POST') {
 
-    var url = 'http://139.59.184.179/api/v1' + path
+    var url = 'http://didit.wenow.co/' + path
 
     var headers = {
       'Accept': 'application/json',
