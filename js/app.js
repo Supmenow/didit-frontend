@@ -137,7 +137,7 @@ class App extends Component {
       }
     });
 
-    Notification.requestPermissions();
+    this.props.dispatch(registerForNotifications(this.props.profile["api-key"], Notification.protocol()))
   }
 
   didReceiveNotification(notification) {
