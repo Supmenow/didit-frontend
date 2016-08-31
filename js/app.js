@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Navigator } from 'react-native';
 
+import CodePush from 'react-native-code-push';
 import Notification from './notification';
 import PushNotification from './notification/push-notification';
 import TransitionNavigation from './transition-navigation';
@@ -40,6 +41,10 @@ class App extends Component {
    this.didReceiveNotification = this.didReceiveNotification.bind(this);
 
    this.style = props.style;
+  }
+
+  componentDidMount() {
+    CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
   }
 
   componentDidUpdate(prevProps, prevState) {
