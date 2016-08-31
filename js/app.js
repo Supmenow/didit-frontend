@@ -43,11 +43,10 @@ class App extends Component {
    this.style = props.style;
   }
 
-  componentDidMount() {
-    CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
-  }
-
   componentDidUpdate(prevProps, prevState) {
+
+    CodePush.sync({installMode: CodePush.InstallMode.ON_NEXT_RESUME});
+
     if (!prevProps.profile && this.props.profile) {
       this.didAuthenticate();
     }
