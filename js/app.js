@@ -15,7 +15,8 @@ import {
   signUpWithName,
   sendDidIt,
   uploadContacts,
-  sendReply
+  sendReply,
+  registerForNotifications
 } from './actions';
 
 import {
