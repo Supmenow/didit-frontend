@@ -20,7 +20,7 @@ import {
 import {
   receivedDidIt,
   dismissedDidIt,
-  dismissError
+  dismissedError
 } from './events';
 
 class App extends Component {
