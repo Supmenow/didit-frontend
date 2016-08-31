@@ -26,6 +26,7 @@ function loginWithDigits(session, proto) {
         if (error.status_code == 404) {
           dispatch(startedSignup(session));
         } else {
+          console.error(error)
           dispatch(receivedError("We couldn't log you in", "Please try again later"));
         }
     });

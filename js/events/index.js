@@ -1,3 +1,4 @@
+import dismissedError from './dismissed-error';
 import dismissedDidIt from './dismissed-didit';
 import startedLoading from './started-loading';
 import finishedLoading from './finished-loading';
@@ -9,6 +10,7 @@ import receivedError from './received-error';
 import startedSignup from './started-signup';
 
 module.exports = {
+  ...dismissedError,
   ...dismissedDidIt,
   ...startedLoading,
   ...finishedLoading,

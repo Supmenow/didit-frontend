@@ -19,7 +19,8 @@ import {
 
 import {
   receivedDidIt,
-  dismissedDidIt
+  dismissedDidIt,
+  dismissError
 } from './events';
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
    this.sendDidIt = this.sendDidIt.bind(this);
    this.sceneForProps = this.sceneForProps.bind(this);
    this.unwindScene = this.unwindScene.bind(this);
+   this.dismissError = this.dismissError.bind(this);
    this.dismissDidIt = this.dismissDidIt.bind(this);
    this.sendHighFive = this.sendHighFive.bind(this);
    this.sendEyeRoll = this.sendEyeRoll.bind(this);
@@ -48,7 +50,7 @@ class App extends Component {
 
   render() {
     return (
-      <NetworkOperation loading={this.props.isLoading} error={this.props.error}>
+      <NetworkOperation loading={this.props.isLoading} error={this.props.error} onDismissError={this.dismissError}>
         <TransitionNavigation {...this.props} sceneForProps={this.sceneForProps} configurationForTransition={this.configurationForTransition} unwindScene={this.unwindScene}/>
       </NetworkOperation>
     )
@@ -97,6 +99,10 @@ class App extends Component {
 
   dismissDidIt() {
     this.props.dispatch(dismissedDidIt());
+  }
+
+  dismissError() {
+    this.props.dispatch(dismissedError());
   }
 
   sendHighFive(didit) {

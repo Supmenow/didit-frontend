@@ -39,6 +39,12 @@ function appStore(state = initialState, action) {
     });
   }
 
+  if (action.type === 'DISMISSED_ERROR') {
+    return Object.assign({}, state, {
+      error: undefined
+    });
+  }
+
   if (action.type === 'RECEIVED_DID_IT' || action.type === 'SENT_DID_IT') {
     return Object.assign({}, state, {
       didit: action.didit

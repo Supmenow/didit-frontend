@@ -6,13 +6,14 @@ class NetworkOperation extends Component {
 
   componentWillUpdate(nextProps, nextState) {
 
-    // - Add ability to dismiss error
     if (nextProps.error) {
       Alert.alert(
         nextProps.error.title,
         nextProps.error.message,
         [
-          {text: 'OK'},
+          {text: 'OK', onPress: function(){
+            nextProps.onDismissError()
+          }},
         ]
       )
     }

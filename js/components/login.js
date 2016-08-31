@@ -18,7 +18,7 @@ class Login extends Component {
     } else {
       Alert.alert(
         "We couldn't log you in",
-        "Please try again later",
+        "Please try again later ",
         [
           {text: 'Ok'},
         ]
