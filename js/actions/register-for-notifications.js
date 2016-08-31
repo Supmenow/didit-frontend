@@ -6,11 +6,9 @@ function registerForNotifications(apiKey, proto) {
 
     Notification.addEventListener('register', (token) => {
         console.log("Push Token: " + token);
-        alert('token')
         dispatch(updateToken(apiKey, token, proto))
     });
 
-    alert('not')
     Notification.requestPermissions();
   }
 }
