@@ -41,7 +41,7 @@ function appStore(state = initialState, action) {
 
   if (action.type === 'DISMISSED_ERROR') {
     return Object.assign({}, state, {
-      error: undefined
+      error: false
     });
   }
 
