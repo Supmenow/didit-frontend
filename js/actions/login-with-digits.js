@@ -14,9 +14,6 @@ function loginWithDigits(session, proto) {
     .then((response) => {
 
       dispatch(finishedLoading())
-
-      alert('login')
-
       dispatch(profileUpdated(response.user))
       dispatch(registerForNotifications(response.user["api-key"], proto))
       dispatch(uploadContacts(response.user["api-key"]))
