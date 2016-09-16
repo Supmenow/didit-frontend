@@ -6,7 +6,7 @@ class NetworkOperation extends Component {
 
   componentWillUpdate(nextProps, nextState) {
 
-    if (nextProps.error) {
+    if (!this.props.error && nextProps.error) {
       Alert.alert(
         nextProps.error.title,
         nextProps.error.message,
