@@ -6,6 +6,7 @@
 target 'DidIt' do
   pod 'Digits'
   pod 'SimulatorRemoteNotifications', '~> 0.0.3'
+  pod 'le'
 end
 
 target 'DidItTests' do
