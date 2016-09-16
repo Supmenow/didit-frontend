@@ -2,17 +2,20 @@ PODS:
   - Digits (1.15.3):
     - TwitterCore (= 1.15.3)
   - Fabric (1.6.7)
+  - le (1.1)
   - SimulatorRemoteNotifications (0.0.3)
   - TwitterCore (1.15.3):
     - Fabric
 
 DEPENDENCIES:
   - Digits
+  - le
   - SimulatorRemoteNotifications (~> 0.0.3)
 
 SPEC CHECKSUMS:
   Digits: 9823f8aad766c0aa824fac9b08938e22bc635fac
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  le: c54f8a67be9c0b068fa779f00641520c6e72e6ec
   SimulatorRemoteNotifications: 1610643e0582b2af67bc254b071ace4077e8ef86
   TwitterCore: cce24b3c798993ccde72787ea79ea9a478b284e4
 

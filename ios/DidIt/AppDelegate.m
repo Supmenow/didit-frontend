@@ -19,12 +19,16 @@
 #import "RCTPushNotificationManager.h"
 #import "APNSManager.h"
 #import "DidIt-Swift.h"
+#import "lelib.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [Fabric with:@[[Digits class]]];
+  
+  LELog* logger = [LELog sharedInstance];
+  logger.token = @"37393658-a793-41e4-931b-d394bb764d85";
   
 #if (TARGET_OS_SIMULATOR)
   [application listenForRemoteNotifications];
@@ -68,6 +72,7 @@
 // Required for the register event.
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+  [[LELog sharedInstance] log:[NSString stringWithFormat:@"Token Updated %@", [deviceToken description]]];
   [RCTPushNotificationManager didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 

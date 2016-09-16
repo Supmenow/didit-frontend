@@ -962,6 +962,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DidIt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -995,6 +996,7 @@
 				PRODUCT_NAME = DidIt;
 				PROVISIONING_PROFILE = "8330dd27-71a3-4366-90fe-df51d09a1421";
 				SWIFT_OBJC_BRIDGING_HEADER = "DidIt-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
