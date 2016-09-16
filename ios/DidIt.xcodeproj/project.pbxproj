@@ -203,6 +203,7 @@
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
 		74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DidIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		74A841D71D54C00400674886 /* ExplosionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplosionView.swift; path = DidIt/ExplosionView.swift; sourceTree = "<group>"; };
+		74BB86431D8C190F00243F6F /* DidIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DidIt.entitlements; path = DidIt/DidIt.entitlements; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9803D7C188634994BA1CC271 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
@@ -326,6 +327,7 @@
 		13B07FAE1A68108700A75B9A /* DidIt */ = {
 			isa = PBXGroup;
 			children = (
+				74BB86431D8C190F00243F6F /* DidIt.entitlements */,
 				74472AB51D5BA61800C0D5DC /* APNSManager.h */,
 				7425B0011D5B98A00010E11A /* APNSManager.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -552,6 +554,12 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = F7GK735YXN;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -936,8 +944,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DidIt/DidIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = F7GK735YXN;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -960,6 +971,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.supmenow.didit;
 				PRODUCT_NAME = DidIt;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DidIt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
@@ -972,7 +984,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DidIt/DidIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F7GK735YXN;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -994,7 +1009,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.supmenow.didit;
 				PRODUCT_NAME = DidIt;
-				PROVISIONING_PROFILE = "8330dd27-71a3-4366-90fe-df51d09a1421";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DidIt-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 			};
