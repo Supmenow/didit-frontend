@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (3.5.0)
   - Digits (1.15.3):
     - TwitterCore (= 1.15.3)
   - Fabric (1.6.7)
@@ -8,11 +9,13 @@ PODS:
     - Fabric
 
 DEPENDENCIES:
+  - Alamofire
   - Digits
   - le
   - SimulatorRemoteNotifications (~> 0.0.3)
 
 SPEC CHECKSUMS:
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   Digits: 9823f8aad766c0aa824fac9b08938e22bc635fac
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   le: c54f8a67be9c0b068fa779f00641520c6e72e6ec

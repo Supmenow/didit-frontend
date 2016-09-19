@@ -23,6 +23,7 @@
 
 @interface AppDelegate()
 
+@property (nonatomic, strong) NSDictionary *lastPush;
 @property (nonatomic, strong) BackgroundTask *currentBackgroundTask;
 
 @end
@@ -62,6 +63,7 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(triggerNotification) name:@"appMounted" object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishCurrentBackgroundTask) name:@"endBackgroundTask" object:nil];
   
   return YES;
@@ -106,10 +108,12 @@
   
   [BackgroundTask run:application handler:^(BackgroundTask * _Nonnull task) {
     
-    [APNSManager actionPressed:@{
-      @"identifier": identifier,
-      @"userInfo": userInfo
-    }];
+    self.lastPush = @{
+                      @"identifier": identifier,
+                      @"userInfo": userInfo
+                      };
+    
+    [APNSManager actionPressed:self.lastPush];
     
     self.currentBackgroundTask = task;
   }];
@@ -120,7 +124,14 @@
 - (void)finishCurrentBackgroundTask {
   
   if (self.currentBackgroundTask) {
+    NSLog(@"Background task ended");
     [self.currentBackgroundTask end];
+  }
+}
+
+- (void)triggerNotification {
+  if (self.lastPush) {
+    [APNSManager actionPressed:self.lastPush];
   }
 }
 
@@ -130,3 +141,6 @@
 }
 
 @end
+
+
+
