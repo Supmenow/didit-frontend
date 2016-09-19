@@ -10,6 +10,10 @@ import NetworkOperation from './network-operation';
 import { applicationState } from './reducers/application-state';
 import { applicationSceneForName, configurationForSceneName } from './reducers/application-scene';
 
+var NotificationManager = require('react-native').NativeModules.NotificationManager;
+
+var ReplyManager = require('react-native').NativeModules.ReplyManager;
+
 import {
   loginWithDigits,
   signUpWithName,
@@ -42,6 +46,10 @@ class App extends Component {
    this.didReceiveNotification = this.didReceiveNotification.bind(this);
 
    this.style = props.style;
+  }
+
+  componentDidMount() {
+    NotificationManager.postNotification("appMounted")
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -134,10 +142,11 @@ class App extends Component {
 
       switch (action.identifier) {
         case 'HIGH_FIVE_IDENTIFIER':
-        this.sendHighFive(didit)
+        ReplyManager.sendHighFive(this.props.profile["api-key"], didit.userID)
         break
+
         case 'EYE_ROLL_IDENTIFIER':
-        this.sendEyeRoll(didit)
+        ReplyManager.sendEyeRoll(this.props.profile["api-key"], didit.userID)
         break
       }
     });

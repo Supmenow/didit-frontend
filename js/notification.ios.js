@@ -7,11 +7,15 @@ const APNSManager = NativeModules.APNSManager;
 const APNSManagerEmitter = new NativeEventEmitter(APNSManager);
 
 class Notification extends NotificationCore {
+
+  static registerForActions() {
+    APNSManagerEmitter.addListener('remoteNotificationAction', this.remoteNotificationAction);
+  }
+
   static requestPermissions() {
     PushNotificationIOS.addEventListener('register', this.tokenDidUpdate);
     PushNotificationIOS.addEventListener('notification', this.remoteNotification);
 
-    APNSManagerEmitter.addListener('remoteNotificationAction', this.remoteNotificationAction);
     APNSManager.registerForRemoteNotifications();
   }
 
