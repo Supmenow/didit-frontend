@@ -24,6 +24,11 @@ function sendReply(apiKey, didit, reply) {
 
       dispatch(finishedLoading());
       dispatch(receivedError("Couldn't send reply", "Please try again later"));
+
+      if (NotificationManager) {
+        NotificationManager.postNotification("endBackgroundTask")
+      }
+
     })
   }
 }

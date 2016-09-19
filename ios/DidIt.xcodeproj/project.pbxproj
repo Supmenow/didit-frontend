@@ -33,6 +33,7 @@
 		7442D0AB1D5A3870006E6BC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7442D0AA1D5A3870006E6BC5 /* LaunchScreen.storyboard */; };
 		74472AA51D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */; };
 		74A28045FD1B45DB9F31DDE3 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B64A6597A6534492B1A0186A /* libRNSound.a */; };
+		74A64B691D8FEF0A008DCD9B /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A64B581D8FEBA9008DCD9B /* NotificationManager.m */; };
 		74A841CA1D54BF0800674886 /* RCTExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A841C91D54BF0800674886 /* RCTExplosionManager.m */; };
 		74A841D81D54C00400674886 /* ExplosionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A841D71D54C00400674886 /* ExplosionView.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -200,7 +201,7 @@
 		7442D0AA1D5A3870006E6BC5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DidIt/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIApplication+registerForRemoteNotifications.swift"; path = "DidIt/UIApplication+registerForRemoteNotifications.swift"; sourceTree = "<group>"; };
 		74472AB51D5BA61800C0D5DC /* APNSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APNSManager.h; path = DidIt/APNSManager.h; sourceTree = "<group>"; };
-		74A64B581D8FEBA9008DCD9B /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NotificationManager.h; path = DidIt/NotificationManager.h; sourceTree = "<group>"; };
+		74A64B581D8FEBA9008DCD9B /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NotificationManager.m; path = DidIt/NotificationManager.m; sourceTree = "<group>"; };
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
 		74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DidIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		74A841D71D54C00400674886 /* ExplosionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplosionView.swift; path = DidIt/ExplosionView.swift; sourceTree = "<group>"; };
@@ -345,7 +346,7 @@
 				74A841C91D54BF0800674886 /* RCTExplosionManager.m */,
 				7425AFF71D5B65730010E11A /* Sounds */,
 				74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */,
-				74A64B581D8FEBA9008DCD9B /* NotificationManager.h */,
+				74A64B581D8FEBA9008DCD9B /* NotificationManager.m */,
 			);
 			name = DidIt;
 			sourceTree = "<group>";
@@ -878,6 +879,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				7425B0021D5B98A00010E11A /* APNSManager.m in Sources */,
+				74A64B691D8FEF0A008DCD9B /* NotificationManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				74A841D81D54C00400674886 /* ExplosionView.swift in Sources */,
 				7425AFAB1D5B18580010E11A /* BackgroundTask.swift in Sources */,
