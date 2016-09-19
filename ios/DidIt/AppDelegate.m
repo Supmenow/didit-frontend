@@ -21,6 +21,12 @@
 #import "DidIt-Swift.h"
 #import "lelib.h"
 
+@interface AppDelegate()
+
+@property (nonatomic, strong) BackgroundTask *currentBackgroundTask;
+
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -55,6 +61,8 @@
   
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishCurrentBackgroundTask) name:@"endBackgroundTask" object:nil];
   
   return YES;
 }
@@ -97,13 +105,23 @@
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)())completionHandler {
   
   [BackgroundTask run:application handler:^(BackgroundTask * _Nonnull task) {
+    
     [APNSManager actionPressed:@{
       @"identifier": identifier,
       @"userInfo": userInfo
     }];
+    
+    self.currentBackgroundTask = task;
   }];
   
   completionHandler();
+}
+
+- (void)finishCurrentBackgroundTask {
+  
+  if (self.currentBackgroundTask) {
+    [self.currentBackgroundTask end];
+  }
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error

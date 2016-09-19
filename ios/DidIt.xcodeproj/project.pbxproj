@@ -200,6 +200,7 @@
 		7442D0AA1D5A3870006E6BC5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DidIt/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIApplication+registerForRemoteNotifications.swift"; path = "DidIt/UIApplication+registerForRemoteNotifications.swift"; sourceTree = "<group>"; };
 		74472AB51D5BA61800C0D5DC /* APNSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = APNSManager.h; path = DidIt/APNSManager.h; sourceTree = "<group>"; };
+		74A64B581D8FEBA9008DCD9B /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NotificationManager.h; path = DidIt/NotificationManager.h; sourceTree = "<group>"; };
 		74A841C91D54BF0800674886 /* RCTExplosionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTExplosionManager.m; path = DidIt/RCTExplosionManager.m; sourceTree = "<group>"; };
 		74A841D61D54C00400674886 /* DidIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DidIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		74A841D71D54C00400674886 /* ExplosionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplosionView.swift; path = DidIt/ExplosionView.swift; sourceTree = "<group>"; };
@@ -344,6 +345,7 @@
 				74A841C91D54BF0800674886 /* RCTExplosionManager.m */,
 				7425AFF71D5B65730010E11A /* Sounds */,
 				74472AA41D5B9A0900C0D5DC /* UIApplication+registerForRemoteNotifications.swift */,
+				74A64B581D8FEBA9008DCD9B /* NotificationManager.h */,
 			);
 			name = DidIt;
 			sourceTree = "<group>";
